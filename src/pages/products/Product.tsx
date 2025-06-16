@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { useGlobe } from "@/contexts/GlobeContext";
 
 const items = [
   "ATOK",
@@ -32,11 +31,9 @@ const items = [
 
 const ProductsPage = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const { updateGlobe } = useGlobe();
 
   const handleHover = (item: string) => {
     setHoveredItem(item);
-    updateGlobe(4, [0, 0, 0]);
   };
 
   return (
