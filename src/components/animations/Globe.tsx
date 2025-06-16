@@ -15,7 +15,7 @@ export default function Globe() {
       }, 200); // Duration before reverting back
       return () => clearTimeout(timer);
     }
-  }, [rotationSpeed]);
+  }, [rotationSpeed, position, updateGlobe]);
 
   const { smoothSpeed } = useSpring({
     smoothSpeed: rotationSpeed,
