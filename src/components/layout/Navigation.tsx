@@ -1,6 +1,5 @@
 "use client";
 
-import React, { use, useEffect } from "react";
 import { useGlobe } from "@/contexts/GlobeContext";
 import { usePage } from "@/contexts/PageContext";
 

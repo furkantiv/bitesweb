@@ -1,10 +1,9 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
-import { a, SpringValue, useSpring } from "@react-spring/three";
+import { a, useSpring } from "@react-spring/three";
 import * as THREE from "three";
 import { useGlobe } from "@/contexts/GlobeContext";
 import { Line } from "@react-three/drei";
-import { motion, useMotionValue } from "framer-motion";
 
 export default function Globe() {
   const { position, rotationSpeed, updateGlobe } = useGlobe();

@@ -22,13 +22,13 @@ const items = [
 ];
 
 // Helper to generate image path
-const getImagePath = (item: string) => {
-  const safeName = item
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-") // replace spaces & special chars with -
-    .replace(/^-|-$/g, ""); // remove leading/trailing dashes
-  return `/images/products/${safeName}.png`;
-};
+// const getImagePath = (item: string) => {
+//   const safeName = item
+//     .toLowerCase()
+//     .replace(/[^a-z0-9]+/g, "-") // replace spaces & special chars with -
+//     .replace(/^-|-$/g, ""); // remove leading/trailing dashes
+//   return `/images/products/${safeName}.png`;
+// };
 
 const ProductsPage = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
