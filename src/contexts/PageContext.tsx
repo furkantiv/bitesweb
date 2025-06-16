@@ -6,7 +6,7 @@ type Page = "home" | "about" | "products" | "news" | "career" | "contact";
 
 interface PageContextType {
   currentPage: Page;
-  setCurrentPage: (page: Page) => void;
+  setCurrentPage: (page: string) => void;
 }
 
 const PageContext = createContext<PageContextType | undefined>(undefined);
@@ -23,7 +23,14 @@ export const PageProvider = ({ children }: { children: ReactNode }) => {
   const [currentPage, setCurrentPage] = useState<Page>("home");
 
   return (
-    <PageContext.Provider value={{ currentPage, setCurrentPage }}>
+    <PageContext.Provider
+      value={{
+        currentPage,
+        setCurrentPage(page) {
+          setCurrentPage(page as Page);
+        },
+      }}
+    >
       {children}
     </PageContext.Provider>
   );

@@ -25,7 +25,7 @@ const NavigationItem = ({
 
   const handleClick = () => {
     updateGlobe(speed, position);
-    setCurrentPage(pageKey as any);
+    setCurrentPage(pageKey);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

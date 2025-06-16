@@ -4,6 +4,8 @@ import { a, useSpring } from "@react-spring/three";
 import * as THREE from "three";
 import { useGlobe } from "@/contexts/GlobeContext";
 import { Line } from "@react-three/drei";
+import { Vector3 } from "three";
+import { SpringValue } from "@react-spring/three";
 
 export default function Globe() {
   const { position, rotationSpeed, updateGlobe } = useGlobe();
@@ -60,23 +62,23 @@ export default function Globe() {
   );
 }
 
-export function SpringLine({ scale, position }: any) {
-  // Animate position when it changes
+interface SpringLineProps {
+  scale: number;
+  position: SpringValue<number[]> | number[];
+}
+
+export function SpringLine({ scale, position }: SpringLineProps) {
   const { animatedPos } = useSpring({
     animatedPos: position,
     config: { mass: 1, tension: 120, friction: 14 },
   });
 
   return (
-    <a.group position={animatedPos as any}>
+    <a.group position={animatedPos as unknown as Vector3}>
       <Line
         points={Array.from({ length: 128 }, (_, i) => {
           const angle = (i / 64) * Math.PI * 2;
-          return [
-            Math.cos(angle),
-            Math.sin(angle),
-            scale, // z stays constant, you can animate this too if needed
-          ];
+          return [Math.cos(angle), Math.sin(angle), scale];
         })}
         color="white"
         lineWidth={0.2}
@@ -85,16 +87,15 @@ export function SpringLine({ scale, position }: any) {
   );
 }
 
-function SpringEarth({
-  scale,
-  position,
-  rotationSpeed,
-}: {
-  scale: any;
-  position: any;
-  rotationSpeed: any;
-}) {
+interface SpringEarthProps {
+  scale: SpringValue<number> | [number, number, number];
+  position: SpringValue<number[]> | [number, number, number];
+  rotationSpeed: SpringValue<number>;
+}
+
+function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
   const meshRef = useRef<THREE.Mesh>(null);
+
   const [colorMap, bumpMap, specMap] = useLoader(THREE.TextureLoader, [
     "/images/earth/earthmap.jpg",
     "/images/earth/earthbump.jpg",
@@ -106,7 +107,7 @@ function SpringEarth({
   });
 
   return (
-    <a.mesh ref={meshRef} scale={scale} position={position}>
+    <a.mesh ref={meshRef} scale={scale} position={position as any}>
       <sphereGeometry args={[2, 64, 64]} />
       <meshPhongMaterial
         map={colorMap}
