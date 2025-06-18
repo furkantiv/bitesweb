@@ -47,6 +47,7 @@ function getArcPoints(n: number) {
   });
 }
 const arcPoints = getArcPoints(CIRCLES.length);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 // SVG path helper
 function describeArc(
@@ -101,7 +102,7 @@ export default function HeroSection() {
               pointerEvents: "auto",
             }}
             label={CIRCLES[idx].label}
-            icon={CIRCLES[idx].icon}
+            icon={basePath + CIRCLES[idx].icon}
           />
         ))}
       </div>

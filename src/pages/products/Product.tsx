@@ -31,6 +31,7 @@ const items = [
 
 const ProductsPage = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const handleHover = (item: string) => {
     setHoveredItem(item);
@@ -86,7 +87,7 @@ const ProductsPage = () => {
               >
                 <Image
                   //   src={getImagePath(hoveredItem)}
-                  src={`/images/products/atok.png`}
+                  src={`${basePath}/images/products/atok.png`}
                   alt={hoveredItem}
                   width={400}
                   height={300}

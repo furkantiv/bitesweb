@@ -96,10 +96,12 @@ interface SpringEarthProps {
 function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
   const meshRef = useRef<THREE.Mesh>(null);
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   const [colorMap, bumpMap, specMap] = useLoader(THREE.TextureLoader, [
-    "/images/earth/earthmap.jpg",
-    "/images/earth/earthbump.jpg",
-    "/images/earth/earthspec.jpg",
+    `${basePath}/images/earth/earthmap.jpg`,
+    `${basePath}/images/earth/earthbump.jpg`,
+    `${basePath}/images/earth/earthspec.jpg`,
   ]);
 
   useFrame(() => {
