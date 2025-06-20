@@ -9,7 +9,7 @@ interface TrustHeroProps {
   interval?: number; // milliseconds
 }
 
-const TrustHero: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
+const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -19,8 +19,7 @@ const TrustHero: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
     return () => clearTimeout(timer);
   }, [index, words.length, interval]);
   return (
-    /*************  ✨ Windsurf Command 🌟  *************/
-    <div className=" fixed flex items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className=" flex items-center justify-center ">
       {/* Glow behind the word */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[80px] bg-[#326a743f] blur-3xl rounded-full z-20 pointer-events-none" />
       {/* Text Content */}
@@ -50,4 +49,4 @@ const TrustHero: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
   );
 };
 
-export default TrustHero;
+export default HeroText;

@@ -7,6 +7,7 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import Globe from "@/components/animations/Globe";
 import { GlobeProvider } from "@/contexts/GlobeContext";
 import ContentRenderer from "@/components/layout/ContentRenderer";
+import NewsGrid from "@/components/sections/NewsGrid";
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,20 +23,23 @@ const HomePage = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-black text-white overflow-hidden ">
-      <div className="relative z-10">
-        <Globe />
-        <AnimatedBackground />
-      </div>
-      <Header />
+    <div className="min-h-screen w-full bg-black text-white overflow-hidden relative">
       <GlobeProvider>
-        <div className="relative z-20 ">
+        {/* Background layers */}
+        <div className="relative z-10">
+          <AnimatedBackground />
+          <Globe />
+        </div>
+
+        {/* Header */}
+        <Header />
+
+        {/* Main content */}
+        <div className="relative z-20">
           <ContentRenderer />
         </div>
       </GlobeProvider>
-      {/* <NewsGrid /> */}
     </div>
   );
 };
-
 export default HomePage;

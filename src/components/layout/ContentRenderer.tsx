@@ -5,6 +5,7 @@ import { usePage } from "@/contexts/PageContext";
 import TrustHero from "../sections/TrustHero";
 import AboutPage from "@/pages/about/About";
 import ProductsPage from "@/pages/products/Product";
+import Home from "@/pages/home/Home";
 
 const ContentRenderer = () => {
   const { currentPage } = usePage();
@@ -13,10 +14,7 @@ const ContentRenderer = () => {
     case "home":
       return (
         <div>
-          <TrustHero
-            words={["Trust", "Innovation", "Quality", "Care"]}
-            interval={1800}
-          />
+          <Home />
         </div>
       );
     case "about":

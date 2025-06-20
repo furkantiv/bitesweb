@@ -9,8 +9,8 @@ const AnimatedBackground = () => {
   useEffect(() => {
     let frame: number;
     let startTime: number | null = null;
-    const delay = 2000; // ms cinsinden delay
-    const duration = 500; // animasyon süresi (ms)
+    const delay = 1500; // ms cinsinden delay
+    const duration = 250; // animasyon süresi (ms)
     const target = 85; // Yüzdelik olarak nereye kadar gitsin (örn: %70)
 
     const animateGradient = (timestamp: number) => {
@@ -94,10 +94,10 @@ const AnimatedBackground = () => {
       <canvas
         ref={canvasRef}
         className="fixed inset-0 z-0"
-        style={{
-          background: `radial-gradient(circle at 50% ${centerY}%, #001122 0%, #000000 100%)`,
-          transition: "background 0.1s linear",
-        }}
+        // style={{
+        //   background: `radial-gradient(circle at 50% ${centerY}%, #001122 0%, #000000 100%)`,
+        //   transition: "background 0.1s linear",
+        // }}
       />
     </>
   );

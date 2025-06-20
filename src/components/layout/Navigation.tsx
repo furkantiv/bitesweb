@@ -10,6 +10,7 @@ interface NavigationItemProps {
   isActive?: boolean;
   position?: [number, number, number];
   speed?: number;
+  scale?: number;
 }
 
 const NavigationItem = ({
@@ -19,12 +20,13 @@ const NavigationItem = ({
   isActive = false,
   position = [0, 0, 0],
   speed = 0.02,
+  scale = 0.5,
 }: NavigationItemProps) => {
   const { setCurrentPage } = usePage();
   const { updateGlobe } = useGlobe();
 
   const handleClick = () => {
-    updateGlobe(speed, position);
+    updateGlobe(speed, position, scale);
     setCurrentPage(pageKey);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -62,6 +64,7 @@ const Navigation = () => {
         isActive={currentPage === "home"}
         position={[0, -1.5, 0]}
         speed={0.2}
+        scale={0.7}
       />
       <NavigationItem
         number="01"
@@ -70,6 +73,7 @@ const Navigation = () => {
         isActive={currentPage === "about"}
         position={[0, -2, 0]}
         speed={0.2}
+        scale={0.5}
       />
       <NavigationItem
         number="02"
@@ -78,6 +82,7 @@ const Navigation = () => {
         isActive={currentPage === "products"}
         position={[1.3, 0, 0]}
         speed={0.2}
+        scale={0.7}
       />
       <NavigationItem
         number="03"
