@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GlobeProvider } from "../contexts/GlobeContext";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { PageProvider } from "@/contexts/PageContext";
+import AnimatedBackground from "@/components/animations/AnimatedBackground";
+import Globe from "@/components/animations/Globe";
+import Header from "@/components/layout/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +16,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,12 +31,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <GlobeProvider>
-          <PageProvider>{children}</PageProvider>
-        </GlobeProvider>
+      <body className={inter.className}>
+        <div className="min-h-screen w-full bg-black text-white overflow-hidden relative">
+          <GlobeProvider>
+            {/* Persistent background */}
+            <div className="relative z-10">
+              <AnimatedBackground />
+              <Globe />
+            </div>
+            <Header />
+
+            <div className="relative mt-20 z-20">{children}</div>
+          </GlobeProvider>
+        </div>
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import { useRef, useEffect, useState } from "react";
+"use client";
+
+import { Canvas, useLoader, useFrame, useThree } from "@react-three/fiber";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { a, useSpring } from "@react-spring/three";
 import * as THREE from "three";
 import { useGlobe } from "@/contexts/GlobeContext";
@@ -9,13 +11,14 @@ export default function Globe() {
   const { position, rotationSpeed, scale, updateGlobe } = useGlobe();
 
   useEffect(() => {
+    // Sadece 0.001’den farklıysa, timer başlat
     if (rotationSpeed !== 0.001) {
       const timer = setTimeout(() => {
         updateGlobe(0.001, position, scale);
       }, 200);
-      console.log(scale);
       return () => clearTimeout(timer);
     }
+    // Eğer rotationSpeed zaten 0.001 ise, hiçbir şey yapma
   }, [rotationSpeed, position, scale, updateGlobe]);
 
   const { smoothSpeed } = useSpring({
@@ -48,10 +51,9 @@ export default function Globe() {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={0.1} />
-        <directionalLight position={[5, 5, 5]} />
+        <ambientLight intensity={20} />
+        <directionalLight position={[-7, 7, 10]} intensity={0.1} />
 
-        {/* Atmospheric Glow - positioned behind the globe */}
         <AtmosphericGlow position={animatedPosition} scale={animatedScale} />
 
         <SpringEarth
@@ -64,71 +66,84 @@ export default function Globe() {
   );
 }
 
-// Simple Atmospheric Glow Component
 interface AtmosphericGlowProps {
   position: SpringValue<number[]> | [number, number, number];
   scale: SpringValue<number> | number;
+  color?: THREE.ColorRepresentation;
+  glowStrength?: number; // Optional prop for controlling glow intensity
+  radius?: number;
 }
 
-function AtmosphericGlow({ position, scale }: AtmosphericGlowProps) {
-  const glowRef = useRef<THREE.Mesh>(null);
+const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
+  position,
+  scale,
+  color = "rgb(84, 124, 151)",
+  glowStrength = 1,
+  radius = 2.2,
+}) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const { camera } = useThree();
 
-  // Create simple atmospheric glow material
-  const atmosphereMaterial = new THREE.ShaderMaterial({
-    uniforms: {
-      c: { value: 0.9 },
-      p: { value: 1.0 },
-      glowColor: { value: new THREE.Color(0x00aaff) },
-      viewVector: { value: new THREE.Vector3() },
-    },
-    vertexShader: `
-      uniform vec3 viewVector;
-      uniform float c;
-      uniform float p;
-      varying float intensity;
-      
-      void main() {
-        vec3 vNormal = normalize(normalMatrix * normal);
-        vec3 vNormel = normalize(normalMatrix * viewVector);
-        intensity = pow(c - dot(vNormal, vNormel), p);
-        
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 0.75);
-      }
-    `,
-    fragmentShader: `
-      uniform vec3 glowColor;
-      varying float intensity;
-      
-      void main() {
-        vec3 glow = glowColor * intensity;
-        gl_FragColor = vec4(glow, intensity * 0.01);
-      }
-    `,
-    side: THREE.BackSide,
-    blending: THREE.AdditiveBlending,
-    transparent: true,
-  });
+  // Memoize the shader material
+  const material = useMemo(
+    () =>
+      new THREE.ShaderMaterial({
+        uniforms: {
+          c: { value: 1 },
+          p: { value: 3.5 },
+          glowColor: { value: new THREE.Color(color) },
+          viewVector: { value: new THREE.Vector3() },
+          glowStrength: { value: glowStrength }, // add this!
+        },
+        vertexShader: `
+        uniform vec3 viewVector;
+        uniform float c;
+        uniform float p;
+        varying float intensity;
+        void main() {
+          vec3 vNormal = normalize(normalMatrix * normal);
+          vec3 vNormel = normalize(normalMatrix * viewVector);
+          intensity = pow(c - dot(vNormal, vNormel), p);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+        fragmentShader: `
+        uniform vec3 glowColor;
+        uniform float glowStrength;
+        varying float intensity;
+        void main() {
+          float alpha = smoothstep(0.0, 1.0, intensity) * glowStrength;
+          vec3 glow = glowColor * alpha;
+          gl_FragColor = vec4(glow, alpha);
+        }
+      `,
+        side: THREE.BackSide,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+      }),
+    [color, glowStrength]
+  );
 
-  useFrame(({ camera }) => {
-    if (glowRef.current) {
-      (glowRef.current.material as any).uniforms.viewVector.value =
-        camera.position;
+  useFrame(() => {
+    if (meshRef.current) {
+      material.uniforms.viewVector.value = new THREE.Vector3().subVectors(
+        camera.position,
+        meshRef.current.position
+      );
     }
   });
 
-  // Handle both SpringValue and number types for scale
-  const animatedGlowScale =
-    typeof scale === "number" ? scale * 1.15 : scale.to((s) => s * 1.15);
-
   return (
-    <a.group position={position as any}>
-      <a.mesh ref={glowRef} scale={animatedGlowScale}>
-        <sphereGeometry args={[2, 32, 32]} />
-        <primitive object={atmosphereMaterial} />
-      </a.mesh>
-    </a.group>
+    <a.mesh
+      ref={meshRef}
+      position={position as [number, number, number]}
+      scale={scale}
+    >
+      <sphereGeometry args={[radius, 64, 64]} />
+      <primitive object={material} attach="material" />
+    </a.mesh>
   );
-}
+};
 
 interface SpringEarthProps {
   scale: SpringValue<number> | [number, number, number];
@@ -141,11 +156,14 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
 
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  const [colorMap, bumpMap, specMap] = useLoader(THREE.TextureLoader, [
-    `${basePath}/images/earth/earthmap.jpg`,
-    `${basePath}/images/earth/earthbump.jpg`,
-    `${basePath}/images/earth/earthspec.jpg`,
-  ]);
+  const [colorMap, emissiveMap, displacementMap, metalnessMap, roughnessMap] =
+    useLoader(THREE.TextureLoader, [
+      `${basePath}/models/earth/BasecolorNight3_4k.png`,
+      `${basePath}/models/earth/Emissive_Orange4k.png`,
+      `${basePath}/models/earth/Height_Map.jpeg`,
+      `${basePath}/models/earth/Metalness_4k.png`,
+      `${basePath}/models/earth/Reflectance.png`,
+    ]);
 
   useFrame(() => {
     if (meshRef.current) meshRef.current.rotation.y += rotationSpeed.get();
@@ -153,13 +171,17 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
 
   return (
     <a.mesh ref={meshRef} scale={scale} position={position as any}>
-      <sphereGeometry args={[2, 64, 64]} />
-      <meshPhongMaterial
+      <sphereGeometry args={[2, 128, 128]} />
+      <meshStandardMaterial
         map={colorMap}
-        bumpMap={bumpMap}
-        bumpScale={0.05}
-        specularMap={specMap}
-        specular={new THREE.Color("black")}
+        emissiveMap={emissiveMap}
+        emissive={new THREE.Color("orange")}
+        displacementMap={displacementMap}
+        displacementScale={0.025}
+        metalnessMap={metalnessMap}
+        metalness={0.5}
+        roughnessMap={roughnessMap}
+        roughness={0.8}
       />
     </a.mesh>
   );

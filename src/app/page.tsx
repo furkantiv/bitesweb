@@ -1,45 +1,40 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-import Header from "@/components/layout/Header";
-import AnimatedBackground from "@/components/animations/AnimatedBackground";
-import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import Globe from "@/components/animations/Globe";
-import { GlobeProvider } from "@/contexts/GlobeContext";
-import ContentRenderer from "@/components/layout/ContentRenderer";
 import NewsGrid from "@/components/sections/NewsGrid";
+import HeroText from "@/components/sections/TrustHero";
+import { AnimatedButton } from "@/components/ui/AnimatedButton";
+import InfoCardsGrid from "@/components/ui/InfoCard";
+
+export const metadata = {
+  title: "Bites",
+  description: "Learn more about us...",
+};
 
 const HomePage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Loading animation
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
   return (
-    <div className="min-h-screen w-full bg-black text-white overflow-hidden relative">
-      <GlobeProvider>
-        {/* Background layers */}
-        <div className="relative z-10">
-          <AnimatedBackground />
-          <Globe />
+    <div className="w-screen h-screen overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4 py-20">
+      <div className="flex flex-col items-center space-y-10 max-h-full md:-mt-60 md:overflow-hidden">
+        <HeroText
+          words={["Trust", "Innovation", "Quality", "Care"]}
+          interval={3000}
+        />
+
+        {/* Responsive Button Group */}
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+          <AnimatedButton text="Mesala Buraya Uzun bir Yazi" color="#004DFF" />
+          <AnimatedButton text="About Us" color="#f59e42" variant="outline" />
         </div>
 
-        {/* Header */}
-        <Header />
-
-        {/* Main content */}
-        <div className="relative z-20">
-          <ContentRenderer />
+        {/* Info Grid */}
+        <div className="w-full max-w-6xl md:max-h-[30vh] md:overflow-auto">
+          <InfoCardsGrid />
         </div>
-      </GlobeProvider>
+      </div>
+
+      {/* Sticky NewsGrid (Only visible on larger screens) */}
+      <div className="fixed bottom-0 right-4 z-30 hidden md:block">
+        <NewsGrid />
+      </div>
     </div>
   );
 };
+
 export default HomePage;

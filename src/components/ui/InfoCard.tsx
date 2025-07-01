@@ -1,28 +1,18 @@
-"use client";
+import Image from "next/image";
 
-import React from "react";
-import {
-  Cpu,
-  UserCheck,
-  Monitor,
-  BarChart2,
-  Airplay,
-  Cloud,
-  Smartphone,
-  AirVent,
-} from "lucide-react";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 type InfoCardProps = {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   description?: string;
 };
 
 const InfoCard = ({ icon, title, description }: InfoCardProps) => {
   return (
-    <div className="flex items-center gap-4 rounded-lg border backdrop-blur-xs border-gray-600 p-4 hover:border-blue-600 cursor-pointer transition-colors max-w-[300px]">
-      <div className="p-3 rounded-md border border-gray-600 group-hover:border-blue-600">
-        {icon}
+    <div className="flex items-center gap-4 rounded-lg border backdrop-blur-xs border-gray-600 p-4 hover:border-blue-600 transition-colors w-full">
+      <div className="w-10 h-10 flex items-center justify-center">
+        <Image src={icon} width={32} height={32} alt={title} />
       </div>
       <div>
         <h3 className="font-semibold text-white text-sm">{title}</h3>
@@ -34,37 +24,37 @@ const InfoCard = ({ icon, title, description }: InfoCardProps) => {
 
 export default function InfoCardsGrid() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto p-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto px-4 py-6">
       <InfoCard
-        icon={<Cpu className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/AIntelligence.png`}
         title="Artificial Intelligence"
       />
       <InfoCard
-        icon={<UserCheck className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/SafetyMission.png`}
         title="Safety & Mission Critical Software"
       />
       <InfoCard
-        icon={<Monitor className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/DigitalTwin.png`}
         title="Digital Twin"
       />
       <InfoCard
-        icon={<BarChart2 className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/DataAnalytics.png`}
         title="Data Analytics"
       />
       <InfoCard
-        icon={<Airplay className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/SimulationTraining.png`}
         title="Simulations & Training System"
       />
       <InfoCard
-        icon={<Cloud className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/CloudComputing.png`}
         title="Cloud Computing"
       />
       <InfoCard
-        icon={<Smartphone className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/MobileApp.png`}
         title="Mobile Applications"
       />
       <InfoCard
-        icon={<AirVent className="w-6 h-6 text-white" />}
+        icon={`${basePath}/images/icons/home/ExtendedReality.png`}
         title="Extended Reality"
       />
     </div>

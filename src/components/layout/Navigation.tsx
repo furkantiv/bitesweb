@@ -1,113 +1,138 @@
 "use client";
 
 import { useGlobe } from "@/contexts/GlobeContext";
-import { usePage } from "@/contexts/PageContext";
+import { motion } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
+import { useState } from "react";
 
 interface NavigationItemProps {
   number: string;
   title: string;
-  pageKey: string;
+  href: string;
   isActive?: boolean;
   position?: [number, number, number];
   speed?: number;
   scale?: number;
+  onNavigate?: () => void;
 }
 
 const NavigationItem = ({
-  number,
   title,
-  pageKey = "home",
+  href,
   isActive = false,
   position = [0, 0, 0],
   speed = 0.02,
   scale = 0.5,
+  onNavigate,
 }: NavigationItemProps) => {
-  const { setCurrentPage } = usePage();
+  const router = useRouter();
   const { updateGlobe } = useGlobe();
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
     updateGlobe(speed, position, scale);
-    setCurrentPage(pageKey);
+    router.push(href);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    if (onNavigate) onNavigate(); // Close mobile menu if triggered
+  };
+
+  const getLineColor = () => {
+    if (isActive) return "#FFFFFF";
+    if (isHovered) return "#2C6BFF";
+    return "#35434D";
   };
 
   return (
     <div
       onClick={handleClick}
-      className={`flex items-center mb-2 space-x-3 cursor-pointer group transition-all duration-300 ${
-        isActive ? "text-blue-400" : "text-gray-300 hover:text-white"
-      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="flex-1 flex flex-col items-start cursor-pointer px-2 py-2"
     >
-      <div
-        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-mono transition-all duration-300 ${
-          isActive
-            ? "border-blue-400 bg-blue-400/20 text-blue-400"
-            : "border-gray-600 group-hover:border-blue-400 group-hover:bg-blue-400/10"
-        }`}
+      <motion.div
+        className="mb-2 h-[2px] w-full rounded-full"
+        animate={{ backgroundColor: getLineColor() }}
+        transition={{ duration: 0.3 }}
+      />
+      <span
+        className="font-medium text-[16px]"
+        style={{ fontFamily: "Inter", color: "#d1d5db" }}
       >
-        {number}
-      </div>
-      <span className="font-light tracking-wide">{title}</span>
+        {title}
+      </span>
     </div>
   );
 };
 
-const Navigation = () => {
-  const { currentPage } = usePage();
+const navItems = [
+  {
+    number: "00",
+    title: "HomePage",
+    href: "/",
+    position: [0, -1.5, 0],
+    speed: 0.2,
+    scale: 0.7,
+  },
+  {
+    number: "01",
+    title: "About Us",
+    href: "/about",
+    position: [0, -2, 0],
+    speed: 0.2,
+    scale: 0.5,
+  },
+  {
+    number: "02",
+    title: "Products",
+    href: "/products",
+    position: [1.1, 0, 0],
+    speed: 0.2,
+    scale: 0.7,
+  },
+  {
+    number: "03",
+    title: "News",
+    href: "/news",
+    position: [-2, 0, 0],
+    speed: 0.2,
+    scale: 0.5,
+  },
+  {
+    number: "04",
+    title: "Career",
+    href: "/career",
+    position: [-1, 0, 3],
+    speed: 0.2,
+    scale: 0.5,
+  },
+  {
+    number: "05",
+    title: "Contact",
+    href: "/contact",
+    position: [1.6, 0.2, 0],
+    speed: 0.2,
+    scale: 0.5,
+  },
+];
+
+interface NavigationProps {
+  onNavigate?: () => void;
+}
+
+const Navigation = ({ onNavigate }: NavigationProps) => {
+  const pathname = usePathname();
 
   return (
-    <nav className="relative z-40 flex justify-center space-x-12 mt-8">
-      <NavigationItem
-        number="00"
-        title="HomePage"
-        pageKey="home"
-        isActive={currentPage === "home"}
-        position={[0, -1.5, 0]}
-        speed={0.2}
-        scale={0.7}
-      />
-      <NavigationItem
-        number="01"
-        title="About Us"
-        pageKey="about"
-        isActive={currentPage === "about"}
-        position={[0, -2, 0]}
-        speed={0.2}
-        scale={0.5}
-      />
-      <NavigationItem
-        number="02"
-        title="Products"
-        pageKey="products"
-        isActive={currentPage === "products"}
-        position={[1.3, 0, 0]}
-        speed={0.2}
-        scale={0.7}
-      />
-      <NavigationItem
-        number="03"
-        title="News"
-        pageKey="news"
-        isActive={currentPage === "news"}
-        position={[-2, 0, 0]}
-        speed={0.2}
-      />
-      <NavigationItem
-        number="04"
-        title="Career"
-        pageKey="career"
-        isActive={currentPage === "career"}
-        position={[0, 2, 0]}
-        speed={0.2}
-      />
-      <NavigationItem
-        number="05"
-        title="Contact"
-        pageKey="contact"
-        isActive={currentPage === "contact"}
-        position={[1, -0.5, 0]}
-        speed={0.2}
-      />
+    <nav className="flex flex-col md:flex-row w-full gap-2 md:gap-0">
+      {navItems.map((item) => (
+        <NavigationItem
+          key={item.href}
+          {...item}
+          isActive={pathname === item.href}
+          position={item.position as [number, number, number]}
+          onNavigate={onNavigate}
+        />
+      ))}
     </nav>
   );
 };
