@@ -11,14 +11,14 @@ export default function Globe() {
   const { position, rotationSpeed, scale, updateGlobe } = useGlobe();
 
   useEffect(() => {
-    // Sadece 0.001’den farklıysa, timer başlat
-    if (rotationSpeed !== 0.001) {
+    // Sadece 0.0004’den farklıysa, timer başlat
+    if (rotationSpeed !== 0.0004) {
       const timer = setTimeout(() => {
-        updateGlobe(0.001, position, scale);
+        updateGlobe(0.0004, position, scale);
       }, 200);
       return () => clearTimeout(timer);
     }
-    // Eğer rotationSpeed zaten 0.001 ise, hiçbir şey yapma
+    // Eğer rotationSpeed zaten 0.0004 ise, hiçbir şey yapma
   }, [rotationSpeed, position, scale, updateGlobe]);
 
   const { smoothSpeed } = useSpring({
@@ -45,13 +45,13 @@ export default function Globe() {
     animatedScale: phase === "big" ? 8 : phase === "down" ? 0.7 : scale,
     animatedPosition:
       phase === "big" ? [0, 0, 0] : phase === "down" ? [0, -1.5, 0] : position,
-    config: { mass: 1, tension: 260, friction: 40 },
+    config: { mass: 1, tension: 180, friction: 40 },
   });
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={20} />
+        <ambientLight intensity={7.5} />
         <directionalLight position={[-7, 7, 10]} intensity={0.1} />
 
         <AtmosphericGlow position={animatedPosition} scale={animatedScale} />
@@ -77,9 +77,9 @@ interface AtmosphericGlowProps {
 const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
   position,
   scale,
-  color = "rgb(84, 124, 151)",
-  glowStrength = 1,
-  radius = 2.2,
+  color = "rgb(0, 160, 235)",
+  glowStrength = 0.3,
+  radius = 2.15,
 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const { camera } = useThree();
@@ -89,8 +89,8 @@ const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
     () =>
       new THREE.ShaderMaterial({
         uniforms: {
-          c: { value: 1 },
-          p: { value: 3.5 },
+          c: { value: 0.9 },
+          p: { value: 2.5 },
           glowColor: { value: new THREE.Color(color) },
           viewVector: { value: new THREE.Vector3() },
           glowStrength: { value: glowStrength }, // add this!

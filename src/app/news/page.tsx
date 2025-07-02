@@ -83,9 +83,9 @@ const NewsPage = () => {
   const lastNews = filteredNews[0] ?? newsList[0];
 
   return (
-    <div className="w-full min-h-screen px-4 py-8 bg-transparent flex gap-8 mt-30 justify-center">
+    <div className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20 w-full min-h-screen py-8 bg-transparent flex gap-8 justify-center">
       {/* Left: News List */}
-      <div className="flex-1 max-w-3xl">
+      <div className="flex-1 max-w-7xl">
         <motion.div
           layout
           initial={{ opacity: 0, y: 20 }}

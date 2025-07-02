@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +28,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 w-full z-50 pt-4 px-6 transition-all duration-300
+      className={`fixed left-0 w-full z-50 pt-6 px-6 transition-all duration-300
     ${
       mobileMenuOpen
         ? "bg-[#00192F]"
@@ -40,12 +43,16 @@ const Header = () => {
       }}
     >
       <div className="flex justify-between items-center w-full">
-        <div className="text-2xl font-bold tracking-wider text-white">
-          BITES
-        </div>
-        <div className="text-sm font-light tracking-wider text-white hidden md:block">
+        <Image
+          src={`${basePath}/logo.svg`}
+          alt="Bites Logo"
+          width={100}
+          height={40}
+        />
+        <div className="text-center justify-start text-white text-base font-medium hidden md:block">
           EN
         </div>
+
         <button
           className="md:hidden text-white"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
@@ -54,9 +61,7 @@ const Header = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
-      {/* Desktop Navigation */}
-      <div className="hidden md:block mt-4">
+      <div className="hidden md:block mt-5 w-full">
         <Navigation />
       </div>
 
@@ -82,7 +87,6 @@ const Header = () => {
                 <X size={28} />
               </button>
             </div>
-
             <Navigation onNavigate={() => setMobileMenuOpen(false)} />
           </motion.div>
         )}

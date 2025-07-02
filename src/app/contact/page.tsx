@@ -31,8 +31,8 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-transparent">
-      <section className="w-full max-w-5xl flex flex-col items-center">
+    <main className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20">
+      <section className="w-full flex flex-col items-center">
         <motion.div
           className="w-full flex flex-col md:flex-row gap-0"
           variants={staggerContainer}
@@ -42,7 +42,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <motion.div
             variants={fadeUp}
-            className="w-full md:w-1/2 rounded-3xl p-6 md:p-12 flex flex-col gap-6 shadow-lg "
+            className="w-full md:w-1/2 rounded-3xl flex flex-col gap-6 shadow-lg "
             whileHover={{
               scale: 1.012,
               boxShadow: "0 8px 32px 0 rgba(0,0,0,0.16)",
@@ -151,7 +151,7 @@ export default function ContactPage() {
 
         {/* Address Section */}
         <motion.div
-          className="w-full rounded-3xl p-6 md:p-12 flex flex-col md:flex-row gap-8 shadow-lg items-start mt-10"
+          className="w-full rounded-3xl p-6 md:px-0 md:py-10 flex flex-col md:flex-row gap-8 shadow-lg items-start"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
@@ -240,16 +240,22 @@ export default function ContactPage() {
             className="w-full md:w-96 h-64 md:h-96 rounded-lg overflow-hidden bg-white/10 mt-8 md:mt-0"
             variants={fadeLeft}
           >
-            <iframe
-              title="BITES Defence Address"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.4823357194246!2d32.74822746567797!3d39.90822094433141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3463a83f73e2f%3A0xe52b3eb25d0f1bee!2sBITES%20Defence%20%26%20Aerospace!5e0!3m2!1str!2str!4v1650268048619!5m2!1str!2str"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden">
+              <iframe
+                title="BITES Defence Address"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6120.989237814215!2d32.750414!3d39.90794600000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3463a83f73e2f%3A0xe52b3eb25d0f1bee!2sBITES%20Defence%20%26%20Aerospace!5e0!3m2!1str!2str!4v1751469859608!5m2!1str!2str"
+                width="100%"
+                height="100%"
+                style={{
+                  border: 0,
+                  filter:
+                    "invert(75%) hue-rotate(180deg) brightness(1.2) contrast(1.5) grayscale(0.2)",
+                }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </motion.div>
         </motion.div>
       </section>

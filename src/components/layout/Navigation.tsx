@@ -47,10 +47,10 @@ const NavigationItem = ({
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="flex-1 flex flex-col items-start cursor-pointer px-2 py-2"
+      className="flex-1 flex flex-col items-start cursor-pointer py-2"
     >
       <motion.div
-        className="mb-2 h-[2px] w-full rounded-full"
+        className="mb-2 h-[1px] w-full rounded-full"
         animate={{ backgroundColor: getLineColor() }}
         transition={{ duration: 0.3 }}
       />
@@ -69,40 +69,40 @@ const navItems = [
     number: "00",
     title: "HomePage",
     href: "/",
-    position: [0, -1.5, 0],
-    speed: 0.2,
-    scale: 0.7,
+    position: [0, -2, 0],
+    speed: 0.05,
+    scale: 0.8,
   },
   {
     number: "01",
     title: "About Us",
     href: "/about",
-    position: [0, -2, 0],
-    speed: 0.2,
-    scale: 0.5,
+    position: [0, -2.8, 0],
+    speed: 0.05,
+    scale: 0.7,
   },
   {
     number: "02",
     title: "Products",
     href: "/products",
-    position: [1.1, 0, 0],
-    speed: 0.2,
+    position: [0, -2.8, 0],
+    speed: 0.05,
     scale: 0.7,
   },
   {
     number: "03",
     title: "News",
     href: "/news",
-    position: [-2, 0, 0],
-    speed: 0.2,
-    scale: 0.5,
+    position: [2.2, -1.7, 0],
+    speed: 0.05,
+    scale: 0.8,
   },
   {
     number: "04",
     title: "Career",
     href: "/career",
-    position: [-1, 0, 3],
-    speed: 0.2,
+    position: [0, -2.8, 0],
+    speed: 0.05,
     scale: 0.5,
   },
   {
@@ -110,7 +110,7 @@ const navItems = [
     title: "Contact",
     href: "/contact",
     position: [1.6, 0.2, 0],
-    speed: 0.2,
+    speed: 0.05,
     scale: 0.5,
   },
 ];
@@ -123,7 +123,7 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col md:flex-row w-full gap-2 md:gap-0">
+    <nav className="flex flex-col md:flex-row w-full gap-2 md:gap-4">
       {navItems.map((item) => (
         <NavigationItem
           key={item.href}

@@ -10,17 +10,22 @@ export const metadata = {
 
 const HomePage = () => {
   return (
-    <div className="w-screen h-screen overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4 py-20">
-      <div className="flex flex-col items-center space-y-10 max-h-full md:-mt-60 md:overflow-hidden">
+    <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4">
+      <div className="flex flex-col items-center space-y-10 md:mt-30 max-h-full md:overflow-hidden">
         <HeroText
           words={["Trust", "Innovation", "Quality", "Care"]}
           interval={3000}
         />
 
         {/* Responsive Button Group */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-          <AnimatedButton text="Mesala Buraya Uzun bir Yazi" color="#004DFF" />
-          <AnimatedButton text="About Us" color="#f59e42" variant="outline" />
+        <div className="flex flex-col md:flex-row gap-4 md:gap-16">
+          <AnimatedButton
+            text="About Us"
+            color="#A2ACB4"
+            variant="outline"
+            href="/about"
+          />
+          <AnimatedButton text="Get in touch" color="#004DFF" />
         </div>
 
         {/* Info Grid */}

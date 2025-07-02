@@ -30,7 +30,7 @@ const fadeIn = {
 export default function CareersPage() {
   return (
     <motion.div
-      className="min-h-screen w-full max-w-5xl mx-auto p-4 md:p-8 flex flex-col gap-8 bg-transparent"
+      className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20"
       initial="hidden"
       animate="show"
       variants={fadeIn}

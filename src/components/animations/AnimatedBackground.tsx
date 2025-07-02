@@ -91,14 +91,7 @@ const AnimatedBackground = () => {
 
   return (
     <>
-      <canvas
-        ref={canvasRef}
-        className="fixed inset-0 z-0"
-        // style={{
-        //   background: `radial-gradient(circle at 50% ${centerY}%, #001122 0%, #000000 100%)`,
-        //   transition: "background 0.1s linear",
-        // }}
-      />
+      <canvas ref={canvasRef} className="fixed bg-[#02040d] inset-0 z-0" />
     </>
   );
 };

@@ -19,13 +19,13 @@ const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
     return () => clearTimeout(timer);
   }, [index, words.length, interval]);
   return (
-    <div className=" flex items-center justify-center ">
+    <div className=" flex items-center justify-center pt-8 ">
       {/* Glow behind the word */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[80px] bg-[#326a743f] blur-3xl rounded-full z-20 pointer-events-none" />
       {/* Text Content */}
       <div className="z-30 flex flex-col items-center justify-center">
         <motion.span
-          className="text-white text-3xl md:text-4xl font-bold drop-shadow-[0_1px_24px_rgba(250,250,250,0.50)] "
+          className="text-white text-3xl md:text-3xl font-medium drop-shadow-[0_1px_24px_rgba(250,250,250,0.50)] "
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
@@ -35,7 +35,7 @@ const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
         <AnimatePresence mode="wait">
           <motion.span
             key={words[index]}
-            className="text-blue-600 text-3xl md:text-7xl font-black mt-2 drop-shadow-[0_2px_24px_rgba(0,100,255,0.50)]"
+            className="text-blue-600 text-3xl md:text-7xl font-extrabold mt-2 drop-shadow-[0_2px_24px_rgba(0,100,255,0.50)]"
             initial={{ opacity: 0, y: 25, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -25, scale: 0.97 }}

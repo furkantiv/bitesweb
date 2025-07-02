@@ -42,7 +42,7 @@ export default function AboutPage() {
       <Head>
         <title>Bites - About Us</title>
       </Head>
-      <main className="max-w-7xl mx-auto px-6 py-16">
+      <main className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20">
         <section className="mb-24">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">

@@ -1,32 +1,25 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, forwardRef } from "react";
 
 type AnimatedButtonVariant = "filled" | "outline";
 
-interface AnimatedButtonProps {
+interface AnimatedButtonProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   text: string;
   color?: string;
   variant?: AnimatedButtonVariant;
-  onClick?: () => void;
 }
 
-const pillTextColor = "#fff";
-const pillArrowColor = "#fff";
-
-export function AnimatedButton({
-  text,
-  color = "#2563eb",
-  variant = "filled",
-  onClick,
-}: AnimatedButtonProps) {
+export const AnimatedButton = forwardRef<
+  HTMLAnchorElement,
+  AnimatedButtonProps
+>(({ text, color = "#2563eb", variant = "filled", ...rest }, ref) => {
   const [hovered, setHovered] = useState(false);
   const [pillWidth, setPillWidth] = useState(168);
   const textRef = useRef<HTMLSpanElement>(null);
 
-  // Calculate the required pill width when the text or textRef changes
   useLayoutEffect(() => {
     if (textRef.current) {
       const textWidth = textRef.current.offsetWidth;
@@ -35,7 +28,6 @@ export function AnimatedButton({
     }
   }, [text]);
 
-  // Dynamic styles for filled vs outline
   const circleStyle =
     variant === "filled"
       ? {
@@ -50,17 +42,27 @@ export function AnimatedButton({
   const iconColor = variant === "filled" ? "#fff" : color;
   const pillBg = variant === "filled" ? color : hovered ? color : "transparent";
   const pillBorder = `2px solid ${color}`;
+  const pillTextColor = "#fff";
+  const pillArrowColor = "#fff";
 
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="flex items-center relative bg-transparent focus:outline-none cursor-pointer  select-none"
-      style={{ minHeight: 48, minWidth: 48, padding: 0 }}
+    <a
+      ref={ref}
+      {...rest}
+      onMouseEnter={(e) => {
+        setHovered(true);
+        rest.onMouseEnter?.(e);
+      }}
+      onMouseLeave={(e) => {
+        setHovered(false);
+        rest.onMouseLeave?.(e);
+      }}
+      className={
+        "flex items-center relative bg-transparent focus:outline-none cursor-pointer select-none " +
+        (rest.className || "")
+      }
+      style={{ minHeight: 48, minWidth: 48, padding: 0, ...rest.style }}
     >
-      {/* Circle: Always visible, contains up-right arrow */}
       <motion.div
         className="flex items-center justify-center z-10"
         style={{
@@ -79,7 +81,6 @@ export function AnimatedButton({
         <ArrowUpRight size={22} strokeWidth={2.3} color={iconColor} />
       </motion.div>
 
-      {/* Default text: only when NOT hovered */}
       <motion.span
         animate={{
           opacity: hovered ? 0 : 1,
@@ -108,7 +109,6 @@ export function AnimatedButton({
         {text}
       </span>
 
-      {/* Pill: appears on hover, covers icon, text, AND shows arrow at right */}
       <motion.div
         initial={false}
         animate={{
@@ -124,7 +124,7 @@ export function AnimatedButton({
           background: pillBg,
           border: pillBorder,
           boxShadow: "0 2px 16px 0 rgba(0,0,0,0.12)",
-          pointerEvents: "none", // so the button stays clickable
+          pointerEvents: "none",
         }}
       >
         <motion.span
@@ -154,6 +154,8 @@ export function AnimatedButton({
           <ArrowRight size={22} strokeWidth={2.3} color={pillArrowColor} />
         </motion.span>
       </motion.div>
-    </button>
+    </a>
   );
-}
+});
+
+AnimatedButton.displayName = "AnimatedButton";

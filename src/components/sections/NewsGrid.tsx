@@ -54,7 +54,7 @@ const NewsCard = () => {
   const currentNews = newsItems[currentIndex];
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6">
+    <div className="w-full max-w-2xl mx-auto p-0">
       <div className="bg-transparent rounded-2xl p-6 relative overflow-hidden ">
         {/* Header with separator line */}
         <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/20">
@@ -84,21 +84,6 @@ const NewsCard = () => {
         <AnimatePresence mode="wait">
           <NewsContent key={currentNews.id} news={currentNews} />
         </AnimatePresence>
-
-        {/* Indicator Dots with separator line */}
-        <div className="flex justify-center gap-2 mt-6 pt-4 border-t border-white/20">
-          {newsItems.map((_, index) => (
-            <motion.button
-              key={index}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? "bg-white" : "bg-white/30"
-              }`}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
