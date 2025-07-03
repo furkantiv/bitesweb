@@ -5,25 +5,26 @@ import Head from "next/head";
 import Image from "next/image";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import TimelineComponent from "@/components/ui/TimelineComponent";
+import Footer from "@/components/layout/Footer";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const values = [
   {
     title: "Innovation",
-    desc: "Pushing boundaries with bold ideas to achieve exceptional results.",
+    desc: "We believe the key to success is to push the boundaries. This is why we value new and bold ideas above all else.",
   },
   {
     title: "Passion",
-    desc: "Passionate engagement driving excellence in every project we undertake.",
+    desc: "We are passionate about what we do. Our passion is the essence of our work and is at the core of everything we do.",
   },
   {
     title: "Agility",
-    desc: "Quick adaptation enabling us to lead and thrive amidst change.",
+    desc: "Our agile work model allows us to adapt to change and keep up with the pace of the sectors which we serve.",
   },
   {
     title: "Trust",
-    desc: "Transparency and integrity form the foundation of our lasting relationships.",
+    desc: "Accountability and transparency pave the way for mutual trust. This is why we carry out all our activities within the framework of our ethical values.",
   },
 ];
 
@@ -42,113 +43,105 @@ export default function AboutPage() {
       <Head>
         <title>Bites - About Us</title>
       </Head>
-      <main className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20">
-        <section className="mb-24">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
-              About Bites
-            </h1>
-            <p className="mt-4 text-lg text-gray-400">
-              Empowering innovation through technology.
-            </p>
-          </div>
-
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex-1"
-            >
-              <h2 className="text-3xl font-semibold mb-4 text-white">
-                Our Mission
-              </h2>
-              <p className="text-gray-300 mb-6">
-                Our mission is to provide cutting-edge technological solutions
-                to enable businesses, institutions, and individuals to excel in
-                their fields. We are committed to delivering secure, accessible,
-                and innovative products for the defense industry and beyond.
-              </p>
-              <AnimatedButton text="Get in Touch" color="#004DFF" />
-            </motion.div>
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex-1 relative w-full h-72 rounded-lg overflow-hidden shadow-lg"
-            >
-              <Image
-                src={`${basePath}/images/about/about-mission.png`}
-                alt="Mission"
-                layout="fill"
-                objectFit="cover"
-              />
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="mb-24">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex-1"
-            >
-              <h2 className="text-3xl font-semibold mb-4 text-white">
-                Our Vision
-              </h2>
-              <p className="text-gray-300 mb-6">
-                To be a globally recognized leader in innovation and digital
-                transformation, creating sustainable technological advancements
-                that contribute positively to the world.
-              </p>
-              <AnimatedButton text="Learn More" color="#004DFF" />
-            </motion.div>
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex-1 relative w-full h-72 rounded-lg overflow-hidden shadow-lg"
-            >
-              <Image
-                src={`${basePath}/images/about/about-mission.png`}
-                alt="Vision"
-                layout="fill"
-                objectFit="cover"
-              />
-            </motion.div>
+      <main className="max-w-7xl mx-auto px-6 md:px-0 space-y-12 md:py-20">
+        {/* Our Mission & Vision Section */}
+        <section>
+          <div className="p-6 rounded-2xl border border-white/10">
+            <div className="flex flex-col md:flex-row items-stretch gap-8">
+              {/* Text Alanı */}
+              <div className="flex-1 flex flex-col justify-between min-w-0">
+                <div className="flex flex-col gap-8">
+                  <h2 className="text-white text-4xl font-semibold font-sans">
+                    Our Mission & Vision
+                  </h2>
+                  <div className="text-white text-base font-normal font-sans leading-relaxed">
+                    Our mission is to help businesses, institutions and
+                    individuals reap the benefits of technology through our
+                    innovative software and products. We strive to offer our
+                    customers and partners affordable, accessible, and secure
+                    technologies in the defense industry and information
+                    technologies.
+                    <br />
+                    Our vision is to be recognised as an international
+                    innovation and R&D center, to help build a sustainable
+                    future for the world by developing software and products
+                    that will accelerate digitalization globally.
+                  </div>
+                  <div className="text-white/60 text-sm font-normal font-sans leading-tight">
+                    I understand that my data will be held securely in
+                    accordance with the{" "}
+                    <span className="underline">privacy policy</span>
+                  </div>
+                </div>
+                <div className="mt-8">
+                  <AnimatedButton text="Contact Us" />
+                </div>
+              </div>
+              {/* Görsel Alanı */}
+              <div className="flex-1 flex items-center justify-center min-w-0">
+                <div className="w-full max-w-[600px] aspect-[4/3] rounded-lg overflow-hidden bg-black flex-shrink-0">
+                  <Image
+                    src={`${basePath}/images/about/about-mission.jpg`}
+                    alt="Mission"
+                    width={600}
+                    height={450}
+                    className="object-cover w-full h-full block"
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold text-center text-white mb-8">
-            Our Core Values
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map(({ title, desc }) => (
-              <motion.div
-                key={title}
-                variants={fadeUpVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="bg-gray-800/50 border border-gray-700 rounded-xl p-6 shadow-xl backdrop-blur hover:border-blue-500 transition-all duration-200 hover:shadow-blue-600/20"
-              >
-                <h3 className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
-                  {title}
-                </h3>
-                <p className="text-gray-400 text-sm">{desc}</p>
-              </motion.div>
-            ))}
+        {/* Our Core Values Section */}
+        <section>
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-6 mx-6">
+              <h2 className="text-4xl font-semibold text-white mb-3">
+                Our Core Values
+              </h2>
+              <h3 className="text-2xl font-medium text-white/80">
+                We specialize in creating human-centricity.
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {values.map(({ title, desc }) => (
+                <motion.div
+                  key={title}
+                  variants={fadeUpVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="border border-white/10 rounded-2xl p-6 shadow-xl hover:shadow-blue-600/20 hover:border-blue-500 transition-all duration-200 flex flex-col min-h-44"
+                >
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    {title}
+                  </h3>
+                  <p className="text-white text-base flex-1">{desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Timeline Section */}
+        <section>
+          <div className="mb-6 px-6">
+            <h2 className="text-4xl font-semibold text-white mb-3">
+              Our History
+            </h2>
+            <h3 className="text-2xl font-medium text-white/80">
+              We specialize in creating human-centricity.
+            </h3>
           </div>
           <TimelineComponent />
         </section>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

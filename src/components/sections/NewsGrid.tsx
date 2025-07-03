@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import NewsContent from "../ui/NewsContent";
+import NewsContentForHome from "../ui/NewsContentForHome";
 
 const newsItems = [
   {
@@ -57,32 +58,30 @@ const NewsCard = () => {
     <div className="w-full max-w-2xl mx-auto p-0">
       <div className="bg-transparent rounded-2xl p-6 relative overflow-hidden ">
         {/* Header with separator line */}
-        <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/20">
-          <h2 className="text-xl text-white font-medium">Last News</h2>
+        <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/20">
+          <h2 className="text-xl  text-white font-medium">Last News</h2>
 
           <div className="flex items-center gap-2">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={prevNews}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/20"
+              className="p-2 bg-transparent hover:bg-gray-600/50 rounded-full transition-all duration-300 border border-gray-600/50 shadow-lg"
             >
               <ChevronLeft className="w-5 h-5 text-white" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            </button>
+            <button
               onClick={nextNews}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/20"
+              className="p-2 bg-transparent hover:bg-gray-600/50 rounded-full transition-all duration-300 border border-gray-600/50 shadow-lg"
             >
               <ChevronRight className="w-5 h-5 text-white" />
-            </motion.button>
+            </button>
           </div>
         </div>
 
         {/* Content */}
         <AnimatePresence mode="wait">
-          <NewsContent key={currentNews.id} news={currentNews} />
+          <div className="w-full max-h-32">
+            <NewsContentForHome key={currentNews.id} news={currentNews} />
+          </div>
         </AnimatePresence>
       </div>
     </div>

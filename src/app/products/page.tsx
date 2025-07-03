@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { log } from "console";
 
 type Item = {
   name: string;
@@ -83,147 +82,54 @@ const items = [
   },
 ];
 
-const listVariants = {
-  hidden: { opacity: 0, x: -40 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.1,
-      ease: [0.32, 0.72, 0, 1],
-      staggerChildren: 0.08,
-      delayChildren: 0.02,
-    },
+const categories = [
+  {
+    id: "training",
+    title: "Training and Simulation Systems",
+    image: "/images/products/categories/training.jpg",
   },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -600 }, // Start left and invisible
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.5, ease: [0.32, 0.72, 0, 1] },
+  {
+    id: "defence",
+    title: "Defence Information Systems",
+    image: "/images/products/categories/defence.jpg",
   },
-};
-
-// Helper to generate image path
-// const getImagePath = (item: string) => {
-//   const safeName = item
-//     .toLowerCase()
-//     .replace(/[^a-z0-9]+/g, "-") // replace spaces & special chars with -
-//     .replace(/^-|-$/g, ""); // remove leading/trailing dashes
-//   return `/images/products/${safeName}.png`;
-// };
+  {
+    id: "business",
+    title: "Technology and Business Solutions Systems",
+    image: "/images/products/categories/business.jpg",
+  },
+  {
+    id: "avionics",
+    title: "Avionics and Mission Systems",
+    image: "/images/products/categories/avionics.jpg",
+  },
+];
 
 const ProductsPage = () => {
-  const [hoveredItem, setHoveredItem] = useState<Item | null>(null);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const router = useRouter();
 
   return (
-    <div className="flex flex-col md:flex-row h-full bg-transparent sm:mt-30 text-white px-2  md:px-8 lg:px-16 pt-8 md:mt-24 gap-4 md:gap-8">
-      {/* Left list */}
-      <div className="w-full md:w-1/3 flex flex-col">
-        <motion.h2
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-2xl md:text-4xl font-extrabold tracking-wide text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4"
-        >
-          Products
-        </motion.h2>
-        <motion.div
-          className="max-h-[45vh] md:max-h-[70vh] overflow-y-auto overflow-x-hidden p-3 md:p-4 space-y-3 md:space-y-4 custom-scrollbar"
-          style={{ direction: "rtl" }}
-          variants={listVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div style={{ direction: "ltr" }}>
-            {items.map((item) => (
-              <motion.div
-                key={item.name}
-                onMouseEnter={() => setHoveredItem(item)}
-                onMouseLeave={() => setHoveredItem(null)}
-                onClick={() => {
-                  router.push(item.link);
-                }}
-                variants={itemVariants}
-                className="
-          group cursor-pointer transition-all duration-200
-          rounded-xl px-4 py-3 mt-3  md:px-5 md:py-4 border border-white/10
-          bg-white/5 hover:bg-blue-500/10
-          hover:scale-[1.04] hover:shadow-lg hover:border-blue-400/30
-          flex justify-between items-center
-          backdrop-blur-xl
-          font-medium
-          text-base md:text-lg
-        "
-              >
-                <span className="transition-colors duration-150 group-hover:text-blue-400">
-                  {item.name}
-                </span>
-                <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-blue-400 text-white/40">
-                  ↗
-                </span>
-              </motion.div>
-            ))}
+    <div className="max-h-screen max-w-7xl mx-auto px-6 md:px-0 md:pt-20 flex flex-col items-center justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {categories.map((cat) => (
+          <div
+            key={cat.id}
+            onClick={() => router.push(`/products/${cat.id}`)}
+            className="cursor-pointer rounded-2xl transition group shadow-xl border border-[#303030] w-[600px] h-[340px] p-4"
+          >
+            <div className="text-white font-semibold text-base m-2">
+              {cat.title}
+            </div>
+            <div className="w-full rounded-xl overflow-hidden">
+              <img
+                src={basePath + cat.image}
+                alt={cat.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition"
+              />
+            </div>
           </div>
-        </motion.div>
-        <div className="mt-4 md:mt-8 text-xs md:text-sm text-white/50 flex items-center gap-2">
-          <ArrowUpRight />
-          {/* <span className="animate-bounce">↓</span> Scroll to discover */}
-        </div>
-      </div>
-
-      {/* Right content */}
-      <div className="w-full md:w-2/3 flex justify-center items-center relative overflow-hidden min-h-[250px] md:min-h-0">
-        <AnimatePresence>
-          {hoveredItem && (
-            <motion.div
-              key={hoveredItem.name}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="absolute inset-0 flex flex-col justify-center items-center rounded-xl mt-30 p-4 md:p-8 mb-8 md:mb-40"
-            >
-              <motion.h2
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-2xl md:text-4xl font-extrabold tracking-wide text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4 md:mb-6"
-              >
-                {hoveredItem.name}
-              </motion.h2>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Image
-                  src={basePath + hoveredItem.image}
-                  alt={hoveredItem.name}
-                  width={500}
-                  height={500}
-                  className="object-contain max-w-full h-auto"
-                />
-              </motion.div>
-              <motion.p
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="mt-10"
-              >
-                {hoveredItem.shortdesc}
-              </motion.p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        ))}
       </div>
     </div>
   );

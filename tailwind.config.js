@@ -5,6 +5,9 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", "Arial", "Helvetica", "sans-serif"],
       },
+      colors: {
+        bitesblue: "#004CFF",
+      },
     },
   },
   // ...

@@ -91,7 +91,7 @@ const AnimatedBackground = () => {
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed bg-[#02040d] inset-0 z-0" />
+      <canvas ref={canvasRef} className="fixed bg-[#000816] inset-0 z-0" />
     </>
   );
 };

@@ -36,7 +36,7 @@ export default function Globe() {
     if (phase === "waiting") setTimeout(() => setPhase("down"), 500);
     if (phase === "down")
       setTimeout(() => {
-        updateGlobe(0.003, [0, -1.5, 0], scale);
+        updateGlobe(0.003, [0, -1.4, 0], scale);
         setPhase("pages");
       }, 1000);
   }, [phase]);
@@ -44,13 +44,13 @@ export default function Globe() {
   const { animatedScale, animatedPosition } = useSpring({
     animatedScale: phase === "big" ? 8 : phase === "down" ? 0.7 : scale,
     animatedPosition:
-      phase === "big" ? [0, 0, 0] : phase === "down" ? [0, -1.5, 0] : position,
+      phase === "big" ? [0, -4, 0] : phase === "down" ? [0, -1.5, 0] : position,
     config: { mass: 1, tension: 180, friction: 40 },
   });
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 5], fov: 30 }}>
         <ambientLight intensity={7.5} />
         <directionalLight position={[-7, 7, 10]} intensity={0.1} />
 
@@ -176,6 +176,7 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
         map={colorMap}
         emissiveMap={emissiveMap}
         emissive={new THREE.Color("orange")}
+        emissiveIntensity={0.5}
         displacementMap={displacementMap}
         displacementScale={0.025}
         metalnessMap={metalnessMap}

@@ -1,285 +1,259 @@
-import React, { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+"use client";
+import React, { useRef, useState, useEffect } from "react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+} from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Center } from "@react-three/drei";
 
-const TimelineComponent = () => {
+type TimelineItem = {
+  year: string;
+  title: string;
+  desc: string;
+};
+
+const timelineData: TimelineItem[] = [
+  {
+    year: "2023",
+    title:
+      "BİTES became a 100% subsidairy of ASELSAN. Became Turkiye’s 4th fastest growing technology company. Leading Domestic Defence Industry Brand of the year.",
+    desc: "",
+  },
+  { year: "2023", title: "BİTES yüzde 100 ASELSAN iştiraki oldu", desc: "" },
+  {
+    year: "2021",
+    title: "Savunma Sanayii Sektöründe ilk 3'te yer aldı",
+    desc: "",
+  },
+  {
+    year: "2020",
+    title: "En yüksek gelire sahip ilk 10 şirketten biri oldu",
+    desc: "",
+  },
+  { year: "2019", title: "BİTES ASELSAN bünyesine katıldı", desc: "" },
+  {
+    year: "2018",
+    title: "Sikorsky Aircraft Corporation'a ilk ihracat",
+    desc: "",
+  },
+  { year: "2017", title: "Ortadoğu'ya ilk ihracat", desc: "" },
+  { year: "2015", title: "Airbus D&S'ye ilk ihracat", desc: "" },
+  {
+    year: "2014",
+    title: "ATAK T-129 WBT & VMT programı ödüllendirildi",
+    desc: "",
+  },
+  { year: "2012", title: "Almanya'ya ilk ihracat yapıldı", desc: "" },
+  {
+    year: "2009",
+    title: "Savunma ve havacılık alanlarına ağırlık verilmeye başlandı",
+    desc: "",
+  },
+  {
+    year: "2008",
+    title: "HELSIM-I iş paketleri başarıyla teslim edildi",
+    desc: "",
+  },
+  {
+    year: "2005",
+    title: "HELSIM I Program-II sözleşmesi\nŞirket Kuruluşu",
+    desc: "",
+  },
+];
+
+export default function Timeline() {
+  const [windowWidth, setWindowWidth] = React.useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Breakpoint: mobil < 640, masaüstü >= 640
+  const isMobile = windowWidth < 640;
+
+  // KART ÖLÇÜLERİ
+  const CARD_WIDTH = isMobile ? 320 : 500;
+  const CARD_HEIGHT = isMobile ? 280 : 370;
+  const GAP = isMobile ? 16 : 32;
+  const ITEM_SIZE = isMobile ? CARD_HEIGHT + GAP : CARD_WIDTH + GAP;
+  const VISIBLE_COUNT = isMobile ? 1 : 3;
+  const CONTAINER_SIZE = isMobile
+    ? CARD_HEIGHT * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1)
+    : CARD_WIDTH * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1);
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const total = timelineData.length;
 
-  const timelineData = [
-    {
-      year: "2023",
-      title: "Türkiye'nin en hızlı büyüyen 4'üncü teknoloji şirketi oldu.",
-      desc: "Yılın Lider Yerli Savunma Sanayi Markası",
-    },
-    {
-      year: "2023",
-      title: "BİTES yüzde 100 ASELSAN iştiraki oldu",
-      desc: "",
-    },
-
-    {
-      year: "2021",
-      title: "Savunma Sanayii Sektöründe ilk 3'te yer aldı",
-      desc: "",
-    },
-    {
-      year: "2020",
-      title: "En yüksek gelire sahip ilk 10 şirketten biri oldu",
-      desc: "",
-    },
-    {
-      year: "2019",
-      title: "BİTES ASELSAN bünyesine katıldı",
-      desc: "",
-    },
-    {
-      year: "2018",
-      title: "Sikorsky Aircraft Corporation'a ilk ihracat",
-      desc: "",
-    },
-    {
-      year: "2017",
-      title: "Ortadoğu'ya ilk ihracat",
-      desc: "",
-    },
-    {
-      year: "2015",
-      title: "Airbus D&S'ye ilk ihracat",
-      desc: "",
-    },
-    {
-      year: "2014",
-      title: "ATAK T-129 WBT & VMT programı ödüllendirildi",
-      desc: "",
-    },
-    {
-      year: "2012",
-      title: "Almanya'ya ilk ihracat yapıldı",
-      desc: "",
-    },
-    {
-      year: "2009",
-      title: "Savunma ve havacılık alanlarına ağırlık verilmeye başlandı",
-      desc: "",
-    },
-    {
-      year: "2008",
-      title: "HELSIM-I iş paketleri başarıyla teslim edildi",
-      desc: "",
-    },
-    {
-      year: "2005",
-      title: "HELSIM I Program-II sözleşmesi\nŞirket Kuruluşu",
-      desc: "",
-    },
-  ];
-
-  const scrollToIndex = (index: number) => {
-    if (isScrolling) return;
-
-    setIsScrolling(true);
-    setCurrentIndex(index);
-
-    const container = scrollContainerRef.current;
-    if (container) {
-      const itemWidth = 288 + 24; // 288px width (w-72) + 24px gap
-      container.scrollTo({
-        left: index * itemWidth,
-        behavior: "smooth",
-      });
-    }
-
-    setTimeout(() => setIsScrolling(false), 500);
+  const goPrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
   };
 
-  const handlePrevious = () => {
-    const newIndex =
-      currentIndex > 0 ? currentIndex - 1 : timelineData.length - 1;
-    scrollToIndex(newIndex);
+  const goNext = () => {
+    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
   };
 
-  const handleNext = () => {
-    const newIndex =
-      currentIndex < timelineData.length - 1 ? currentIndex + 1 : 0;
-    scrollToIndex(newIndex);
+  // translate için hesaplama (mobilde Y, masaüstünde X)
+  const calcTranslate = () => {
+    const centerOffset =
+      CONTAINER_SIZE / 2 - (isMobile ? CARD_HEIGHT : CARD_WIDTH) / 2;
+    return isMobile
+      ? -currentIndex * ITEM_SIZE + centerOffset
+      : -currentIndex * ITEM_SIZE + centerOffset;
   };
-
-  const handleScroll = () => {
-    if (isScrolling) return;
-
-    const container = scrollContainerRef.current;
-    if (container) {
-      const itemWidth = 288 + 24; // 288px width (w-72) + 24px gap
-      const newIndex = Math.round(container.scrollLeft / itemWidth);
-      if (
-        newIndex !== currentIndex &&
-        newIndex >= 0 &&
-        newIndex < timelineData.length
-      ) {
-        setCurrentIndex(newIndex);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-      return () => container.removeEventListener("scroll", handleScroll);
-    }
-  }, [currentIndex, isScrolling]);
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto text-white overflow-hidden">
-      {/* Navigation Buttons */}
-      <div className="absolute top-1/2 left-2 transform -translate-y-1/2 z-30">
-        <button
-          onClick={handlePrevious}
-          className="p-2 bg-gray-800/90 hover:bg-gray-700/90 rounded-full transition-all duration-300 backdrop-blur-sm border border-gray-600/30 shadow-lg"
-          disabled={isScrolling}
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-      </div>
+    <div className="relative w-full max-w-7xl mx-auto py-10 rounded-2xl border border-white/10 text-white overflow-hidden">
+      {/* Oklar */}
+      {isMobile ? (
+        <>
+          {/* Yukarı */}
+          <button
+            className="absolute left-1/2 -translate-x-1/2 top-2 z-20 p-2 bg-gray-800/70 hover:bg-blue-600/70 rounded-full"
+            onClick={goPrev}
+            aria-label="Yukarı"
+          >
+            <ChevronUp />
+          </button>
+          {/* Aşağı */}
+          <button
+            className="absolute left-1/2 -translate-x-1/2 bottom-2 z-20 p-2 bg-gray-800/70 hover:bg-blue-600/70 rounded-full"
+            onClick={goNext}
+            aria-label="Aşağı"
+          >
+            <ChevronDown />
+          </button>
+        </>
+      ) : (
+        <>
+          {/* Sol */}
+          <button
+            className="absolute z-20 left-2 top-1/2 -translate-y-1/2 p-2 border border-gray-600/50 shadow-lg bg-transparent hover:bg-gray-600/50 rounded-full"
+            onClick={goPrev}
+            aria-label="Geri"
+          >
+            <ChevronLeft />
+          </button>
+          {/* Sağ */}
+          <button
+            className="absolute z-20 right-2 top-1/2 -translate-y-1/2 p-2 border border-gray-600/50 shadow-lg bg-transparent hover:bg-gray-600/50 rounded-full"
+            onClick={goNext}
+            aria-label="İleri"
+          >
+            <ChevronRight />
+          </button>
+        </>
+      )}
 
-      <div className="absolute top-1/2 right-2 transform -translate-y-1/2 z-30">
-        <button
-          onClick={handleNext}
-          className="p-2 bg-gray-800/90 hover:bg-gray-700/90 rounded-full transition-all duration-300 backdrop-blur-sm border border-gray-600/30 shadow-lg"
-          disabled={isScrolling}
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
-
-      {/* Timeline Container */}
-      <div className="relative px-12 py-16 min-h-[600px] overflow-hidden">
-        {/* Scrollable Content */}
+      {/* Timeline */}
+      <div
+        className={`
+          ${isMobile ? "px-2 py-8" : "px-16 py-12"}
+          flex items-center justify-center min-h-[320px] md:min-h-[400px]
+        `}
+      >
         <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory gap-6 pb-4"
           style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
+            width: isMobile ? `${CARD_WIDTH}px` : `${CONTAINER_SIZE}px`,
+            height: isMobile ? `${CONTAINER_SIZE}px` : `${CARD_HEIGHT}px`,
+
+            position: "relative",
           }}
         >
-          {timelineData.map((item, index) => {
-            const isCenter = Math.floor(currentIndex) === index;
-            const isVisible = Math.abs(index - currentIndex) <= 1;
+          <motion.div
+            className={`flex  ${isMobile ? "flex-col" : ""}`}
+            style={{
+              gap: `${GAP}px`,
+              width: isMobile ? "100%" : `${ITEM_SIZE * total}px`,
+              height: isMobile ? `${ITEM_SIZE * total}px` : "100%",
+            }}
+            animate={isMobile ? { y: calcTranslate() } : { x: calcTranslate() }}
+            transition={{ type: "spring", stiffness: 80, damping: 22 }}
+          >
+            {timelineData.map((item, idx) => {
+              const isActive = idx === currentIndex;
+              const isUp = idx % 2 === 0;
+              return (
+                <div
+                  key={idx}
+                  className={`
+                    flex-shrink-0 relative transition-transform duration-300
+                    ${isActive ? "scale-105 z-10" : "opacity-60 scale-95"}
+                  `}
+                  style={{
+                    width: `${CARD_WIDTH}px`,
+                    height: `${CARD_HEIGHT}px`,
+                  }}
+                >
+                  {/* Dot */}
+                  {isMobile ? (
+                    <></>
+                  ) : (
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                      <div
+                        className={`
+                        w-6 h-6 rounded-full border transition-all duration-300
+                        ${
+                          isActive
+                            ? "border-[#2B6AFF] bg-black/10 shadow-lg shadow-blue-700/25"
+                            : "border-gray-500/20 "
+                        }
+                      `}
+                      />
+                    </div>
+                  )}
 
-            return (
-              <div
-                key={index}
-                className={`flex-shrink-0 w-72 mt-10 snap-center relative transition-all duration-500 ${
-                  isVisible ? "opacity-100" : "opacity-40"
-                } ${isCenter ? "scale-105" : "scale-95"}`}
-                style={{ minHeight: "450px" }}
-              >
-                {/* Timeline Node */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                  {/* Content Card */}
                   <div
-                    className={`w-5 h-5 rounded-full border-3 transition-all duration-300 ${
-                      isCenter
-                        ? "bg-blue-500 border-blue-300 shadow-lg shadow-blue-500/50"
-                        : "bg-gray-700 border-gray-500"
-                    }`}
+                    className={`
+                      absolute left-1/2
+                      ${
+                        isMobile
+                          ? "top-1/2"
+                          : isUp
+                          ? "bottom-[calc(50%+36px)]"
+                          : "top-[calc(50%+36px)]"
+                      }
+                      w-[90%] px-4 py-2 shadow-xl rounded-2xl border border-white/10
+                      transition-all duration-300 
+                      ${isActive ? "scale-105" : "opacity-60"}
+                    `}
+                    style={{
+                      transform: isMobile
+                        ? "translate(-50%, -50%)"
+                        : "translateX(-50%)",
+                    }}
                   >
-                    {isCenter && (
-                      <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-75"></div>
+                    <div className="text-xl font-bold text-center select-none">
+                      {item.year}
+                    </div>
+                    {item.title && (
+                      <div className="text-center justify-start text-white text-sm font-normal">
+                        {item.title}
+                      </div>
                     )}
                   </div>
                 </div>
-
-                {/* Content positioned alternately above and below */}
-                <div
-                  className={`absolute left-1/2 transform -translate-x-1/2 text-center w-64 z-15 ${
-                    index % 2 === 0 ? "bottom-1/2 mb-10" : "top-1/2 mt-10"
-                  }`}
-                >
-                  {/* Alternating layout: even indices show year on top, odd show title on top */}
-                  {index % 2 === 0 ? (
-                    <div className="space-y-3">
-                      {/* Year on top for even indices */}
-                      <div className="inline-block px-4 py-2 bg-gray-800/80 rounded-full backdrop-blur-sm border border-gray-600/50">
-                        <span className="text-2xl font-bold text-white">
-                          {item.year}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h2 className="text-lg font-bold text-white">
-                        {item.title}
-                      </h2>
-
-                      {/* Description */}
-                      <p className="text-gray-300 text-sm leading-relaxed px-2">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="space-y-3">
-                      {/* Title on top for odd indices */}
-                      <h2 className="text-xl font-bold text-white">
-                        {item.title}
-                      </h2>
-
-                      {/* Year */}
-                      <div className="inline-block px-4 py-2 bg-gray-800/80 rounded-full backdrop-blur-sm border border-gray-600/50">
-                        <span className="text-xl font-bold text-white">
-                          {item.year}
-                        </span>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-gray-300 text-sm leading-relaxed px-2">
-                        {item.desc}
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Connecting Line from node to content */}
-                <div
-                  className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-500 z-15 ${
-                    index % 2 === 0 ? "bottom-1/2 h-6 mb-2" : "top-1/2 h-6 mt-2"
-                  }`}
-                ></div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </motion.div>
         </div>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
-        {timelineData.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollToIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "bg-blue-500 w-6"
-                : "bg-gray-600 hover:bg-gray-500"
-            }`}
-            disabled={isScrolling}
-          />
-        ))}
-      </div>
-
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800 z-20">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gray-800 z-20">
         <div
-          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 ease-out"
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500"
           style={{
-            width: `${((currentIndex + 1) / timelineData.length) * 100}%`,
+            width: `${((currentIndex + 1) / total) * 100}%`,
           }}
         />
       </div>
     </div>
   );
-};
-
-export default TimelineComponent;
+}

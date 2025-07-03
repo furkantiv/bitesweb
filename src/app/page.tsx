@@ -35,7 +35,7 @@ const HomePage = () => {
       </div>
 
       {/* Sticky NewsGrid (Only visible on larger screens) */}
-      <div className="fixed bottom-0 right-4 z-30 hidden md:block">
+      <div className="fixed bottom-0 right-0 z-30 hidden md:block">
         <NewsGrid />
       </div>
     </div>

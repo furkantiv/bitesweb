@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen w-full bg-black text-white overflow-hidden relative">
+        <div className="w-full bg-black text-white overflow-hidden relative">
           <GlobeProvider>
             {/* Persistent background */}
             <div className="relative z-10">
@@ -40,7 +40,6 @@ export default function RootLayout({
               <Globe />
             </div>
             <Header />
-
             <div className="relative mt-20 z-20">{children}</div>
           </GlobeProvider>
         </div>
