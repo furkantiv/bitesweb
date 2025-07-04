@@ -6,16 +6,7 @@ import "./globals.css";
 import AnimatedBackground from "@/components/animations/AnimatedBackground";
 import Globe from "@/components/animations/Globe";
 import Header from "@/components/layout/Header";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import GlobeController from "@/components/animations/GlobeController";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="w-full bg-black text-white overflow-hidden relative">
           <GlobeProvider>
+            <GlobeController />
             {/* Persistent background */}
             <div className="relative z-10">
               <AnimatedBackground />

@@ -2,20 +2,47 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useState, useRef, useLayoutEffect, forwardRef } from "react";
+import Link from "next/link";
 
 type AnimatedButtonVariant = "filled" | "outline";
 
-interface AnimatedButtonProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface BaseProps {
   text: string;
   color?: string;
   variant?: AnimatedButtonVariant;
+  className?: string;
+  style?: React.CSSProperties;
+  onMouseEnter?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
 }
 
+type AnchorButtonProps = BaseProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "type"> & {
+    href: string;
+  };
+
+type ButtonButtonProps = BaseProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: undefined;
+  };
+
+type AnimatedButtonProps = AnchorButtonProps | ButtonButtonProps;
+
 export const AnimatedButton = forwardRef<
-  HTMLAnchorElement,
+  HTMLAnchorElement | HTMLButtonElement,
   AnimatedButtonProps
->(({ text, color = "#2563eb", variant = "filled", ...rest }, ref) => {
+>((props, ref) => {
+  const {
+    text,
+    color = "#2563eb",
+    variant = "filled",
+    className,
+    style,
+    onMouseEnter,
+    onMouseLeave,
+    ...rest
+  } = props;
+
   const [hovered, setHovered] = useState(false);
   const [pillWidth, setPillWidth] = useState(168);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -45,24 +72,22 @@ export const AnimatedButton = forwardRef<
   const pillTextColor = "#fff";
   const pillArrowColor = "#fff";
 
-  return (
-    <a
-      ref={ref}
-      {...rest}
-      onMouseEnter={(e) => {
-        setHovered(true);
-        rest.onMouseEnter?.(e);
-      }}
-      onMouseLeave={(e) => {
-        setHovered(false);
-        rest.onMouseLeave?.(e);
-      }}
-      className={
-        "flex items-center relative bg-transparent focus:outline-none cursor-pointer select-none " +
-        (rest.className || "")
-      }
-      style={{ minHeight: 48, minWidth: 48, padding: 0, ...rest.style }}
-    >
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+  ) => {
+    setHovered(true);
+    onMouseEnter?.(e as any);
+  };
+
+  const handleMouseLeave = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+  ) => {
+    setHovered(false);
+    onMouseLeave?.(e as any);
+  };
+
+  const buttonContent = (
+    <>
       <motion.div
         className="flex items-center justify-center z-10"
         style={{
@@ -154,7 +179,46 @@ export const AnimatedButton = forwardRef<
           <ArrowRight size={22} strokeWidth={2.3} color={pillArrowColor} />
         </motion.span>
       </motion.div>
-    </a>
+    </>
+  );
+
+  // Eğer href varsa Link + <a>, yoksa <button>
+  if ("href" in props && props.href) {
+    return (
+      <Link
+        href={props.href}
+        passHref
+        className={
+          "flex items-center relative bg-transparent focus:outline-none cursor-pointer select-none " +
+          (className || "")
+        }
+        style={{ minHeight: 48, minWidth: 48, padding: 0, ...style }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
+        {buttonContent}
+      </Link>
+    );
+  }
+
+  // Button için type default olarak "button" yap (submit hatasını önler)
+  return (
+    <button
+      type={(props as ButtonButtonProps).type || "button"}
+      ref={ref as React.Ref<HTMLButtonElement>}
+      className={
+        "flex items-center relative bg-transparent focus:outline-none cursor-pointer select-none " +
+        (className || "")
+      }
+      style={{ minHeight: 48, minWidth: 48, padding: 0, ...style }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
+      {buttonContent}
+    </button>
   );
 });
 

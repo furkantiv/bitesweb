@@ -1,18 +1,15 @@
 "use client";
 
-import { useGlobe } from "@/contexts/GlobeContext";
 import { motion } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 interface NavigationItemProps {
   number: string;
   title: string;
   href: string;
   isActive?: boolean;
-  position?: [number, number, number];
-  speed?: number;
-  scale?: number;
   onNavigate?: () => void;
 }
 
@@ -20,20 +17,17 @@ const NavigationItem = ({
   title,
   href,
   isActive = false,
-  position = [0, 0, 0],
-  speed = 0.02,
-  scale = 0.5,
   onNavigate,
 }: NavigationItemProps) => {
-  const router = useRouter();
-  const { updateGlobe } = useGlobe();
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleClick = () => {
-    updateGlobe(speed, position, scale);
-    router.push(href);
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Eğer animasyonlu işlemlerin Link davranışını etkilemesini istemiyorsan:
+    // e.preventDefault(); // Bunu kullanma! SPA için Link'in kendi yönlendirmesi çalışmalı.
+
+    // updateGlobe(speed, position, scale);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    if (onNavigate) onNavigate(); // Close mobile menu if triggered
+    if (onNavigate) onNavigate();
   };
 
   const getLineColor = () => {
@@ -43,24 +37,34 @@ const NavigationItem = ({
   };
 
   return (
-    <div
-      onClick={handleClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="flex-1 flex flex-col items-start cursor-pointer py-2"
+    <Link
+      href={href}
+      scroll={true}
+      prefetch={false}
+      className="flex flex-1 flex-col"
     >
-      <motion.div
-        className="mb-2 h-[1px] w-full rounded-full"
-        animate={{ backgroundColor: getLineColor() }}
-        transition={{ duration: 0.3 }}
-      />
-      <span
-        className="font-medium text-[16px]"
-        style={{ fontFamily: "Inter", color: "#d1d5db" }}
+      <div
+        onClick={handleClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="flex-1 flex flex-col items-start cursor-pointer py-2"
+        tabIndex={0}
+        role="link"
+        aria-current={isActive ? "page" : undefined}
       >
-        {title}
-      </span>
-    </div>
+        <motion.div
+          className="mb-2 h-[1px] w-full rounded-full"
+          animate={{ backgroundColor: getLineColor() }}
+          transition={{ duration: 0.3 }}
+        />
+        <span
+          className="font-medium text-[16px]"
+          style={{ fontFamily: "Inter", color: "#d1d5db" }}
+        >
+          {title}
+        </span>
+      </div>
+    </Link>
   );
 };
 
@@ -129,7 +133,6 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
           key={item.href}
           {...item}
           isActive={pathname === item.href}
-          position={item.position as [number, number, number]}
           onNavigate={onNavigate}
         />
       ))}

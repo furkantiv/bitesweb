@@ -2,15 +2,22 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import Particles from "react-tsparticles"; // Optional for animated stars
+import AnimatedFlare from "../animations/AnimatedFlare";
 
 interface TrustHeroProps {
   words: string[];
-  interval?: number; // milliseconds
+  interval?: number;
 }
 
 const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
   const [index, setIndex] = useState(0);
+  const [flareActive, setFlareActive] = useState(false);
+
+  useEffect(() => {
+    // Flare opacity için fade-in başlat
+    const timeout = setTimeout(() => setFlareActive(true), 500);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,14 +25,15 @@ const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
     }, interval);
     return () => clearTimeout(timer);
   }, [index, words.length, interval]);
+
   return (
-    <div className=" flex items-center justify-center pt-8 ">
-      {/* Glow behind the word */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[80px] rounded-full z-20 pointer-events-none" />
-      {/* Text Content */}
+    <div className="flex items-center overflow-visible justify-center min-h-[200px] w-full relative ">
+      <AnimatedFlare />
+
+      {/* ...text... */}
       <div className="z-30 flex flex-col items-center justify-center">
         <motion.span
-          className="text-white text-3xl md:text-3xl font-medium drop-shadow-[0_1px_24px_rgba(250,250,250,0.10)] "
+          className="text-white text-3xl md:text-3xl font-medium drop-shadow-[0_1px_24px_rgba(250,250,250,0.10)]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
