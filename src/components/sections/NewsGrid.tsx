@@ -8,7 +8,7 @@ import NewsContentForHome from "../ui/NewsContentForHome";
 const newsItems = [
   {
     id: 1,
-    timeAgo: "3 Hours ago...",
+    timeAgo: "23 September, 2025",
     source: "Bites News",
     date: "23 September, 2025",
     title: "10th of January Journalists'...",

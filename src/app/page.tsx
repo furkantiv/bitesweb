@@ -13,7 +13,7 @@ const HomePage = () => {
     <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4">
       <div className="flex flex-col items-center space-y-10 md:mt-30 max-h-full md:overflow-hidden">
         <HeroText
-          words={["Trust", "Innovation", "Quality", "Care"]}
+          words={["Trust", "Innovation", "Agility", "Care"]}
           interval={3000}
         />
 

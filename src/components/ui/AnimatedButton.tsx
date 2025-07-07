@@ -34,7 +34,7 @@ export const AnimatedButton = forwardRef<
 >((props, ref) => {
   const {
     text,
-    color = "#2563eb",
+    color = "#004DFF",
     variant = "filled",
     className,
     style,
@@ -59,11 +59,11 @@ export const AnimatedButton = forwardRef<
     variant === "filled"
       ? {
           background: color,
-          border: `2px solid ${color}`,
+          border: `1px solid ${color}`,
         }
       : {
           background: "transparent",
-          border: `2px solid ${color}`,
+          border: `1px solid ${color}`,
         };
 
   const iconColor = variant === "filled" ? "#fff" : color;

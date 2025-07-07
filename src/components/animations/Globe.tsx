@@ -26,32 +26,16 @@ export default function Globe() {
     config: { mass: 1, tension: 100, friction: 30 },
   });
 
-  const [phase, setPhase] = useState<
-    "big" | "shrinking" | "waiting" | "down" | "pages"
-  >("big");
-
-  useEffect(() => {
-    if (phase === "big") setTimeout(() => setPhase("shrinking"), 100);
-    if (phase === "shrinking") setTimeout(() => setPhase("waiting"), 500);
-    if (phase === "waiting") setTimeout(() => setPhase("down"), 500);
-    if (phase === "down")
-      setTimeout(() => {
-        updateGlobe(0.003, [0, -1.4, 0], scale);
-        setPhase("pages");
-      }, 1000);
-  }, [phase]);
-
   const { animatedScale, animatedPosition } = useSpring({
-    animatedScale: phase === "big" ? 8 : phase === "down" ? 0.7 : scale,
-    animatedPosition:
-      phase === "big" ? [0, -4, 0] : phase === "down" ? [0, -1.5, 0] : position,
+    animatedScale: scale,
+    animatedPosition: position,
     config: { mass: 1, tension: 180, friction: 40 },
   });
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 5], fov: 30 }}>
-        <ambientLight intensity={7.5} />
+        <ambientLight intensity={10} />
         <directionalLight position={[-7, 7, 10]} intensity={0.1} />
 
         <AtmosphericGlow position={animatedPosition} scale={animatedScale} />
@@ -67,7 +51,7 @@ export default function Globe() {
 }
 
 interface AtmosphericGlowProps {
-  position: SpringValue<number[]> | [number, number, number];
+  position: SpringValue<[number, number, number]> | [number, number, number];
   scale: SpringValue<number> | number;
   color?: THREE.ColorRepresentation;
   glowStrength?: number; // Optional prop for controlling glow intensity
@@ -147,7 +131,7 @@ const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
 
 interface SpringEarthProps {
   scale: SpringValue<number> | [number, number, number];
-  position: SpringValue<number[]> | [number, number, number];
+  position: SpringValue<[number, number, number]> | [number, number, number];
   rotationSpeed: SpringValue<number>;
 }
 
@@ -175,7 +159,7 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
       <meshStandardMaterial
         map={colorMap}
         emissiveMap={emissiveMap}
-        emissive={new THREE.Color("orange")}
+        emissive={new THREE.Color("#ffdebd")}
         emissiveIntensity={0.5}
         displacementMap={displacementMap}
         displacementScale={0.025}

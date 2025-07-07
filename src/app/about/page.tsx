@@ -46,8 +46,8 @@ export default function AboutPage() {
       <main className="max-w-7xl mx-auto px-6 md:px-0 space-y-12 md:py-20">
         {/* Our Mission & Vision Section */}
         <section>
-          <div className="p-6 rounded-2xl border border-white/10">
-            <div className="flex flex-col md:flex-row items-stretch gap-8">
+          <div className="p-6 rounded-2xl border items-center justify-center border-white/10">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               {/* Text Alanı */}
               <div className="flex-1 flex flex-col justify-between min-w-0">
                 <div className="flex flex-col gap-8">
@@ -72,8 +72,6 @@ export default function AboutPage() {
                     accordance with the{" "}
                     <span className="underline">privacy policy</span>
                   </div>
-                </div>
-                <div className="mt-8">
                   <AnimatedButton text="Contact Us" />
                 </div>
               </div>
@@ -114,7 +112,7 @@ export default function AboutPage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="border border-white/10 rounded-2xl p-6 shadow-xl hover:shadow-blue-600/20 hover:border-blue-500 transition-all duration-200 flex flex-col min-h-44"
+                  className="border border-white/10 rounded-2xl p-6 shadow-xl transition-all duration-200 flex flex-col min-h-44"
                 >
                   <h3 className="text-2xl font-semibold text-white mb-4">
                     {title}

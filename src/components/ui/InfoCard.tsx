@@ -10,7 +10,7 @@ type InfoCardProps = {
 
 const InfoCard = ({ icon, title, description }: InfoCardProps) => {
   return (
-    <div className="flex items-center gap-4 rounded-lg border border-gray-600 p-4 hover:border-blue-600 transition-colors w-full">
+    <div className="flex items-center gap-4 rounded-lg border border-gray-600 p-4  w-full">
       <div className="w-10 h-10 flex items-center justify-center">
         <Image src={icon} width={32} height={32} alt={title} />
       </div>

@@ -38,7 +38,7 @@ const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          Our approach starts with
+          The true force that drives us is
         </motion.span>
         <AnimatePresence mode="wait">
           <motion.span

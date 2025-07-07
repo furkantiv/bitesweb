@@ -46,19 +46,11 @@ export default function ContactPage() {
             <motion.div
               variants={fadeUp}
               className="w-full md:w-1/2 rounded-3xl flex flex-col gap-6 shadow-lg "
-              whileHover={{
-                scale: 1.012,
-                boxShadow: "0 8px 32px 0 rgba(0,0,0,0.16)",
-              }}
               transition={{ type: "spring", stiffness: 120 }}
             >
-              <motion.h2
-                className="text-3xl md:text-4xl font-semibold text-white mb-2"
-                whileHover={{ scale: 1.035, color: "#60a5fa" }}
-                transition={{ type: "spring", stiffness: 260 }}
-              >
+              <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2">
                 Get in touch now!
-              </motion.h2>
+              </h2>
               {/* Name */}
               <motion.div variants={fadeUp}>
                 <label className="block text-sm font-semibold text-white mb-1">
@@ -151,13 +143,9 @@ export default function ContactPage() {
               className="flex-1 flex flex-col gap-8"
               variants={fadeUp}
             >
-              <motion.h2
-                className="text-3xl md:text-4xl font-semibold text-white"
-                whileHover={{ scale: 1.025, color: "#60a5fa" }}
-                transition={{ type: "spring", stiffness: 220 }}
-              >
+              <h2 className="text-3xl md:text-4xl font-semibold text-white">
                 Address
-              </motion.h2>
+              </h2>
               {/* Headquarter */}
               <motion.div variants={fadeUp}>
                 <h3 className="text-base font-medium text-white border-b border-white/20 pb-2 mb-2">

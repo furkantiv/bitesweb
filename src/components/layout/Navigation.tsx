@@ -70,14 +70,6 @@ const NavigationItem = ({
 
 const navItems = [
   {
-    number: "00",
-    title: "HomePage",
-    href: "/",
-    position: [0, -1.4, 0],
-    speed: 0.05,
-    scale: 0.7,
-  },
-  {
     number: "01",
     title: "About Us",
     href: "/about",
