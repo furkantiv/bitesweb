@@ -4,7 +4,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useState, useRef, useLayoutEffect, forwardRef } from "react";
 import Link from "next/link";
 
-type AnimatedButtonVariant = "filled" | "outline";
+type AnimatedButtonVariant = "filled" | "outline" | "ghost";
 
 interface BaseProps {
   text: string;
@@ -67,8 +67,16 @@ export const AnimatedButton = forwardRef<
         };
 
   const iconColor = variant === "filled" ? "#fff" : color;
-  const pillBg = variant === "filled" ? color : hovered ? color : "transparent";
-  const pillBorder = `2px solid ${color}`;
+  const pillBg =
+    variant === "ghost"
+      ? "transparent"
+      : variant === "filled"
+      ? color
+      : hovered
+      ? color
+      : "transparent";
+
+  const pillBorder = `1px solid ${color}`;
   const pillTextColor = "#fff";
   const pillArrowColor = "#fff";
 

@@ -2,6 +2,7 @@ import NewsGrid from "@/components/sections/NewsGrid";
 import HeroText from "@/components/sections/TrustHero";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import InfoCardsGrid from "@/components/ui/InfoCard";
+import Loader from "@/components/ui/Loader";
 
 export const metadata = {
   title: "Bites",
@@ -11,6 +12,7 @@ export const metadata = {
 const HomePage = () => {
   return (
     <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4">
+      <Loader delay={1500} />
       <div className="flex flex-col items-center space-y-10 md:mt-30 max-h-full md:overflow-hidden">
         <HeroText
           words={["Trust", "Innovation", "Agility", "Care"]}
@@ -22,10 +24,10 @@ const HomePage = () => {
           <AnimatedButton
             text="About Us"
             color="#A2ACB4"
-            variant="outline"
+            variant="ghost"
             href="/about"
           />
-          <AnimatedButton text="Get in touch" color="#004DFF" />
+          <AnimatedButton text="Get in touch" color="#004DFF" href="/contact" />
         </div>
 
         {/* Info Grid */}
@@ -33,7 +35,6 @@ const HomePage = () => {
           <InfoCardsGrid />
         </div>
       </div>
-
       {/* Sticky NewsGrid (Only visible on larger screens) */}
       <div className="fixed bottom-0 right-0 z-30 hidden md:block">
         <NewsGrid />

@@ -72,7 +72,7 @@ export default function AboutPage() {
                     accordance with the{" "}
                     <span className="underline">privacy policy</span>
                   </div>
-                  <AnimatedButton text="Contact Us" />
+                  <AnimatedButton text="Contact Us" href="/contact" />
                 </div>
               </div>
               {/* Görsel Alanı */}
