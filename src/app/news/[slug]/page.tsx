@@ -3,16 +3,21 @@ import { Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
 import BreadcrumbsWithSearch from "@/components/ui/BreadcrumbsWithSearch";
 import { slugify } from "@/utils/slugify";
 
-type Props = { params: { slug: string } };
-
 export function generateStaticParams() {
   return newsList.map((news) => ({
     slug: slugify(news.title),
   }));
 }
 
-export default function NewsDetailPage({ params }: Props) {
-  const news = newsList.find((n) => slugify(n.title) === params.slug);
+export default async function NewsDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // Await the params Promise
+  const { slug } = await params;
+
+  const news = newsList.find((n) => slugify(n.title) === slug);
 
   if (!news) {
     return (
