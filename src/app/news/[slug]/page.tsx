@@ -1,15 +1,9 @@
 import { newsList } from "@/data/news";
 import { Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
 import BreadcrumbsWithSearch from "@/components/ui/BreadcrumbsWithSearch";
+import { slugify } from "@/utils/slugify";
 
 type Props = { params: { slug: string } };
-
-export function slugify(str: string) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 export function generateStaticParams() {
   return newsList.map((news) => ({
