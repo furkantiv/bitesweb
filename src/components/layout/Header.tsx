@@ -29,10 +29,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 w-full z-50 pt-6 px-6 transition-all duration-300
+      className={`
+    fixed left-0 w-full z-50 pt-6 px-6 transition-all duration-300
     ${
       mobileMenuOpen
-        ? "bg-[#00192F]"
+        ? "bg-[#00192F] h-full"
         : scrolled
         ? "bg-black/20 backdrop-blur-md shadow-lg"
         : "bg-transparent"

@@ -5,94 +5,14 @@ import NewsContent from "@/components/ui/NewsContent";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/layout/Footer";
+import { newsList } from "@/data/news";
+import { LastNewsCard } from "@/components/ui/LastNewsCard";
 
 const categories = [
   { label: "All News", value: "all" },
   { label: "Defence News", value: "defence" },
   { label: "Bites News", value: "bites" },
   { label: "Tech News", value: "tech" },
-];
-
-// Example news data, categorized
-const newsList = [
-  {
-    id: 1,
-    timeAgo: "07 Hours ago...",
-    source: "Bites News",
-    date: "23 September, 2025",
-    title:
-      "Mr. Faruk YILMAZ visited BITES with a delegation of more than twenty-five experts and directors from various departments in a remarkable event focusing on the digital transformation and future strategies for the company, highlighting his extensive experience and vision for innovation in public sector technology across Turkey.",
-    description:
-      "Mr. Faruk YILMAZ, Head of Strategy Department of UDHAM Presidency of the Ministry of Transport and Infrastructure of the Republic of Turkey and his delegation, participated in an in-depth panel session discussing the multifaceted challenges and upcoming projects of the digital era, sharing valuable insights that will shape the technological landscape for years to come. This marks a milestone in our ongoing efforts toward excellence and innovation, as we continue to collaborate and advance together, inspiring both public and private stakeholders.",
-    image:
-      "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&h=240&fit=crop&crop=center",
-    category: "bites",
-  },
-  {
-    id: 2,
-    timeAgo: "23 May, 2025",
-    source: "Bites News",
-    date: "23 September, 2025",
-    title:
-      "10th of January Journalists' Day of our valuable press members who ensure the public's access to information under all circumstances, protecting freedom of speech and serving democracy with their tireless commitment, diligence, and outstanding journalistic integrity in the face of ever-changing media landscapes.",
-    description:
-      "We celebrate the 10th of January Journalists' Day of our valuable press members who ensure the public's access to information under all circumstances, showing extraordinary effort and professional devotion.",
-    image:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&h=240&fit=crop&crop=center",
-    category: "bites",
-  },
-  {
-    id: 3,
-    timeAgo: "12 May, 2025",
-    source: "Defence News",
-    date: "23 September, 2025",
-    title:
-      "Flag Rises in New Tech! The launch event gathered industry leaders, government officials, and innovators for a groundbreaking day packed with announcements, workshops, and opportunities for networking and collaboration, emphasizing the critical role of defense technology in national security and economic development.",
-    description:
-      "We celebrate the 10th of January Journalists' Day of our valuable press members who ensure the public's access to information under all circumstances, showing extraordinary effort and professional devotion, even when facing difficult and unpredictable situations. Their role in society, as unbiased conveyors of truth and defenders of open discourse, cannot be overstated. We thank them for their courage and unwavering pursuit of factual reporting.",
-    image:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=240&fit=crop&crop=center",
-    category: "defence",
-  },
-  {
-    id: 4,
-    timeAgo: "16 May, 2025",
-    source: "Tech News",
-    date: "23 September, 2025",
-    title:
-      "AI VR Trends of 2025: How Next-Generation Artificial Intelligence and Virtual Reality Are Shaping the Future of Human-Computer Interaction, Business, Entertainment, Education, and Society at Large, Unlocking New Potentials and Raising New Challenges for Innovation and Ethics.",
-    description:
-      "We celebrate the 10th of January Journalists' Day of our valuable press members who ensure the public's access to information under all circumstances, showing extraordinary effort and professional devotion, even when facing difficult and unpredictable situations. Their role in society, as unbiased conveyors of truth and defenders of open discourse, cannot be overstated. We thank them for their courage and unwavering pursuit of factual reporting.",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=240&fit=crop&crop=center",
-    category: "tech",
-  },
-  {
-    id: 5,
-    timeAgo: "16 May, 2025",
-    source: "Tech News",
-    date: "23 September, 2025",
-    title:
-      "AI VR Trends of 2025: How Next-Generation Artificial Intelligence and Virtual Reality Are Shaping the Future of Human-Computer Interaction, Business, Entertainment, Education, and Society at Large, Unlocking New Potentials and Raising New Challenges for Innovation and Ethics.",
-    description:
-      "We celebrate the 10th of January Journalists' Day of our valuable press members who ensure the public's access to information under all circumstances, showing extraordinary effort and professional devotion, even when facing difficult and unpredictable situations. Their role in society, as unbiased conveyors of truth and defenders of open discourse, cannot be overstated. We thank them for their courage and unwavering pursuit of factual reporting.",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=240&fit=crop&crop=center",
-    category: "tech",
-  },
-  {
-    id: 6,
-    timeAgo: "16 May, 2025",
-    source: "Tech News",
-    date: "23 September, 2025",
-    title:
-      "AI VR Trends of 2025: How Next-Generation Artificial Intelligence and Virtual Reality Are Shaping the Future of Human-Computer Interaction, Business, Entertainment, Education, and Society at Large, Unlocking New Potentials and Raising New Challenges for Innovation and Ethics.",
-    description:
-      "We celebrate the 10th of January Journalists' Day of our valuable press members who ensure the public's access to information under all circumstances, showing extraordinary effort and professional devotion, even when facing difficult and unpredictable situations. Their role in society, as unbiased conveyors of truth and defenders of open discourse, cannot be overstated. We thank them for their courage and unwavering pursuit of factual reporting.",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=240&fit=crop&crop=center",
-    category: "tech",
-  },
 ];
 
 const fadeUp = {
@@ -103,6 +23,12 @@ const fadeUp = {
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 };
+function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
 const NewsPage = () => {
   const [selected, setSelected] = useState<string>("all");
@@ -116,6 +42,7 @@ const NewsPage = () => {
   const [index, setIndex] = useState(0);
   const lastThreeNews = newsList.slice(-3);
   const [direction, setDirection] = useState(1);
+  const [hideMobileFilters, setHideMobileFilters] = useState(false);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -124,6 +51,16 @@ const NewsPage = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, [lastThreeNews.length]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth < 1024) {
+        setHideMobileFilters(window.scrollY > 40);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -150,7 +87,24 @@ const NewsPage = () => {
                   className="flex items-start gap-4 p-4 bg-transparent rounded-2xl border border-white/10 hover:border-white/30 transition-all"
                 >
                   <div className="flex-1 flex flex-col gap-2">
-                    <NewsContent news={news} />
+                    <Link
+                      href={`/news/${slugify(news.title)}`}
+                      key={news.id}
+                      prefetch={false}
+                      className="block"
+                    >
+                      <motion.div
+                        layout
+                        transition={{
+                          type: "spring",
+                          stiffness: 200,
+                          damping: 26,
+                        }}
+                        className="hover:scale-[1.01] transition-all"
+                      >
+                        <NewsContent news={news} />
+                      </motion.div>
+                    </Link>
                   </div>
                 </motion.div>
               ))
@@ -160,16 +114,16 @@ const NewsPage = () => {
 
         {/* Right: Fixed Sidebar - Hidden on mobile, visible on lg+ */}
         <aside className="hidden lg:block w-full max-w-sm z-10">
-          <div className="fixed top-40 w-full max-w-sm h-screen overflow-y-auto">
+          <div className="fixed top-35 w-full max-w-sm h-screen overflow-y-auto">
             <div className="w-full max-w-sm flex flex-col gap-8">
               {/* Categories */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="bg-transparent p-6 rounded-2xl border border-white/10"
+                className="bg-transparent p-6 "
               >
-                <h3 className="text-lg font-medium text-white mb-4">
+                <h3 className="text-lg font-medium border-t pt-2 border-white/30 text-white mb-4">
                   Categories
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -190,78 +144,22 @@ const NewsPage = () => {
               </motion.div>
 
               {/* Last News Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="bg-transparent p-4 rounded-2xl border border-white/10"
-              >
-                <h4 className="text-md font-semibold text-white mb-3 truncate">
-                  Last News
-                </h4>
-                <div className="relative min-h-[88px] overflow-hidden">
-                  <AnimatePresence initial={false} custom={direction}>
-                    <motion.div
-                      key={index}
-                      custom={direction}
-                      initial={{ x: direction * 80, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: direction * -80, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
-                      className="flex gap-4 w-full absolute left-0 top-0 cursor-grab"
-                      drag="x"
-                      dragConstraints={{ left: 0, right: 0 }}
-                      onDragEnd={(_, info) => {
-                        if (info.offset.x < -50) {
-                          setDirection(1);
-                          setIndex((prev) => (prev + 1) % lastThreeNews.length);
-                        } else if (info.offset.x > 50) {
-                          setDirection(-1);
-                          setIndex(
-                            (prev) =>
-                              (prev - 1 + lastThreeNews.length) %
-                              lastThreeNews.length
-                          );
-                        }
-                      }}
-                    >
-                      <div className="w-24 h-22 rounded-lg overflow-hidden flex-shrink-0">
-                        <img
-                          src={lastThreeNews[index].image}
-                          alt={lastThreeNews[index].title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0 flex flex-col">
-                        <div className="text-white font-medium text-sm line-clamp-1 mb-1">
-                          {lastThreeNews[index].title}
-                        </div>
-                        <div className="text-gray-400 text-xs line-clamp-2 mb-1">
-                          {lastThreeNews[index].description}
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-gray-500 truncate">
-                          <span className="truncate">
-                            {lastThreeNews[index].date}
-                          </span>
-                          <span className="text-white">|</span>
-                          <span className="truncate">
-                            {lastThreeNews[index].source}
-                          </span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </motion.div>
+              <LastNewsCard
+                newsList={lastThreeNews}
+                index={index}
+                setIndex={setIndex}
+                direction={direction}
+                setDirection={setDirection}
+              />
 
               {/* Social links */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="bg-transparent p-4 rounded-2xl border border-white/10"
+                className="bg-transparent p-4"
               >
-                <h4 className="text-md font-semibold text-white mb-3">
+                <h4 className="text-md border-t border-white/30 font-semibold pt-2 text-white mb-3">
                   Follow Us
                 </h4>
                 <div className="flex gap-4">
@@ -311,25 +209,36 @@ const NewsPage = () => {
         </aside>
 
         {/* Mobile Categories - Visible only on mobile */}
-        <div className="lg:hidden fixed top-14 left-0 right-0 z-10 backdrop-blur-md p-2">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={cat.value}
-                  onClick={() => setSelected(cat.value)}
-                  className={`px-4 py-1 rounded-full border text-sm ${
-                    selected === cat.value
-                      ? "bg-white text-black border-white"
-                      : "bg-transparent text-white border-white/30 hover:bg-white/10"
-                  } transition-all`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+        <AnimatePresence>
+          {!hideMobileFilters && (
+            <motion.div
+              key="mobile-filters"
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -32 }}
+              transition={{ duration: 0.25 }}
+              className="lg:hidden fixed top-14 left-0 right-0 z-10 backdrop-blur-md p-2"
+            >
+              <div className="max-w-7xl mx-auto px-4">
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat.value}
+                      onClick={() => setSelected(cat.value)}
+                      className={`px-4 py-1 rounded-full border text-sm ${
+                        selected === cat.value
+                          ? "bg-white text-black border-white"
+                          : "bg-transparent text-white border-white/30 hover:bg-white/10"
+                      } transition-all`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       <footer className="relative z-50">
         <Footer />

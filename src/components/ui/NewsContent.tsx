@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 export interface NewsContentProps {
   news: {
     id: number;
-    timeAgo: string;
     source: string;
     date: string;
     title: string;
@@ -28,10 +27,13 @@ const NewsContent: React.FC<NewsContentProps> = ({ news }) => (
     {/* Time Badge */}
     <div className="flex flex-row md:flex-col items-center md:items-start gap-1 flex-shrink-0 mb-2 md:mb-0">
       <div className="text-white text-2xl md:text-4xl font-light leading-none">
-        {news.timeAgo.split(" ")[0]}
+        {news.date.split(" ")[0]}
       </div>
       <div className="text-xs md:text-sm text-gray-400">
-        {news.timeAgo.split(" ").slice(1).join(" ")}
+        {news.date.split(" ")[1]}
+      </div>
+      <div className="text-xs md:text-sm text-gray-400">
+        {news.date.split(" ")[2]}
       </div>
     </div>
 
@@ -54,7 +56,6 @@ const NewsContent: React.FC<NewsContentProps> = ({ news }) => (
           <span className="text-gray-300 text-xs md:text-sm font-medium">
             {news.source}
           </span>
-          <span className="text-gray-500 text-xs md:text-sm">{news.date}</span>
         </div>
         <motion.h3
           initial={{ opacity: 0, y: 10 }}

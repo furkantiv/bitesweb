@@ -28,8 +28,11 @@ const NewsContentForHome: React.FC<NewsContentProps> = ({ news }) => (
         <div className="text-4xl font-light mb-1">
           {news.timeAgo.split(" ")[0]}
         </div>
-        <div className="text-sm text-gray-400">
-          {news.timeAgo.split(" ").slice(1).join(" ")}
+        <div className="text-xs md:text-sm text-gray-400">
+          {news.date.split(" ")[1]}
+        </div>
+        <div className="text-xs md:text-sm text-gray-400">
+          {news.date.split(" ")[2]}
         </div>
       </div>
     </div>

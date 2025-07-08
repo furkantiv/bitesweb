@@ -19,7 +19,7 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
     controls
       .start({
         opacity: [0, 1.15, 0.9], // 1.15 ile kısa bir "flash"
-        scale: [1, 1.12, 1],
+        scale: [1.5, 1.62, 1.5],
         transition: {
           duration: 2.5,
           times: [0, 0.65, 1],
@@ -36,7 +36,7 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
     if (showFull) {
       controls.start({
         opacity: [0.85, 0.95, 0.92, 0.95, 0.85],
-        scale: [1, 1.015, 1, 0.99, 1],
+        scale: [1.5, 1.45, 1.5, 1.45, 1.5],
         transition: {
           duration: 2.3,
           repeat: Infinity,

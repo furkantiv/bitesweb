@@ -12,7 +12,7 @@ const images = {
   life: `${basePath}/images/career/LifeasBites.png`,
 };
 
-const cardBase = "rounded-2xl border border-gray-700 p-6 md:p-8  shadow-none";
+const cardBase = "rounded-2xl border border-gray-700 p-6 md:p-8 shadow-none";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -102,7 +102,6 @@ export default function CareersPage() {
               <div>
                 <motion.h2
                   className="text-2xl font-bold text-white mb-2"
-                  whileHover={{ scale: 1.02, color: "#60a5fa" }}
                   transition={{ type: "spring", stiffness: 250 }}
                 >
                   Recruitment Criteria
@@ -136,21 +135,26 @@ export default function CareersPage() {
                 </motion.ul>
               </div>
               <div className="mt-4">
-                <AnimatedButton text=" Details" />
+                <AnimatedButton text="Details" />
               </div>
             </div>
             {/* Image Side */}
             <motion.div
-              className="flex-1 w-full md:w-64 h-40 md:h-auto relative rounded-2xl overflow-hidden"
-              whileHover={{ scale: 1.03 }}
+              className="flex-1 flex items-center justify-center"
               transition={{ type: "spring", stiffness: 250 }}
             >
-              <Image
-                src={images.criteria}
-                alt="Recruitment"
-                fill
-                className="object-cover"
-              />
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full rounded-2xl overflow-hidden flex-1">
+                <Image
+                  src={images.criteria}
+                  alt="Recruitment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
             </motion.div>
           </motion.div>
 
@@ -163,10 +167,6 @@ export default function CareersPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
-              whileHover={{
-                y: -6,
-                boxShadow: "0 4px 32px 0 rgba(16,33,55,0.14)",
-              }}
               transition={{ type: "spring", stiffness: 180 }}
             >
               <h2 className="text-2xl font-bold text-white mb-2">
@@ -185,10 +185,6 @@ export default function CareersPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
-              whileHover={{
-                y: -6,
-                boxShadow: "0 4px 32px 0 rgba(16,33,55,0.13)",
-              }}
               transition={{ type: "spring", stiffness: 180 }}
             >
               <h2 className="text-2xl font-bold text-white mb-2">
@@ -204,7 +200,7 @@ export default function CareersPage() {
 
           {/* Life at Bites Row */}
           <motion.div
-            className={`${cardBase} flex flex-col md:flex-row gap-6 items-stretch`}
+            className={`${cardBase} flex flex-col md:flex-row min-h-120 gap-6 items-stretch`}
             variants={fadeInUp}
             initial="hidden"
             whileInView="show"
@@ -212,23 +208,27 @@ export default function CareersPage() {
           >
             {/* Image */}
             <motion.div
-              className="flex-1 w-full md:w-1/3 h-44 md:h-auto relative rounded-2xl overflow-hidden"
-              whileHover={{ scale: 1.03 }}
+              className="flex-1 flex items-center justify-center"
               transition={{ type: "spring", stiffness: 250 }}
             >
-              <Image
-                src={images.life}
-                alt="Life at Bites"
-                fill
-                className="object-cover"
-              />
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full rounded-2xl overflow-hidden flex-1">
+                <Image
+                  src={images.life}
+                  alt="Life at Bites"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
             </motion.div>
             {/* Text */}
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col justify-center">
               <div>
                 <motion.h2
                   className="text-2xl font-bold text-white mb-2"
-                  whileHover={{ scale: 1.02, color: "#60a5fa" }}
                   transition={{ type: "spring", stiffness: 250 }}
                 >
                   Life at BİTES
@@ -245,7 +245,7 @@ export default function CareersPage() {
                 </motion.p>
               </div>
               <div className="mt-4">
-                <AnimatedButton text=" Details" />
+                <AnimatedButton text="Details" />
               </div>
             </div>
           </motion.div>

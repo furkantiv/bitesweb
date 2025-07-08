@@ -148,7 +148,7 @@ export default function ContactPage() {
               </h2>
               {/* Headquarter */}
               <motion.div variants={fadeUp}>
-                <h3 className="text-base font-medium text-white border-b border-white/20 pb-2 mb-2">
+                <h3 className="text-base font-medium text-white border-t border-white/20 pb-2 mb-2">
                   Headquarter
                 </h3>
                 <p className="text-sm text-white/60">
@@ -160,7 +160,7 @@ export default function ContactPage() {
               </motion.div>
               {/* Working Hours */}
               <motion.div variants={fadeUp}>
-                <h3 className="text-base font-medium text-white border-b border-white/20 pb-2 mb-2">
+                <h3 className="text-base font-medium text-white border-t border-white/20 pb-2 mb-2">
                   Working Hours
                 </h3>
                 <p className="text-sm text-white/60">
@@ -173,7 +173,7 @@ export default function ContactPage() {
               </motion.div>
               {/* Social Media */}
               <motion.div variants={fadeUp}>
-                <h3 className="text-base font-medium text-white border-b border-white/20 pb-2 mb-2">
+                <h3 className="text-base font-medium text-white border-t border-white/20 pb-2 mb-2">
                   Social Media
                 </h3>
                 <motion.div

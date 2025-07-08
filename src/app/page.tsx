@@ -12,7 +12,7 @@ export const metadata = {
 const HomePage = () => {
   return (
     <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4">
-      <Loader delay={1500} />
+      {/* <Loader delay={1500} /> */}
       <div className="flex flex-col items-center space-y-10 md:mt-30 max-h-full md:overflow-hidden">
         <HeroText
           words={["Trust", "Innovation", "Agility", "Care"]}

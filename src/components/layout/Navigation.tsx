@@ -22,10 +22,6 @@ const NavigationItem = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Eğer animasyonlu işlemlerin Link davranışını etkilemesini istemiyorsan:
-    // e.preventDefault(); // Bunu kullanma! SPA için Link'in kendi yönlendirmesi çalışmalı.
-
-    // updateGlobe(speed, position, scale);
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (onNavigate) onNavigate();
   };
