@@ -1,6 +1,179 @@
 {
+  "Navigation": {
+    "about": "About Us",
+    "products": "Products",
+    "news": "News",
+    "career": "Career",
+    "contact": "Contact"
+  },
   "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+    "title": "The true force that drives us is",
+    "words": ["Agility", "Trust", "Care", "Innovation"],
+    "aboutUs": "About Us",
+    "getInTouch": "Get in touch",
+    "infoCards": {
+      "AIntelligence": "Artificial Intelligence",
+      "SafetyMission": "Safety & Mission Critical Software",
+      "DigitalTwin": "Digital Twin",
+      "DataAnalytics": "Data Analytics",
+      "SimulationTraining": "Simulations & Training System",
+      "CloudComputing": "Cloud Computing",
+      "MobileApp": "Mobile Applications",
+      "ExtendedReality": "Extended Reality"
+    }
+  },
+  "AboutPage": {
+    "metaTitle": "Bites - About Us",
+    "missionVisionTitle": "Our Mission & Vision",
+    "missionVisionDesc": "Our mission is to help businesses, institutions and individuals reap the benefits of technology through our innovative software and products. We strive to offer our customers and partners affordable, accessible, and secure technologies in the defense industry and information technologies.\nOur vision is to be recognised as an international innovation and R&D center, to help build a sustainable future for the world by developing software and products that will accelerate digitalization globally.",
+    "privacyNote": "I understand that my data will be held securely in accordance with the <link>privacy policy</link>",
+    "contactUs": "Contact Us",
+    "coreValuesTitle": "Our Core Values",
+    "coreValuesSubtitle": "We specialize in creating human-centricity.",
+    "values": [
+      {
+        "title": "Innovation",
+        "desc": "We believe the key to success is to push the boundaries. This is why we value new and bold ideas above all else."
+      },
+      {
+        "title": "Passion",
+        "desc": "We are passionate about what we do. Our passion is the essence of our work and is at the core of everything we do."
+      },
+      {
+        "title": "Agility",
+        "desc": "Our agile work model allows us to adapt to change and keep up with the pace of the sectors which we serve."
+      },
+      {
+        "title": "Trust",
+        "desc": "Accountability and transparency pave the way for mutual trust. This is why we carry out all our activities within the framework of our ethical values."
+      }
+    ],
+    "historyTitle": "Our History",
+    "historySubtitle": "We specialize in creating human-centricity.",
+    "timeline": [
+      {
+        "year": "2023",
+        "title": "BİTES became a 100% subsidiary of ASELSAN. Became Turkiye’s 4th fastest growing technology company. Leading Domestic Defence Industry Brand of the year."
+      },
+      {
+        "year": "2023",
+        "title": "BİTES became a 100% subsidiary of ASELSAN."
+      },
+      {
+        "year": "2021",
+        "title": "Ranked among the top 3 in the Defense Industry sector."
+      },
+      {
+        "year": "2020",
+        "title": "Became one of the top 10 companies in terms of revenue."
+      },
+      {
+        "year": "2019",
+        "title": "BİTES joined ASELSAN group."
+      },
+      {
+        "year": "2018",
+        "title": "First export to Sikorsky Aircraft Corporation."
+      },
+      {
+        "year": "2017",
+        "title": "First export to the Middle East."
+      },
+      {
+        "year": "2015",
+        "title": "First export to Airbus D&S."
+      },
+      {
+        "year": "2014",
+        "title": "ATAK T-129 WBT & VMT program awarded."
+      },
+      {
+        "year": "2012",
+        "title": "First export to Germany."
+      },
+      {
+        "year": "2009",
+        "title": "Started focusing on defense and aviation industries."
+      },
+      {
+        "year": "2008",
+        "title": "HELSIM-I work packages delivered successfully."
+      },
+      {
+        "year": "2005",
+        "title": "HELSIM I Program-II contract\nCompany founded"
+      }
+    ]
+  },
+  "CareerPage": {
+    "heroTitle": "Join Us!",
+    "heroDesc": "Join us to utilize, develop your knowledge and skills and succeed together in our work where we utilize the most up-to-date competencies and technologies in the field of defence industry.",
+    "criteriaTitle": "Recruitment Criteria",
+    "criteriaDesc": "Click here for the minimum requirements we expect candidates to meet.",
+    "criteriaList": [
+      "Recruitment Criteria for Candidates with a Bachelor’s Degree and/or Above",
+      "Additional Point Criteria",
+      "Candidates with Undergraduate Degrees Abroad",
+      "Doctoral Graduate Candidates",
+      "Recruitment Criteria for Candidates with High School / Associate Degree Graduates"
+    ],
+    "criteriaButton": "Details",
+    "openPositionTitle": "Open Position",
+    "openPositionDesc": "Discover our current job opportunities to join the BİTES family and succeed together.",
+    "openPositionButton": "Details",
+    "internshipTitle": "Talent and Internship Program",
+    "internshipDesc": "Make a strong start to your defense industry career at BİTES, where the most up-to-date technologies are used.",
+    "internshipButton": "Details",
+    "lifeTitle": "Life at BİTES",
+    "lifeDesc": "Discover our values, attractive benefits, fun office environment and development opportunities, as well as the opportunity to work on exciting projects.",
+    "lifeButton": "Details"
+  },
+  "ContactPage": {
+    "heroTitle": "Get in touch now!",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Enter your e-mail",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Enter your message",
+    "sendButton": "Send",
+    "privacyNote": "I understand that my data will be held securely in accordance with the <link>privacy policy</link>.",
+    "addressTitle": "Address",
+    "headquarter": "Headquarter",
+    "address": "Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi,\n280/G Kat:4 No:14 PK, 06530 Çankaya / ANKARA",
+    "workingHoursTitle": "Working Hours",
+    "workingHours": "Monday - Friday: 7:00 - 17:00\nSaturday: 7:00 - 12:00\nSunday and holidays: 8:00 - 10:00",
+    "socialMediaTitle": "Social Media"
+  },
+  "categories": {
+    "trainingsimulation": "Training and Simulation Systems",
+    "defenceinformation": "Defence Information Systems",
+    "technologyandbusiness": "Technology and Business Solutions Systems",
+    "avionicsandmission": "Avionics and Mission Systems",
+    "embedded-training-system": "Embedded Training System",
+    "breakdownmaintenance": "Breakdown Maintenance Simulation Systems",
+    "missionsimulators": "Mission Simulators",
+    "mixedreality": "Mixed Reality Simulation and Training Systems",
+    "atok": "Atok",
+    "karma": "KARMA",
+    "digitaltwin": "Digital Twin",
+    "porsuk": "Porsuk"
+  },
+  "productNav": {
+    "backToProducts": "Back to Products",
+    "backToCategory": "Back to {category}",
+    "notFound": "Category not found"
+  },
+  "newsCategories": {
+    "all": "All News",
+    "defence": "Defence News",
+    "bites": "Bites News",
+    "tech": "Tech News"
+  },
+  "newsPage": {
+    "noNews": "No news found in this category.",
+    "categories": "Categories",
+    "followUs": "Follow Us",
+    "lastNews": "Last News"
   }
 }

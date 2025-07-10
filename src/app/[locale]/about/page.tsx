@@ -6,25 +6,8 @@ import Image from "next/image";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import TimelineComponent from "@/components/ui/TimelineComponent";
 import Footer from "@/components/layout/Footer";
-
-const values = [
-  {
-    title: "Innovation",
-    desc: "We believe the key to success is to push the boundaries. This is why we value new and bold ideas above all else.",
-  },
-  {
-    title: "Passion",
-    desc: "We are passionate about what we do. Our passion is the essence of our work and is at the core of everything we do.",
-  },
-  {
-    title: "Agility",
-    desc: "Our agile work model allows us to adapt to change and keep up with the pace of the sectors which we serve.",
-  },
-  {
-    title: "Trust",
-    desc: "Accountability and transparency pave the way for mutual trust. This is why we carry out all our activities within the framework of our ethical values.",
-  },
-];
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -32,14 +15,17 @@ const fadeUpVariant = {
 };
 
 export default function AboutPage() {
+  const t = useTranslations("AboutPage");
+  const values = t.raw("values"); // Array<{title, desc}>
+
   useEffect(() => {
-    document.title = "Bites - About Us";
-  }, []);
+    document.title = t("metaTitle");
+  }, [t]);
 
   return (
     <>
       <Head>
-        <title>Bites - About Us</title>
+        <title>{t("metaTitle")}</title>
       </Head>
       <main className="max-w-7xl mx-auto px-6 md:px-0 space-y-12 md:py-20">
         {/* Our Mission & Vision Section */}
@@ -50,27 +36,26 @@ export default function AboutPage() {
               <div className="flex-1 flex flex-col justify-between min-w-0">
                 <div className="flex flex-col gap-8">
                   <h2 className="text-white text-4xl font-semibold font-sans">
-                    Our Mission & Vision
+                    {t("missionVisionTitle")}
                   </h2>
-                  <div className="text-white text-base font-normal font-sans leading-relaxed">
-                    Our mission is to help businesses, institutions and
-                    individuals reap the benefits of technology through our
-                    innovative software and products. We strive to offer our
-                    customers and partners affordable, accessible, and secure
-                    technologies in the defense industry and information
-                    technologies.
-                    <br />
-                    Our vision is to be recognised as an international
-                    innovation and R&D center, to help build a sustainable
-                    future for the world by developing software and products
-                    that will accelerate digitalization globally.
+                  <div className="text-white text-base font-normal font-sans leading-relaxed whitespace-pre-line">
+                    {t("missionVisionDesc")}
                   </div>
                   <div className="text-white/60 text-sm font-normal font-sans leading-tight">
-                    I understand that my data will be held securely in
-                    accordance with the{" "}
-                    <span className="underline">privacy policy</span>
+                    {t.rich("privacyNote", {
+                      link: (chunks) => (
+                        <Link
+                          href="/privacy-policy"
+                          className="underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {chunks}
+                        </Link>
+                      ),
+                    })}
                   </div>
-                  <AnimatedButton text="Contact Us" href="/contact" />
+                  <AnimatedButton text={t("contactUs")} href="/contact" />
                 </div>
               </div>
               {/* Görsel Alanı */}
@@ -96,16 +81,16 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto">
             <div className="mb-6 mx-6">
               <h2 className="text-4xl font-semibold text-white mb-3">
-                Our Core Values
+                {t("coreValuesTitle")}
               </h2>
               <h3 className="text-2xl font-medium text-white/80">
-                We specialize in creating human-centricity.
+                {t("coreValuesSubtitle")}
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {values.map(({ title, desc }) => (
+              {values.map((val: any, i: number) => (
                 <motion.div
-                  key={title}
+                  key={val.title}
                   variants={fadeUpVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -113,9 +98,9 @@ export default function AboutPage() {
                   className="border border-[#35434D] rounded-2xl p-6 shadow-xl transition-all duration-200 flex flex-col min-h-44"
                 >
                   <h3 className="text-2xl font-semibold text-white mb-4">
-                    {title}
+                    {val.title}
                   </h3>
-                  <p className="text-white text-base flex-1">{desc}</p>
+                  <p className="text-white text-base flex-1">{val.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -126,10 +111,10 @@ export default function AboutPage() {
         <section>
           <div className="mb-6 px-6">
             <h2 className="text-4xl font-semibold text-white mb-3">
-              Our History
+              {t("historyTitle")}
             </h2>
             <h3 className="text-2xl font-medium text-white/80">
-              We specialize in creating human-centricity.
+              {t("historySubtitle")}
             </h3>
           </div>
           <TimelineComponent />

@@ -1,10 +1,10 @@
 "use client";
-
 import React from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { categories } from "@/data/categories";
+import { useTranslations } from "next-intl";
 
 const gridVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -13,6 +13,7 @@ const gridVariants = {
 
 const ProductsPage = () => {
   const router = useRouter();
+  const t = useTranslations();
 
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-0  md:pt-20 flex flex-col items-center justify-center">
@@ -30,13 +31,13 @@ const ProductsPage = () => {
             className="cursor-pointer rounded-2xl transition group shadow-xl border border-[#303030] w-[400px] h-[260px] md:w-[600px] md:h-[340px] p-4"
           >
             <div className="text-white font-semibold text-base m-2">
-              {cat.name}
+              {t("categories." + cat.slug)}
             </div>
             <div className="w-full rounded-xl overflow-hidden">
               <SpotlightCard>
                 <img
                   src={cat.image}
-                  alt={cat.name}
+                  alt={t("categories." + cat.slug)}
                   className="w-full h-full object-cover"
                 />
               </SpotlightCard>

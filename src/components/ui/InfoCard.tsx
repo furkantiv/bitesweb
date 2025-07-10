@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 type InfoCardProps = {
   icon: string;
@@ -20,41 +21,49 @@ const InfoCard = ({ icon, title, description }: InfoCardProps) => {
   );
 };
 
-export default function InfoCardsGrid() {
+export default async function InfoCardsGrid() {
+  const t = await getTranslations("HomePage.infoCards");
+
+  const cards = [
+    {
+      icon: "/images/icons/home/AIntelligence.png",
+      key: "AIntelligence",
+    },
+    {
+      icon: "/images/icons/home/SafetyMission.png",
+      key: "SafetyMission",
+    },
+    {
+      icon: "/images/icons/home/DigitalTwin.png",
+      key: "DigitalTwin",
+    },
+    {
+      icon: "/images/icons/home/DataAnalytics.png",
+      key: "DataAnalytics",
+    },
+    {
+      icon: "/images/icons/home/SimulationTraining.png",
+      key: "SimulationTraining",
+    },
+    {
+      icon: "/images/icons/home/CloudComputing.png",
+      key: "CloudComputing",
+    },
+    {
+      icon: "/images/icons/home/MobileApp.png",
+      key: "MobileApp",
+    },
+    {
+      icon: "/images/icons/home/ExtendedReality.png",
+      key: "ExtendedReality",
+    },
+  ];
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto px-4 py-6">
-      <InfoCard
-        icon="/images/icons/home/AIntelligence.png"
-        title="Artificial Intelligence"
-      />
-      <InfoCard
-        icon="/images/icons/home/SafetyMission.png"
-        title="Safety & Mission Critical Software"
-      />
-      <InfoCard
-        icon="/images/icons/home/DigitalTwin.png"
-        title="Digital Twin"
-      />
-      <InfoCard
-        icon="/images/icons/home/DataAnalytics.png"
-        title="Data Analytics"
-      />
-      <InfoCard
-        icon="/images/icons/home/SimulationTraining.png"
-        title="Simulations & Training System"
-      />
-      <InfoCard
-        icon="/images/icons/home/CloudComputing.png"
-        title="Cloud Computing"
-      />
-      <InfoCard
-        icon="/images/icons/home/MobileApp.png"
-        title="Mobile Applications"
-      />
-      <InfoCard
-        icon="/images/icons/home/ExtendedReality.png"
-        title="Extended Reality"
-      />
+      {cards.map((card) => (
+        <InfoCard key={card.key} icon={card.icon} title={t(card.key)} />
+      ))}
     </div>
   );
 }

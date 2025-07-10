@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { GlobeLink } from "../ui/GlobeLink";
+import { LocaleSwitcher } from "../ui/LocaleSwitcher";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -46,9 +47,8 @@ const Header = () => {
         <GlobeLink href={`/`}>
           <Image src="/logo.svg" alt="Bites Logo" width={100} height={40} />
         </GlobeLink>
-        <div className="text-center justify-start text-white text-base font-medium hidden md:block">
-          EN
-        </div>
+
+        <LocaleSwitcher />
 
         <button
           className="md:hidden text-white"

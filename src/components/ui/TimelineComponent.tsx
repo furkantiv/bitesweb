@@ -1,70 +1,13 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
-import {
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  ChevronUp,
-} from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Center } from "@react-three/drei";
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-
-type TimelineItem = {
-  year: string;
-  title: string;
-  desc: string;
-};
-const timelineData: TimelineItem[] = [
-  {
-    year: "2023",
-    title:
-      "BİTES became a 100% subsidairy of ASELSAN. Became Turkiye’s 4th fastest growing technology company. Leading Domestic Defence Industry Brand of the year.",
-    desc: "",
-  },
-  { year: "2023", title: "BİTES yüzde 100 ASELSAN iştiraki oldu", desc: "" },
-  {
-    year: "2021",
-    title: "Savunma Sanayii Sektöründe ilk 3'te yer aldı",
-    desc: "",
-  },
-  {
-    year: "2020",
-    title: "En yüksek gelire sahip ilk 10 şirketten biri oldu",
-    desc: "",
-  },
-  { year: "2019", title: "BİTES ASELSAN bünyesine katıldı", desc: "" },
-  {
-    year: "2018",
-    title: "Sikorsky Aircraft Corporation'a ilk ihracat",
-    desc: "",
-  },
-  { year: "2017", title: "Ortadoğu'ya ilk ihracat", desc: "" },
-  { year: "2015", title: "Airbus D&S'ye ilk ihracat", desc: "" },
-  {
-    year: "2014",
-    title: "ATAK T-129 WBT & VMT programı ödüllendirildi",
-    desc: "",
-  },
-  { year: "2012", title: "Almanya'ya ilk ihracat yapıldı", desc: "" },
-  {
-    year: "2009",
-    title: "Savunma ve havacılık alanlarına ağırlık verilmeye başlandı",
-    desc: "",
-  },
-  {
-    year: "2008",
-    title: "HELSIM-I iş paketleri başarıyla teslim edildi",
-    desc: "",
-  },
-  {
-    year: "2005",
-    title: "HELSIM I Program-II sözleşmesi\nŞirket Kuruluşu",
-    desc: "",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function Timeline() {
+  const t = useTranslations("AboutPage");
+  const timelineData = t.raw("timeline") as { year: string; title: string }[];
   const [windowWidth, setWindowWidth] = React.useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );

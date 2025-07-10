@@ -1,6 +1,179 @@
 {
+  "Navigation": {
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "news": "Haberler",
+    "career": "Kariyer",
+    "contact": "İletişim"
+  },
   "HomePage": {
-    "title": "Merhaba Dunya!",
-    "about": "Iste bu Turkce"
+    "title": "Bizi harekete geçiren asıl güç",
+    "words": ["Çeviklik", "Güven", "Özen", "Yenilikçilik"],
+    "aboutUs": "Hakkımızda",
+    "getInTouch": "İletişime geç",
+    "infoCards": {
+      "AIntelligence": "Yapay Zeka",
+      "SafetyMission": "Emniyet ve Görev Kritik Yazılım",
+      "DigitalTwin": "Dijital İkiz",
+      "DataAnalytics": "Veri Analitiği",
+      "SimulationTraining": "Simülasyon ve Eğitim Sistemleri",
+      "CloudComputing": "Bulut Bilişim",
+      "MobileApp": "Mobil Uygulamalar",
+      "ExtendedReality": "Genişletilmiş Gerçeklik"
+    }
+  },
+  "AboutPage": {
+    "metaTitle": "Bites - Hakkımızda",
+    "missionVisionTitle": "Misyonumuz & Vizyonumuz",
+    "missionVisionDesc": "Misyonumuz; işletmelerin, kurumların ve bireylerin yenilikçi yazılım ve ürünlerimizle teknolojinin faydalarından yararlanmasını sağlamaktır. Müşterilerimize ve iş ortaklarımıza savunma sanayi ve bilgi teknolojilerinde uygun fiyatlı, erişilebilir ve güvenli teknolojiler sunmak için çalışıyoruz.\nVizyonumuz; uluslararası bir inovasyon ve Ar-Ge merkezi olarak tanınmak, dünyada dijitalleşmeyi hızlandıracak yazılım ve ürünler geliştirerek sürdürülebilir bir gelecek inşa etmeye katkı sağlamaktır.",
+    "privacyNote": "Verilerimin <link>gizlilik politikası</link> kapsamında güvenli bir şekilde tutulacağını anlıyorum.",
+    "contactUs": "İletişime Geç",
+    "coreValuesTitle": "Temel Değerlerimiz",
+    "coreValuesSubtitle": "İnsanı odağa alan çözümler geliştiriyoruz.",
+    "values": [
+      {
+        "title": "Yenilikçilik",
+        "desc": "Başarıya giden yolun sınırları zorlamaktan geçtiğine inanıyoruz. Bu nedenle yeni ve cesur fikirlere her şeyden çok değer veriyoruz."
+      },
+      {
+        "title": "Tutku",
+        "desc": "Yaptığımız işe tutkuyla bağlıyız. Tutkumuz işimizin özüdür ve her şeyin merkezindedir."
+      },
+      {
+        "title": "Çeviklik",
+        "desc": "Çevik çalışma modelimiz, değişime uyum sağlamamıza ve hizmet verdiğimiz sektörlerin hızına ayak uydurmamıza olanak tanır."
+      },
+      {
+        "title": "Güven",
+        "desc": "Sorumluluk ve şeffaflık, karşılıklı güvenin önünü açar. Tüm faaliyetlerimizi etik değerler çerçevesinde yürütüyoruz."
+      }
+    ],
+    "historyTitle": "Tarihçemiz",
+    "historySubtitle": "İnsanı odağa alan çözümler geliştiriyoruz.",
+    "timeline": [
+      {
+        "year": "2023",
+        "title": "BİTES yüzde 100 ASELSAN iştiraki oldu. Türkiye’nin en hızlı büyüyen 4. teknoloji şirketi oldu. Yılın Yerli Savunma Sanayi Markası ödülünü aldı."
+      },
+      {
+        "year": "2023",
+        "title": "BİTES yüzde 100 ASELSAN iştiraki oldu"
+      },
+      {
+        "year": "2021",
+        "title": "Savunma Sanayii Sektöründe ilk 3'te yer aldı"
+      },
+      {
+        "year": "2020",
+        "title": "En yüksek gelire sahip ilk 10 şirketten biri oldu"
+      },
+      {
+        "year": "2019",
+        "title": "BİTES ASELSAN bünyesine katıldı"
+      },
+      {
+        "year": "2018",
+        "title": "Sikorsky Aircraft Corporation'a ilk ihracat"
+      },
+      {
+        "year": "2017",
+        "title": "Ortadoğu'ya ilk ihracat"
+      },
+      {
+        "year": "2015",
+        "title": "Airbus D&S'ye ilk ihracat"
+      },
+      {
+        "year": "2014",
+        "title": "ATAK T-129 WBT & VMT programı ödüllendirildi"
+      },
+      {
+        "year": "2012",
+        "title": "Almanya'ya ilk ihracat yapıldı"
+      },
+      {
+        "year": "2009",
+        "title": "Savunma ve havacılık alanlarına ağırlık verilmeye başlandı"
+      },
+      {
+        "year": "2008",
+        "title": "HELSIM-I iş paketleri başarıyla teslim edildi"
+      },
+      {
+        "year": "2005",
+        "title": "HELSIM I Program-II sözleşmesi\nŞirket Kuruluşu"
+      }
+    ]
+  },
+  "CareerPage": {
+    "heroTitle": "Bize Katıl!",
+    "heroDesc": "Savunma sanayii alanında en güncel yetkinliklerin ve teknolojilerin kullanıldığı çalışmalarımızda bilgini ve yeteneklerini kullan, geliştir ve birlikte başara ulaşmak için bize katıl.",
+    "criteriaTitle": "Başvuru Kriterleri",
+    "criteriaDesc": "Adaylardan beklediğimiz asgari gereklilikler için tıklayın.",
+    "criteriaList": [
+      "Lisans ve/veya üzeri adaylar için başvuru kriterleri",
+      "Ek Puan Kriterleri",
+      "Yurtdışı lisans mezunu adaylar",
+      "Doktora mezunu adaylar",
+      "Lise / Ön Lisans Mezunu adaylar için başvuru kriterleri"
+    ],
+    "criteriaButton": "Detaylar",
+    "openPositionTitle": "Açık Pozisyonlar",
+    "openPositionDesc": "BİTES ailesine katılmak ve birlikte başarıya ulaşmak için güncel iş fırsatlarımızı keşfedin.",
+    "openPositionButton": "Detaylar",
+    "internshipTitle": "Yetenek ve Staj Programı",
+    "internshipDesc": "En güncel teknolojilerin kullanıldığı BİTES’te savunma sanayii kariyerine güçlü bir başlangıç yap.",
+    "internshipButton": "Detaylar",
+    "lifeTitle": "BİTES'te Yaşam",
+    "lifeDesc": "Değerlerimizi, sunduğumuz avantajları, eğlenceli ofis ortamımızı, gelişim fırsatlarını ve heyecan verici projelerde çalışma imkanını keşfedin.",
+    "lifeButton": "Detaylar"
+  },
+  "ContactPage": {
+    "heroTitle": "Şimdi bizimle iletişime geçin!",
+    "nameLabel": "Adınız",
+    "namePlaceholder": "Adınızı girin",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "messageLabel": "Mesaj",
+    "messagePlaceholder": "Mesajınızı girin",
+    "sendButton": "Gönder",
+    "privacyNote": "Verilerimin <link>gizlilik politikası</link> kapsamında güvenli bir şekilde tutulacağını anlıyorum.",
+    "addressTitle": "Adres",
+    "headquarter": "Genel Merkez",
+    "address": "Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi,\n280/G Kat:4 No:14 PK, 06530 Çankaya / ANKARA",
+    "workingHoursTitle": "Çalışma Saatleri",
+    "workingHours": "Pazartesi - Cuma: 7:00 - 17:00\nCumartesi: 7:00 - 12:00\nPazar ve tatil günleri: 8:00 - 10:00",
+    "socialMediaTitle": "Sosyal Medya"
+  },
+  "categories": {
+    "trainingsimulation": "Eğitim ve Simülasyon Sistemleri",
+    "defenceinformation": "Savunma Bilgi Sistemleri",
+    "technologyandbusiness": "Teknoloji ve İş Çözümleri Sistemleri",
+    "avionicsandmission": "Aviyonik ve Görev Sistemleri",
+    "embedded-training-system": "Gömülü Eğitim Sistemi",
+    "breakdownmaintenance": "Arıza Bakım Simülasyon Sistemleri",
+    "missionsimulators": "Görev Simülatörleri",
+    "mixedreality": "Karma Gerçeklik Simülasyon ve Eğitim Sistemleri",
+    "atok": "Atok",
+    "karma": "KARMA",
+    "digitaltwin": "Dijital İkiz",
+    "porsuk": "Porsuk"
+  },
+  "productNav": {
+    "backToProducts": "Tüm Ürünlere Dön",
+    "backToCategory": "{category} kategorisine geri dön",
+    "notFound": "Kategori bulunamadı"
+  },
+  "newsCategories": {
+    "all": "Tüm Haberler",
+    "defence": "Savunma Haberleri",
+    "bites": "Bites Haberleri",
+    "tech": "Teknoloji Haberleri"
+  },
+  "newsPage": {
+    "noNews": "Bu kategoride haber bulunamadı.",
+    "categories": "Kategoriler",
+    "followUs": "Bizi Takip Edin",
+    "lastNews": "Son Haberler"
   }
 }

@@ -5,33 +5,22 @@ import NewsContent from "@/components/ui/NewsContent";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/layout/Footer";
-import { newsList } from "@/data/news";
+import { newsList, NewsType } from "@/data/news";
 import { LastNewsCard } from "@/components/ui/LastNewsCard";
+import { useTranslations } from "next-intl";
+import { slugify } from "@/utils/slugify";
+import FollowUs from "@/components/ui/FollowUs";
 
 const categories = [
-  { label: "All News", value: "all" },
-  { label: "Defence News", value: "defence" },
-  { label: "Bites News", value: "bites" },
-  { label: "Tech News", value: "tech" },
+  { value: "all" },
+  { value: "defence" },
+  { value: "bites" },
+  { value: "tech" },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-function slugify(str: string) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 const NewsPage = () => {
+  const t = useTranslations();
+
   const [selected, setSelected] = useState<string>("all");
 
   // Filtered news by category
@@ -44,14 +33,6 @@ const NewsPage = () => {
   const lastThreeNews = newsList.slice(-3);
   const [direction, setDirection] = useState(1);
   const [hideMobileFilters, setHideMobileFilters] = useState(false);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setDirection(1);
-      setIndex((prev) => (prev + 1) % lastThreeNews.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [lastThreeNews.length]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,7 +70,7 @@ const NewsPage = () => {
                 >
                   <div className="flex-1 flex flex-col gap-2">
                     <Link
-                      href={`/news/${slugify(news.title)}`}
+                      href={`/news/${slugify(news.title.en)}`}
                       key={news.id}
                       prefetch={false}
                       className="block"
@@ -115,17 +96,17 @@ const NewsPage = () => {
 
         {/* Right: Fixed Sidebar - Hidden on mobile, visible on lg+ */}
         <aside className="hidden lg:block w-full max-w-sm z-10">
-          <div className="fixed top-40 w-full max-w-sm h-screen overflow-y-auto">
-            <div className="w-full max-w-sm flex flex-col gap-2">
+          <div className="fixed top-40 w-full max-w-sm">
+            <div className="w-full max-w-sm flex flex-col gap-10">
               {/* Categories */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="bg-transparent px-6 "
+                className="flex-1 px-5"
               >
                 <h3 className="text-lg font-medium border-t pt-2 border-[#35434D] text-white mb-4">
-                  Categories
+                  {t("newsPage.categories")}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((cat) => (
@@ -138,73 +119,19 @@ const NewsPage = () => {
                           : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
                       } transition-all`}
                     >
-                      {cat.label}
+                      {t("newsCategories." + cat.value)}
                     </button>
                   ))}
                 </div>
               </motion.div>
-
               {/* Last News Card */}
-              <LastNewsCard
-                newsList={lastThreeNews}
-                index={index}
-                setIndex={setIndex}
-                direction={direction}
-                setDirection={setDirection}
-              />
-
+              <div className="flex-1 px-5">
+                <LastNewsCard newsList={lastThreeNews} />
+              </div>
               {/* Social links */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="bg-transparent p-4"
-              >
-                <h4 className="text-md border-t border-[#35434D] font-semibold pt-2 text-white mb-3">
-                  Follow Us
-                </h4>
-                <div className="flex gap-4">
-                  <motion.div variants={fadeUp}>
-                    <motion.div
-                      className="flex items-center gap-5 mt-2"
-                      initial={false}
-                    >
-                      <motion.div whileHover={{ scale: 1.2, color: "#60a5fa" }}>
-                        <Link
-                          href="#"
-                          className="text-white hover:text-blue-400 transition"
-                        >
-                          <Linkedin size={20} />
-                        </Link>
-                      </motion.div>
-                      <motion.div whileHover={{ scale: 1.2, color: "#ef4444" }}>
-                        <Link
-                          href="#"
-                          className="text-white hover:text-red-500 transition"
-                        >
-                          <Youtube size={20} />
-                        </Link>
-                      </motion.div>
-                      <motion.div whileHover={{ scale: 1.2, color: "#3b82f6" }}>
-                        <Link
-                          href="#"
-                          className="text-white hover:text-blue-500 transition"
-                        >
-                          <Facebook size={20} />
-                        </Link>
-                      </motion.div>
-                      <motion.div whileHover={{ scale: 1.2, color: "#f472b6" }}>
-                        <Link
-                          href="#"
-                          className="text-white hover:text-pink-400 transition"
-                        >
-                          <Instagram size={20} />
-                        </Link>
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
+              <div className="flex-1 px-5">
+                <FollowUs />
+              </div>
             </div>
           </div>
         </aside>
@@ -232,7 +159,7 @@ const NewsPage = () => {
                           : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
                       } transition-all`}
                     >
-                      {cat.label}
+                      {t("newsCategories." + cat.value)}
                     </button>
                   ))}
                 </div>

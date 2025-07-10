@@ -6,13 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import OrbitingLogo from "../ui/OrbitingLogo";
-
-const socialLinks = [
-  { icon: <Linkedin size={20} />, href: "#" },
-  { icon: <Facebook size={20} />, href: "#" },
-  { icon: <Instagram size={20} />, href: "#" },
-  { icon: <Youtube size={20} />, href: "#" },
-];
+import FollowUs from "../ui/FollowUs";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -79,16 +73,7 @@ export default function Footer() {
               </p>
             </div>
             <div className="flex gap-2 pl-3 mb-2">
-              {socialLinks.map((item, i) => (
-                <Link
-                  key={i}
-                  href={item.href}
-                  className="p-2  rounded-full text-white/70 hover:text-white transition"
-                  aria-label="Social Link"
-                >
-                  {item.icon}
-                </Link>
-              ))}
+              <FollowUs />
             </div>
             <address className="not-italic text-sm text-white/70 pl-3 leading-relaxed">
               Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi,

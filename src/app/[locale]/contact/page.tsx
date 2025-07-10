@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import Footer from "@/components/layout/Footer";
+import { useTranslations } from "next-intl";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -31,6 +32,7 @@ const staggerContainer = {
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const t = useTranslations("ContactPage");
 
   return (
     <>
@@ -49,16 +51,16 @@ export default function ContactPage() {
               transition={{ type: "spring", stiffness: 120 }}
             >
               <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2">
-                Get in touch now!
+                {t("heroTitle")}
               </h2>
               {/* Name */}
               <motion.div variants={fadeUp}>
                 <label className="block text-sm font-semibold text-white mb-1">
-                  Name
+                  {t("nameLabel")}
                 </label>
                 <motion.input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder={t("namePlaceholder")}
                   className="w-full h-10 px-4 rounded-md text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition"
                   value={form.name}
                   whileFocus={{
@@ -74,11 +76,11 @@ export default function ContactPage() {
               {/* Email */}
               <motion.div variants={fadeUp}>
                 <label className="block text-sm font-semibold text-white mb-1">
-                  E-mail
+                  {t("emailLabel")}
                 </label>
                 <motion.input
                   type="email"
-                  placeholder="Enter your e-mail"
+                  placeholder={t("emailPlaceholder")}
                   className="w-full h-10 px-4 rounded-md text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition"
                   value={form.email}
                   whileFocus={{
@@ -94,10 +96,10 @@ export default function ContactPage() {
               {/* Message */}
               <motion.div variants={fadeUp}>
                 <label className="block text-sm font-semibold text-white mb-1">
-                  Message
+                  {t("messageLabel")}
                 </label>
                 <motion.textarea
-                  placeholder="Enter your message"
+                  placeholder={t("messagePlaceholder")}
                   rows={5}
                   className="w-full px-4 py-2 rounded-md text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition resize-none"
                   value={form.message}
@@ -112,7 +114,7 @@ export default function ContactPage() {
                 />
               </motion.div>
               {/* Send Button */}
-              <AnimatedButton text="Send" />
+              <AnimatedButton text={t("sendButton")} />
               {/* Privacy Text */}
               <motion.p
                 className="text-xs text-stone-300 mt-2"
@@ -120,11 +122,18 @@ export default function ContactPage() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.7 }}
               >
-                I understand that my data will be held securely in accordance
-                with the{" "}
-                <Link href="/privacy-policy" className="underline">
-                  privacy policy
-                </Link>
+                {t.rich("privacyNote", {
+                  link: (chunks) => (
+                    <Link
+                      href="/privacy-policy"
+                      className="underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                })}
               </motion.p>
               <div className="hidden md:block w-1/2"></div>
             </motion.div>
@@ -144,37 +153,30 @@ export default function ContactPage() {
               variants={fadeUp}
             >
               <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Address
+                {t("addressTitle")}
               </h2>
               {/* Headquarter */}
               <motion.div variants={fadeUp}>
                 <h3 className="text-base font-medium text-white border-t pt-2 border-[#35434D] pb-2 mb-2">
-                  Headquarter
+                  {t("headquarter")}
                 </h3>
-                <p className="text-sm text-white/60">
-                  Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon
-                  Merkezi,
-                  <br />
-                  280/G Kat:4 No:14 PK, 06530 Çankaya / ANKARA
+                <p className="text-sm text-white/60 whitespace-pre-line">
+                  {t("address")}
                 </p>
               </motion.div>
               {/* Working Hours */}
               <motion.div variants={fadeUp}>
                 <h3 className="text-base font-medium text-white border-t pt-2 border-[#35434D] pb-2 mb-2">
-                  Working Hours
+                  {t("workingHoursTitle")}
                 </h3>
-                <p className="text-sm text-white/60">
-                  Monday - Friday: 7:00 - 17:00
-                  <br />
-                  Saturday: 7:00 - 12:00
-                  <br />
-                  Sunday and holidays: 8:00 - 10:00
+                <p className="text-sm text-white/60 whitespace-pre-line">
+                  {t("workingHours")}
                 </p>
               </motion.div>
               {/* Social Media */}
               <motion.div variants={fadeUp}>
                 <h3 className="text-base font-medium text-white border-t pt-2 border-[#35434D] pb-2 mb-2">
-                  Social Media
+                  {t("socialMediaTitle")}
                 </h3>
                 <motion.div
                   className="flex items-center gap-5 mt-2"

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface NavigationItemProps {
   number: string;
@@ -64,55 +65,42 @@ const NavigationItem = ({
   );
 };
 
-const navItems = [
-  {
-    number: "01",
-    title: "About Us",
-    href: "/about",
-    position: [-2.2, -1.7, 0],
-    speed: 0.05,
-    scale: 0.7,
-  },
-  {
-    number: "02",
-    title: "Products",
-    href: "/products",
-    position: [0, -2.8, 0],
-    speed: 0.05,
-    scale: 0.7,
-  },
-  {
-    number: "03",
-    title: "News",
-    href: "/news",
-    position: [2.2, -1.7, 0],
-    speed: 0.05,
-    scale: 0.7,
-  },
-  {
-    number: "04",
-    title: "Career",
-    href: "/career",
-    position: [-2, -0.1, 0],
-    speed: 0.05,
-    scale: 0.5,
-  },
-  {
-    number: "05",
-    title: "Contact",
-    href: "/contact",
-    position: [0.9, 0.2, 0],
-    speed: 0.05,
-    scale: 0.4,
-  },
-];
-
 interface NavigationProps {
   onNavigate?: () => void;
 }
 
 const Navigation = ({ onNavigate }: NavigationProps) => {
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
+
+  // Artık title'lar burada dinamik:
+  const navItems = [
+    {
+      number: "01",
+      title: t("about"),
+      href: "/about",
+    },
+    {
+      number: "02",
+      title: t("products"),
+      href: "/products",
+    },
+    {
+      number: "03",
+      title: t("news"),
+      href: "/news",
+    },
+    {
+      number: "04",
+      title: t("career"),
+      href: "/career",
+    },
+    {
+      number: "05",
+      title: t("contact"),
+      href: "/contact",
+    },
+  ];
 
   return (
     <nav className="flex flex-col md:flex-row w-full gap-2 md:gap-4">

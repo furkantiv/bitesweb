@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import Footer from "@/components/layout/Footer";
+import { useTranslations } from "next-intl";
 
 const images = {
   join: "/images/career/joinus.png",
@@ -27,6 +28,9 @@ const fadeIn = {
 };
 
 export default function CareersPage() {
+  const t = useTranslations("CareerPage");
+  const criteriaList = t.raw("criteriaList") as string[];
+
   return (
     <>
       <motion.div
@@ -65,7 +69,7 @@ export default function CareersPage() {
                 stiffness: 50,
               }}
             >
-              Join Us!
+              {t("heroTitle")}
             </motion.h1>
             <motion.p
               className="text-white text-base md:text-lg drop-shadow"
@@ -78,9 +82,7 @@ export default function CareersPage() {
                 stiffness: 45,
               }}
             >
-              Join us to utilize, develop your knowledge and skills and succeed
-              together in our work where we utilize the most up-to-date
-              competencies and technologies in the field of defence industry.
+              {t("heroDesc")}
             </motion.p>
           </motion.div>
         </motion.div>
@@ -102,7 +104,7 @@ export default function CareersPage() {
                   className="text-2xl font-bold text-white mb-2"
                   transition={{ type: "spring", stiffness: 250 }}
                 >
-                  Recruitment Criteria
+                  {t("criteriaTitle")}
                 </motion.h2>
                 <motion.p
                   className="text-gray-200 text-sm mb-4"
@@ -110,8 +112,7 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 }}
                 >
-                  Click here for the minimum requirements we expect candidates
-                  to meet.
+                  {t("criteriaDesc")}
                 </motion.p>
                 <motion.ul
                   className="text-gray-400 text-sm list-disc list-inside space-y-1 pl-2"
@@ -119,21 +120,16 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 0.6 }}
                 >
-                  <li>
-                    Recruitment Criteria for Candidates with a Bachelor’s Degree
-                    and/or Above
-                  </li>
-                  <li>Additional Point Criteria</li>
-                  <li>Candidates with Undergraduate Degrees Abroad</li>
-                  <li>Doctoral Graduate Candidates</li>
-                  <li>
-                    Recruitment Criteria for Candidates with High School /
-                    Associate Degree Graduates
-                  </li>
+                  {criteriaList.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
                 </motion.ul>
               </div>
               <div className="mt-4">
-                <AnimatedButton text="Details" href="/career/recruitment" />
+                <AnimatedButton
+                  text={t("criteriaButton")}
+                  href="/career/recruitment"
+                />
               </div>
             </div>
             {/* Image Side */}
@@ -168,13 +164,12 @@ export default function CareersPage() {
               transition={{ type: "spring", stiffness: 180 }}
             >
               <h2 className="text-2xl font-bold text-white mb-2">
-                Open Position
+                {t("openPositionTitle")}
               </h2>
               <p className="text-gray-200 text-sm mb-4">
-                Discover our current job opportunities to join the BİTES family
-                and succeed together.
+                {t("openPositionDesc")}
               </p>
-              <AnimatedButton text=" Details" />
+              <AnimatedButton text={t("openPositionButton")} />
             </motion.div>
             {/* Talent & Internship */}
             <motion.div
@@ -186,13 +181,12 @@ export default function CareersPage() {
               transition={{ type: "spring", stiffness: 180 }}
             >
               <h2 className="text-2xl font-bold text-white mb-2">
-                Talent and Internship Program
+                {t("internshipTitle")}
               </h2>
               <p className="text-gray-200 text-sm mb-4">
-                Make a strong start to your defense industry career at BİTES,
-                where the most up-to-date technologies are used.
+                {t("internshipDesc")}
               </p>
-              <AnimatedButton text=" Details" />
+              <AnimatedButton text={t("internshipButton")} />
             </motion.div>
           </div>
 
@@ -229,7 +223,7 @@ export default function CareersPage() {
                   className="text-2xl font-bold text-white mb-2"
                   transition={{ type: "spring", stiffness: 250 }}
                 >
-                  Life at BİTES
+                  {t("lifeTitle")}
                 </motion.h2>
                 <motion.p
                   className="text-gray-200 text-sm"
@@ -237,13 +231,11 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.16 }}
                 >
-                  Discover our values, attractive benefits, fun office
-                  environment and development opportunities, as well as the
-                  opportunity to work on exciting projects.
+                  {t("lifeDesc")}
                 </motion.p>
               </div>
               <div className="mt-4">
-                <AnimatedButton text="Details" />
+                <AnimatedButton text={t("lifeButton")} />
               </div>
             </div>
           </motion.div>

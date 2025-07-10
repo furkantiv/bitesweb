@@ -1,34 +1,34 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
-export type News = {
-  image: string;
-  title: string;
-  description: string;
-  date: string;
-  source: string;
-};
+import { useLocale, useTranslations } from "next-intl";
+import { NewsType } from "@/data/news";
 
 interface LastNewsCardProps {
-  newsList: News[];
-  index: number;
-  setIndex: (cb: (prev: number) => number) => void;
-  direction: number;
-  setDirection: (dir: number) => void;
+  newsList: NewsType[];
 }
 
-const CARD_HEIGHT = 88;
+export const LastNewsCard: React.FC<LastNewsCardProps> = ({ newsList }) => {
+  const locale = useLocale();
+  const t = useTranslations();
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const news = newsList[index];
+  // Çok dilli stringleri locale'a göre al
+  type SupportedLocale = keyof typeof news.title;
+  const safeLocale = (locale in news.title ? locale : "en") as SupportedLocale;
+  const title = news.title[safeLocale];
+  const description = news.description[safeLocale];
+  const source = news.source[safeLocale];
+  // HOOK'lardan sonra, ilk satırda kontrol:
 
-export const LastNewsCard: React.FC<LastNewsCardProps> = ({
-  newsList,
-  index,
-  setIndex,
-  direction,
-  setDirection,
-}) => {
-  // Eğer 0 veya boşsa gösterme
-  if (!newsList || newsList.length === 0) return null;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setIndex((prev) => (prev + 1) % newsList.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [newsList.length]);
 
   const handleDragEnd = (_: any, info: { offset: { x: number } }) => {
     if (info.offset.x < -50) {
@@ -40,19 +40,18 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({
     }
   };
 
-  const news = newsList[index];
+  if (!newsList || newsList.length === 0) return null;
 
   return (
     <motion.div
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7, delay: 0.2 }}
-      className="bg-transparent p-4 "
     >
       <h4 className="text-md font-semibold border-t pt-2 border-[#35434D] text-white mb-3 truncate">
-        Last News
+        {t("newsPage.lastNews")}
       </h4>
-      <div className={`relative min-h-[${CARD_HEIGHT}px] overflow-hidden`}>
+      <div className="relative h-[90px] overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={index}
@@ -69,21 +68,21 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({
             <div className="w-24 h-22 rounded-lg overflow-hidden flex-shrink-0">
               <img
                 src={news.image}
-                alt={news.title}
+                alt={title}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="flex-1 min-w-0 flex flex-col">
               <div className="text-white font-medium text-sm line-clamp-1 mb-1">
-                {news.title}
+                {title}
               </div>
               <div className="text-gray-400 text-xs line-clamp-2 mb-1">
-                {news.description}
+                {description}
               </div>
               <div className="flex items-center gap-2 text-xs text-gray-500 truncate">
                 <span className="truncate">{news.date}</span>
                 <span className="text-white">|</span>
-                <span className="truncate">{news.source}</span>
+                <span className="truncate">{source}</span>
               </div>
             </div>
           </motion.div>

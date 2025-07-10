@@ -2,7 +2,6 @@ import NewsGrid from "@/components/sections/NewsGrid";
 import HeroText from "@/components/sections/TrustHero";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import InfoCardsGrid from "@/components/ui/InfoCard";
-import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 export const metadata = {
@@ -15,12 +14,7 @@ const HomePage = async () => {
 
   const fallbackData = {
     title: t("title"),
-    words: [
-      { type: "paragraph", children: [{ type: "text", text: "Agility" }] },
-      { type: "paragraph", children: [{ type: "text", text: "Trust" }] },
-      { type: "paragraph", children: [{ type: "text", text: "Care" }] },
-      { type: "paragraph", children: [{ type: "text", text: "Innovation" }] },
-    ],
+    words: t.raw("words"), // string[]
   };
 
   async function getStrapiData(path: string) {
@@ -34,12 +28,17 @@ const HomePage = async () => {
       return { data: fallbackData };
     }
   }
+
   const strapiData = await getStrapiData("/api/home-page");
   const { title } = strapiData.data;
-  const words =
-    (strapiData.data.words ?? []).map((block: any) =>
-      (block.children ?? []).map((c: any) => c.text).join(" ")
-    ) || [];
+  // words JSON'dan string[] veya block olabilir, burada normalize ettim:
+  const words = Array.isArray(strapiData.data.words)
+    ? strapiData.data.words[0]?.children
+      ? strapiData.data.words.map((block: any) =>
+          (block.children ?? []).map((c: any) => c.text).join(" ")
+        )
+      : strapiData.data.words
+    : [];
 
   return (
     <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4">
@@ -49,12 +48,16 @@ const HomePage = async () => {
         {/* Responsive Button Group */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-16">
           <AnimatedButton
-            text="About Us"
+            text={t("aboutUs")}
             color="#A2ACB4"
             variant="ghost"
             href="/about"
           />
-          <AnimatedButton text="Get in touch" color="#004DFF" href="/contact" />
+          <AnimatedButton
+            text={t("getInTouch")}
+            color="#004DFF"
+            href="/contact"
+          />
         </div>
 
         {/* Info Grid */}

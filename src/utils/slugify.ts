@@ -1,6 +1,7 @@
-export function slugify(str: string) {
+export function slugify(str: string): string {
+  if (typeof str !== "string") return "";
   return str
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
 }

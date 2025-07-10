@@ -3,8 +3,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type Item = {
   name: string;
@@ -15,27 +16,27 @@ type Item = {
 
 type CategoryClientProps = {
   items: Item[];
-  name: string;
+  name: string; // Artık çeviriyle gelecek (üstten)
   categorySlug: string;
 };
 
 function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
   const [selectedSub, setSelectedSub] = useState<Item | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const t = useTranslations();
 
-  // 1. Seviyede gösterilecek ana kategori başlığı
+  // Üst kategori başlığı
   const title = selectedSub ? (
     <div>
       <span className="text-white/80">{name} </span>
       <span className="block text-sm text-[#BEDAED] font-normal">
-        {selectedSub.name}
+        {t("categories." + selectedSub.slug)}
       </span>
     </div>
   ) : (
     name
   );
 
-  // Listelenecek itemler (ana kategori ya da alt kategori)
   const listedItems = selectedSub ? selectedSub.items || [] : items;
 
   return (
@@ -82,7 +83,7 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
                 <Link
                   href={`/products/${categorySlug}/${item.slug}`}
                   key={item.slug}
-                  className="..." // classları buraya ekle
+                  className="flex flex-row justify-between my-4 sm:my-6 cursor-pointer pt-2 border-t border-[#35434D] text-[#BEDAED] transition-colors hover:border-[#2C6BFF] hover:text-white text-base sm:text-lg md:text-xl select-none px-3 sm:px-4"
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -95,23 +96,22 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
                     }}
                     onMouseEnter={() => setHoveredIndex(i)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    className="flex flex-row justify-between my-4 sm:my-6 cursor-pointer pt-2 border-t border-[#35434D] text-[#BEDAED] transition-colors hover:border-[#2C6BFF] hover:text-white text-base sm:text-lg md:text-xl select-none px-3 sm:px-4"
                   >
-                    <p>{item.name}</p>
-                    <motion.span
-                      animate={{
-                        rotate: hoveredIndex === i ? 45 : 0,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 350,
-                        damping: 24,
-                      }}
-                      className="inline-block min-w-[28px]"
-                    >
-                      <ArrowUpRight size={28} strokeWidth={1.5} />
-                    </motion.span>
+                    <p>{t("categories." + item.slug)}</p>
                   </motion.div>
+                  <motion.span
+                    animate={{
+                      rotate: hoveredIndex === i ? 45 : 0,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 350,
+                      damping: 24,
+                    }}
+                    className="inline-block min-w-[28px]"
+                  >
+                    <ArrowUpRight size={28} strokeWidth={1.5} />
+                  </motion.span>
                 </Link>
               ) : (
                 <motion.div
@@ -134,7 +134,7 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
                   }}
                   className="flex flex-row justify-between my-4 sm:my-6 cursor-pointer pt-2 border-t border-[#35434D] text-[#BEDAED] transition-colors hover:border-[#2C6BFF] hover:text-white text-base sm:text-lg md:text-xl select-none px-3 sm:px-4"
                 >
-                  <p>{item.name}</p>
+                  <p>{t("categories." + item.slug)}</p>
                   <motion.span
                     animate={{
                       rotate: hoveredIndex === i ? 45 : 0,
@@ -161,7 +161,9 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
             className="flex items-center gap-3 text-white text-xl font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
           >
             <ArrowLeft size={28} strokeWidth={1.5} />
-            Back to {name}
+            {t("productNav.backToCategory", {
+              category: name,
+            })}
           </button>
         ) : (
           <Link
@@ -170,7 +172,7 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
             className="flex items-center gap-3 text-white text-xl font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
           >
             <ArrowLeft size={28} strokeWidth={1.5} />
-            Back to Products
+            {t("productNav.backToProducts")}
           </Link>
         )}
       </motion.div>
@@ -208,7 +210,7 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
           >
             <Image
               src={`${listedItems[hoveredIndex].image}`}
-              alt={listedItems[hoveredIndex].name}
+              alt={t("categories." + listedItems[hoveredIndex].slug)}
               fill
               sizes="(max-width: 640px) 90vw,
                 (max-width: 1024px) 60vw,

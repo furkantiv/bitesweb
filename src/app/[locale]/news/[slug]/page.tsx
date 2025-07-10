@@ -2,16 +2,24 @@ import { newsList } from "@/data/news";
 import { Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
 import BreadcrumbsWithSearch from "@/components/ui/BreadcrumbsWithSearch";
 import { slugify } from "@/utils/slugify";
+import { getLastNews } from "@/utils/getLastNews";
+import { LastNewsCard } from "@/components/ui/LastNewsCard";
+import FollowUs from "@/components/ui/FollowUs";
 
-export default async function NewsDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  // Await the params Promise
-  const { slug } = await params;
+// Eğer Next.js ile dinamik locale parametresi geliyorsa params'tan alabilirsin
+// Burası, route.ts tanımına göre değişir. Burada örnek olarak locale=tr verdim.
+type NewsDetailPageProps = {
+  params: Promise<{
+    slug: string;
+    locale?: "tr" | "en";
+  }>;
+};
 
-  const news = newsList.find((n) => slugify(n.title) === slug);
+export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
+  const { slug, locale = "tr" } = await params;
+  const lastThreeNews = getLastNews(newsList, 3);
+  // title objesinin string karşılığını slugify fonksiyonuna gönderiyoruz!
+  const news = newsList.find((n) => slugify(n.title.en) === slug);
 
   if (!news) {
     return (
@@ -30,13 +38,13 @@ export default async function NewsDetailPage({
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>
               <h1 className="text-2xl md:text-3xl font-semibold text-white mb-2 md:mb-0">
-                {news.title}
+                {news.title[locale]}
               </h1>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-gray-400 text-sm">{news.date}</span>
               <span className="text-xs text-white px-3 py-1 rounded-full border border-[#35434D] ml-1">
-                {news.source}
+                {news.source[locale]}
               </span>
             </div>
           </div>
@@ -45,17 +53,17 @@ export default async function NewsDetailPage({
           <div className="w-full rounded-xl overflow-hidden border border-[#35434D] shadow">
             <img
               src={news.image}
-              alt={news.title}
+              alt={news.title[locale]}
               className="w-full h-auto max-h-[480px] object-contain object-center"
             />
           </div>
           {/* Main Content (örnek uzun açıklama, markdown veya html de parse edebilirsin) */}
           <div className="text-gray-200 text-base md:text-lg leading-relaxed mt-4">
-            {news.content ? (
-              news.content
+            {news.content[locale] ? (
+              news.content[locale]
             ) : (
               <>
-                <p>We Have A Probem</p>
+                <p>We Have A Problem</p>
                 <p>#BITES #UDHAM</p>
               </>
             )}
@@ -67,28 +75,12 @@ export default async function NewsDetailPage({
       <aside className="w-hidden lg:block w-full max-w-sm z-10">
         <div className="fixed top-53 w-full space-y-8 max-w-sm h-screen overflow-y-auto">
           {/* Last News */}
-          <div className="border border-[#35434D] rounded-2xl p-4">
-            <h4 className="text-lg font-semibold text-white mb-3">Last News</h4>
-            <div className="flex flex-col gap-4">Last News</div>
+
+          <div className="flex flex-col gap-4">
+            <LastNewsCard newsList={lastThreeNews} />
           </div>
           {/* Social links */}
-          <div className="border border-[#35434D] rounded-2xl p-4">
-            <h4 className="text-md font-semibold text-white mb-3">Follow Us</h4>
-            <div className="flex gap-4">
-              <a href="#" className="text-white hover:text-blue-400 transition">
-                <Linkedin size={22} />
-              </a>
-              <a href="#" className="text-white hover:text-red-500 transition">
-                <Youtube size={22} />
-              </a>
-              <a href="#" className="text-white hover:text-blue-500 transition">
-                <Facebook size={22} />
-              </a>
-              <a href="#" className="text-white hover:text-pink-400 transition">
-                <Instagram size={22} />
-              </a>
-            </div>
-          </div>
+          <FollowUs />
         </div>
       </aside>
     </div>
