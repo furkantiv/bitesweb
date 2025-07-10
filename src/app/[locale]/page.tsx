@@ -10,22 +10,7 @@ export const metadata = {
   description: "Learn more about us...",
 };
 
-type Props = { params: { locale: string } };
-
-const HomePage = async ({ params }: Props) => {
-  async function getStrapiData(path: string) {
-    const baseUrl = "http://localhost:1337";
-    try {
-      const response = await fetch(baseUrl + path, { cache: "no-store" });
-      const data = await response.json();
-      // Verinin şekline göre ek kontrol ekleyebilirsin
-      if (!data?.data) throw new Error("No data");
-      return data;
-    } catch (error) {
-      // Fallback döndür
-      return { data: fallbackData };
-    }
-  }
+const HomePage = async () => {
   const t = await getTranslations("HomePage");
 
   const fallbackData = {
@@ -37,6 +22,18 @@ const HomePage = async ({ params }: Props) => {
       { type: "paragraph", children: [{ type: "text", text: "Innovation" }] },
     ],
   };
+
+  async function getStrapiData(path: string) {
+    const baseUrl = "http://localhost:1337";
+    try {
+      const response = await fetch(baseUrl + path, { cache: "no-store" });
+      const data = await response.json();
+      if (!data?.data) throw new Error("No data");
+      return data;
+    } catch (error) {
+      return { data: fallbackData };
+    }
+  }
   const strapiData = await getStrapiData("/api/home-page");
   const { title } = strapiData.data;
   const words =
