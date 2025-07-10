@@ -3,12 +3,6 @@ import { Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
 import BreadcrumbsWithSearch from "@/components/ui/BreadcrumbsWithSearch";
 import { slugify } from "@/utils/slugify";
 
-export function generateStaticParams() {
-  return newsList.map((news) => ({
-    slug: slugify(news.title),
-  }));
-}
-
 export default async function NewsDetailPage({
   params,
 }: {

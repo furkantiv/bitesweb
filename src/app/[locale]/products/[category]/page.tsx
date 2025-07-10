@@ -1,12 +1,6 @@
 import CategoryClient from "@/components/layout/CategoryClient";
 import { categories } from "@/data/categories";
 
-export function generateStaticParams() {
-  return categories.map((category) => ({
-    category: category.slug,
-  }));
-}
-
 export default async function ProductSubCategoryPage({
   params,
 }: {
