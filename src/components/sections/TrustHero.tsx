@@ -1,15 +1,20 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedFlare from "../animations/AnimatedFlare";
+import { title } from "process";
 
 interface TrustHeroProps {
+  title: string;
   words: string[];
   interval?: number;
 }
 
-const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
+const HeroText: React.FC<TrustHeroProps> = ({
+  title,
+  words,
+  interval = 1800,
+}) => {
   const [index, setIndex] = useState(0);
   const [flareActive, setFlareActive] = useState(false);
 
@@ -38,7 +43,7 @@ const HeroText: React.FC<TrustHeroProps> = ({ words, interval = 1800 }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          The true force that drives us is
+          {title}
         </motion.span>
         <AnimatePresence mode="wait">
           <motion.span

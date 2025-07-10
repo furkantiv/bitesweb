@@ -138,15 +138,13 @@ interface SpringEarthProps {
 function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
   const [colorMap, emissiveMap, displacementMap, metalnessMap, roughnessMap] =
     useLoader(THREE.TextureLoader, [
-      `${basePath}/models/earth/BasecolorNight3_4k.png`,
-      `${basePath}/models/earth/Emissive_Orange4k.png`,
-      `${basePath}/models/earth/Height_Map.jpeg`,
-      `${basePath}/models/earth/Metalness_4k.png`,
-      `${basePath}/models/earth/Reflectance.png`,
+      `/models/earth/BasecolorNight3_4k.png`,
+      `/models/earth/Emissive_Orange4k.png`,
+      `/models/earth/Height_Map.jpeg`,
+      `/models/earth/Metalness_4k.png`,
+      `/models/earth/Reflectance.png`,
     ]);
 
   useFrame(() => {

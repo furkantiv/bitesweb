@@ -8,13 +8,13 @@ import React, {
   UIEvent,
 } from "react";
 import { motion, useInView } from "framer-motion";
-import SpotlightCard from "./SpotlightCard";
 
 interface AnimatedItemProps {
   children: ReactNode;
   delay?: number;
   index: number;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: MouseEventHandler<HTMLDivElement> | undefined;
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
@@ -23,6 +23,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   delay = 0,
   index,
   onMouseEnter,
+  onMouseLeave,
   onClick,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,18 +33,19 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
       ref={ref}
       data-index={index}
       onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       onClick={onClick}
       initial={{ scale: 0.7, opacity: 0 }}
       animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.7, opacity: 0 }}
       transition={{ duration: 0.2, delay }}
-      className="mb-4 cursor-pointer"
+      className={`
+    m-6 cursor-pointer border-t pt-2 
+    border-[#35434D] transition-colors
+    hover:border-blue-500
+    hover:text-blue-500
+  `}
     >
-      <SpotlightCard
-        className="custom-spotlight-card"
-        spotlightColor="rgba(0, 77, 255, .4)"
-      >
-        {children}
-      </SpotlightCard>
+      {children}
     </motion.div>
   );
 };
@@ -51,6 +53,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
 interface AnimatedListProps {
   items?: string[];
   onItemSelect?: (item: string, index: number) => void;
+  onItemHover?: (item: string, index: number) => void;
   showGradients?: boolean;
   enableArrowNavigation?: boolean;
   className?: string;
@@ -78,6 +81,7 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
     "Item 15",
   ],
   onItemSelect,
+  onItemHover,
   showGradients = true,
   enableArrowNavigation = true,
   className = "",
@@ -174,7 +178,8 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
             key={index}
             delay={0.1}
             index={index}
-            onMouseEnter={() => setSelectedIndex(index)}
+            onMouseEnter={() => onItemHover?.(item, index)} // yeni: hover event
+            // onMouseLeave={() => onItemHover?.("", null)}
             onClick={() => {
               setSelectedIndex(index);
               if (onItemSelect) {
@@ -187,7 +192,7 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
                 selectedIndex === index ? "bg-transparent" : "bg-transparent"
               } ${itemClassName}`}
             >
-              <p className="text-white m-0">{item}</p>
+              <p className="text-white m-1">{item}</p>
             </div>
           </AnimatedItem>
         ))}

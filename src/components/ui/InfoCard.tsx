@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 type InfoCardProps = {
   icon: string;
   title: string;
@@ -26,35 +24,35 @@ export default function InfoCardsGrid() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto px-4 py-6">
       <InfoCard
-        icon={`${basePath}/images/icons/home/AIntelligence.png`}
+        icon="/images/icons/home/AIntelligence.png"
         title="Artificial Intelligence"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/SafetyMission.png`}
+        icon="/images/icons/home/SafetyMission.png"
         title="Safety & Mission Critical Software"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/DigitalTwin.png`}
+        icon="/images/icons/home/DigitalTwin.png"
         title="Digital Twin"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/DataAnalytics.png`}
+        icon="/images/icons/home/DataAnalytics.png"
         title="Data Analytics"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/SimulationTraining.png`}
+        icon="/images/icons/home/SimulationTraining.png"
         title="Simulations & Training System"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/CloudComputing.png`}
+        icon="/images/icons/home/CloudComputing.png"
         title="Cloud Computing"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/MobileApp.png`}
+        icon="/images/icons/home/MobileApp.png"
         title="Mobile Applications"
       />
       <InfoCard
-        icon={`${basePath}/images/icons/home/ExtendedReality.png`}
+        icon="/images/icons/home/ExtendedReality.png"
         title="Extended Reality"
       />
     </div>

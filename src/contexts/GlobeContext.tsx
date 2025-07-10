@@ -27,7 +27,7 @@ export const useGlobe = (): GlobeContextType => {
 export const GlobeProvider = ({ children }: { children: ReactNode }) => {
   const [rotationSpeed, setRotationSpeed] = useState(0.0004);
   const [position, setPosition] = useState<[number, number, number]>([
-    0, -4, 0,
+    0, -1.4, 0,
   ]);
   const [scale, setScale] = useState(0.7);
 

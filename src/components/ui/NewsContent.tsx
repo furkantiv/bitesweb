@@ -38,10 +38,10 @@ const NewsContent: React.FC<NewsContentProps> = ({ news }) => (
     </div>
 
     {/* Main Content with separator line */}
-    <div className="flex flex-col md:flex-row flex-1 gap-3 md:gap-4 md:pl-4 border-l-0 md:border-l border-white/10">
+    <div className="flex flex-col md:flex-row flex-1 gap-3 md:gap-4 md:pl-4 border-l-0 md:border-l border-[#35434D]">
       {/* Image */}
       <div className="flex-shrink-0 mb-2 md:mb-0">
-        <div className="w-full h-40 md:w-72 md:h-48 rounded-lg overflow-hidden border border-white/10 bg-gray-900/50">
+        <div className="w-full h-40 md:w-72 md:h-48 rounded-lg overflow-hidden border border-[#35434D] bg-gray-900/50">
           <img
             src={news.image}
             alt={news.title}

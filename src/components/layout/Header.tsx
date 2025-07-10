@@ -6,8 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { GlobeLink } from "../ui/GlobeLink";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,12 +44,7 @@ const Header = () => {
     >
       <div className="flex justify-between items-center w-full">
         <GlobeLink href={`/`}>
-          <Image
-            src={`${basePath}/logo.svg`}
-            alt="Bites Logo"
-            width={100}
-            height={40}
-          />
+          <Image src="/logo.svg" alt="Bites Logo" width={100} height={40} />
         </GlobeLink>
         <div className="text-center justify-start text-white text-base font-medium hidden md:block">
           EN

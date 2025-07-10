@@ -1,0 +1,51 @@
+"use client";
+
+import React from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import { categories } from "@/data/categories";
+
+const gridVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const ProductsPage = () => {
+  const router = useRouter();
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 md:px-0  md:pt-20 flex flex-col items-center justify-center">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-5 "
+        variants={gridVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {categories.map((cat) => (
+          <motion.div
+            key={cat.slug}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => router.push(`/products/${cat.slug}`)}
+            className="cursor-pointer rounded-2xl transition group shadow-xl border border-[#303030] w-[400px] h-[260px] md:w-[600px] md:h-[340px] p-4"
+          >
+            <div className="text-white font-semibold text-base m-2">
+              {cat.name}
+            </div>
+            <div className="w-full rounded-xl overflow-hidden">
+              <SpotlightCard>
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-full object-cover"
+                />
+              </SpotlightCard>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+export default ProductsPage;

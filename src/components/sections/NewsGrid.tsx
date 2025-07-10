@@ -58,7 +58,7 @@ const NewsCard = () => {
     <div className="w-full max-w-2xl mx-auto p-0">
       <div className="bg-transparent rounded-2xl p-6 relative overflow-hidden ">
         {/* Header with separator line */}
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/20">
+        <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#35434D]">
           <h2 className="text-xl  text-white font-medium">Last News</h2>
 
           <div className="flex items-center gap-2">

@@ -49,7 +49,7 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({
       transition={{ duration: 0.7, delay: 0.2 }}
       className="bg-transparent p-4 "
     >
-      <h4 className="text-md font-semibold border-t pt-2 border-white/30 text-white mb-3 truncate">
+      <h4 className="text-md font-semibold border-t pt-2 border-[#35434D] text-white mb-3 truncate">
         Last News
       </h4>
       <div className={`relative min-h-[${CARD_HEIGHT}px] overflow-hidden`}>

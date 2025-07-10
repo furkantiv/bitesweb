@@ -1,15 +1,14 @@
 import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === "production";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: "/bitesweb",
-  assetPrefix: "/bitesweb/",
+  // basePath: "/bitesweb",
+  // assetPrefix: "/bitesweb/",
   images: {
     unoptimized: true,
   },
   /* config options here */
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

@@ -15,7 +15,6 @@ type TimelineItem = {
   title: string;
   desc: string;
 };
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const timelineData: TimelineItem[] = [
   {
     year: "2023",
@@ -109,7 +108,7 @@ export default function Timeline() {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto py-4 rounded-2xl border border-white/10 text-white overflow-hidden">
+    <div className="relative w-full max-w-7xl mx-auto py-4 rounded-2xl border border-[#35434D] text-white overflow-hidden">
       {/* Oklar */}
       <>
         {/* Sol */}
@@ -187,7 +186,7 @@ export default function Timeline() {
                         }}
                       >
                         <Image
-                          src={`${basePath}/images/icons/about/TimeLineDot.svg`}
+                          src="/images/icons/about/TimeLineDot.svg"
                           alt=" "
                           width={30}
                           height={30}
@@ -207,7 +206,7 @@ export default function Timeline() {
                           ? "bottom-[calc(50%+36px)]"
                           : "top-[calc(50%+36px)]"
                       }
-                      px-4 py-2 justify-center shadow-xl rounded-2xl border border-white/10
+                      px-4 py-2 justify-center shadow-xl rounded-2xl border border-[#35434D]
                       transition-all duration-300 
                       ${isActive ? "scale-105" : "opacity-60"}
                     `}

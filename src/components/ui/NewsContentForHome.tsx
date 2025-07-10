@@ -38,12 +38,12 @@ const NewsContentForHome: React.FC<NewsContentProps> = ({ news }) => (
     </div>
 
     {/* Main Content with separator line */}
-    <div className="flex-1 flex gap-4 pl-4 border-l border-white/20">
+    <div className="flex-1 flex gap-4 pl-4 border-l border-[#35434D]">
       {/* Image */}
       <div className="flex-shrink-0">
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="w-32 h-28 rounded-lg overflow-hidden border border-white/10"
+          className="w-32 h-28 rounded-lg overflow-hidden border border-[#35434D]"
         >
           <img
             src={news.image}
