@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export interface NewsContentProps {
   news: {
@@ -45,9 +46,11 @@ const NewsContentForHome: React.FC<NewsContentProps> = ({ news }) => (
           whileHover={{ scale: 1.05 }}
           className="w-32 h-28 rounded-lg overflow-hidden border border-[#35434D]"
         >
-          <img
+          <Image
             src={news.image}
             alt={news.title}
+            width={128}
+            height={100}
             className="w-full h-full object-cover"
           />
         </motion.div>

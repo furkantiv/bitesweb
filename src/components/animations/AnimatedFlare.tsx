@@ -1,5 +1,6 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface AnimatedFlareProps {
@@ -52,10 +53,12 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
       initial={false}
       animate={controls}
     >
-      <img
+      <Image
         src={`${basePath}${imageSrc}`}
         alt="Lens Flare"
         className="w-[900px] md:w-[1500px] h-auto"
+        width={2000}
+        height={200}
         style={{
           pointerEvents: "none",
           userSelect: "none",

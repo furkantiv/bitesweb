@@ -1,6 +1,7 @@
 "use client";
 import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export interface NewsContentProps {
   news: {
@@ -49,9 +50,11 @@ const NewsContent: React.FC<NewsContentProps> = ({ news }) => {
         {/* Image */}
         <div className="flex-shrink-0 mb-2 md:mb-0">
           <div className="w-full h-40 md:w-72 md:h-48 rounded-lg overflow-hidden border border-[#35434D] bg-gray-900/50">
-            <img
+            <Image
               src={news.image}
               alt={title}
+              width={300}
+              height={200}
               className="w-full h-full object-cover"
             />
           </div>

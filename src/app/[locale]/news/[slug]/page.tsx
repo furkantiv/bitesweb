@@ -5,6 +5,7 @@ import { slugify } from "@/utils/slugify";
 import { getLastNews } from "@/utils/getLastNews";
 import { LastNewsCard } from "@/components/ui/LastNewsCard";
 import FollowUs from "@/components/ui/FollowUs";
+import Image from "next/image";
 
 // Eğer Next.js ile dinamik locale parametresi geliyorsa params'tan alabilirsin
 // Burası, route.ts tanımına göre değişir. Burada örnek olarak locale=tr verdim.
@@ -50,21 +51,24 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           </div>
 
           {/* Büyük görsel */}
-          <div className="w-full rounded-xl overflow-hidden border border-[#35434D] shadow">
-            <img
+          <div className="relative w-full ">
+            <Image
               src={news.image}
               alt={news.title[locale]}
-              className="w-full h-auto max-h-[480px] object-contain object-center"
+              width={1500}
+              height={700}
+              className="object-contain object-center rounded-xl overflow-hidden shadow"
+              sizes="100vw"
             />
           </div>
-          {/* Main Content (örnek uzun açıklama, markdown veya html de parse edebilirsin) */}
-          <div className="text-gray-200 text-base md:text-lg leading-relaxed mt-4">
+          {/* Main Content */}
+          <div className="text-gray-200 text-base md:text-lg leading-relaxed w-full p-4 mt-4">
             {news.content[locale] ? (
               news.content[locale]
             ) : (
               <>
                 <p>We Have A Problem</p>
-                <p>#BITES #UDHAM</p>
+                <p>#BITES</p>
               </>
             )}
           </div>

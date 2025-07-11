@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { categories } from "@/data/categories";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const gridVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -35,9 +36,11 @@ const ProductsPage = () => {
             </div>
             <div className="w-full rounded-xl overflow-hidden">
               <SpotlightCard>
-                <img
+                <Image
                   src={cat.image}
                   alt={t("categories." + cat.slug)}
+                  width={600}
+                  height={340}
                   className="w-full h-full object-cover"
                 />
               </SpotlightCard>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { NewsType } from "@/data/news";
+import Image from "next/image";
 
 interface LastNewsCardProps {
   newsList: NewsType[];
@@ -65,8 +66,10 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({ newsList }) => {
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={handleDragEnd}
           >
-            <div className="w-24 h-22 rounded-lg overflow-hidden flex-shrink-0">
-              <img
+            <div className="w-[120px] h-[80px] rounded-lg overflow-hidden flex-shrink-0">
+              <Image
+                width={120}
+                height={80}
                 src={news.image}
                 alt={title}
                 className="w-full h-full object-cover"
