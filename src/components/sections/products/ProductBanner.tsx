@@ -6,7 +6,7 @@ interface ProductBannerProps {
 }
 export default function ProductBanner({ image, alt }: ProductBannerProps) {
   return (
-    <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden my-8 relative">
+    <div className="w-full h-64 pt-6 md:h-80 rounded-lg overflow-hidden relative">
       <Image
         src={image}
         alt={alt || "Product Banner"}

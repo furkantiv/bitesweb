@@ -7,114 +7,53 @@ export const categories: Category[] = [
     image: "/images/products/categories/Training and Simulation Systems.png",
     items: [
       {
-        name: "Embedded Training System",
-        image: "/images/products/embedded-training-system.png",
-        slug: "embedded-training-system",
-        items: [
-          {
-            name: "Atok",
-            slug: "atok",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "KARMA",
-            slug: "karma",
-            image: "/images/products/karma.png",
-          },
-          {
-            name: "Digital Twin",
-            slug: "digitaltwin",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "Porsuk",
-            slug: "porsuk",
-            image: "/images/products/atok.png",
-          },
-        ],
+        name: "Karma",
+        image: "/images/products/karma.png",
+        slug: "karma",
+        items: [],
       },
       {
-        name: "Breakdown Maintenance Simulation Systems",
+        name: "BİTES LMS/LXP Platform",
         image: "/images/products/atok.png",
-        slug: "breakdownmaintenance",
-        items: [
-          {
-            name: "Atok",
-            slug: "atok",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "KARMA",
-            slug: "karma",
-            image: "/images/products/karma.png",
-          },
-          {
-            name: "Digital Twin",
-            slug: "digitaltwin",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "Porsuk",
-            slug: "porsuk",
-            image: "/images/products/atok.png",
-          },
-        ],
+        slug: "bites-lms-lxp",
+        items: [],
       },
       {
-        name: "Mission Simulators",
+        name: "Immersive XR",
         image: "/images/products/atok.png",
-        slug: "missionsimulators",
-        items: [
-          {
-            name: "Atok",
-            slug: "atok",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "KARMA",
-            slug: "karma",
-            image: "/images/products/karma.png",
-          },
-          {
-            name: "Digital Twin",
-            slug: "digitaltwin",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "Porsuk",
-            slug: "porsuk",
-            image: "/images/products/atok.png",
-          },
-        ],
+        slug: "immersive-xr",
+        items: [],
       },
       {
-        name: "Mixed Reality Simulation and Training Systems",
+        name: "Embedded Training Systems",
         image: "/images/products/atok.png",
-        slug: "mixedreality",
-        items: [
-          {
-            name: "Atok",
-            slug: "atok",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "KARMA",
-            slug: "karma",
-            image: "/images/products/karma.png",
-          },
-          {
-            name: "Digital Twin",
-            slug: "digitaltwin",
-            image: "/images/products/atok.png",
-          },
-          {
-            name: "Porsuk",
-            slug: "porsuk",
-            image: "/images/products/atok.png",
-          },
-        ],
+        slug: "embedded-training",
+        items: [],
       },
-      // ...devamı
+      {
+        name: "Augmented Reality Content Creator",
+        image: "/images/products/atok.png",
+        slug: "augmented-reality-creator",
+        items: [],
+      },
+      {
+        name: "ALTAY Data Management System",
+        image: "/images/products/atok.png",
+        slug: "altay-data-management",
+        items: [],
+      },
+      {
+        name: "Virtual Maintenance Simulators",
+        image: "/images/products/atok.png",
+        slug: "virtual-maintenance",
+        items: [],
+      },
+      {
+        name: "Shooting Training Simulator",
+        image: "/images/products/atok.png",
+        slug: "shooting-simulator",
+        items: [],
+      },
     ],
   },
   {
@@ -122,7 +61,36 @@ export const categories: Category[] = [
     slug: "defenceinformation",
     image: "/images/products/categories/Defence Systems.png",
     items: [
-      // defence ürünleri burada
+      {
+        name: "Atok",
+        image: "/images/products/atok.png",
+        slug: "atok",
+        items: [],
+      },
+      {
+        name: "Porsuk",
+        image: "/images/products/porsuk.png",
+        slug: "porsuk",
+        items: [],
+      },
+      {
+        name: "Bright Sight",
+        image: "/images/products/karma.png",
+        slug: "bright-sight",
+        items: [],
+      },
+      {
+        name: "Augmented Reality Sand BOX",
+        image: "/images/products/sks.png",
+        slug: "arsbox",
+        items: [],
+      },
+      {
+        name: "Video Management System",
+        image: "/images/products/karma.png",
+        slug: "video-management",
+        items: [],
+      },
     ],
   },
   {
@@ -131,7 +99,12 @@ export const categories: Category[] = [
     image:
       "/images/products/categories/Technology and Business Solutions Systems.png",
     items: [
-      // defence ürünleri burada
+      {
+        name: "Digital Twin",
+        image: "/images/products/digital-twin.png",
+        slug: "digital-twin",
+        items: [],
+      },
     ],
   },
   {
@@ -139,7 +112,12 @@ export const categories: Category[] = [
     slug: "avionicsandmission",
     image: "/images/products/categories/Avionics and Mission Systems.png",
     items: [
-      // defence ürünleri burada
+      {
+        name: "Digital Twin",
+        image: "/images/products/digital-twin.png",
+        slug: "avionics-systems-software",
+        items: [],
+      },
     ],
   },
   // diğer kategoriler...

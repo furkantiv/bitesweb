@@ -14,9 +14,9 @@ export default function ProductGridSection({
   product = "",
 }: ProductGridSectionProps) {
   return (
-    <section className="flex flex-col md:flex-row w-full rounded-2xl overflow-hidden shadow-lg min-h-[350px]">
+    <section className="flex flex-col md:flex-row w-full pt-8 pb-8 rounded-lg space-x-6 overflow-hidden min-h-[350px]">
       {/* Sol: Metin */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-12 min-h-[350px]">
+      <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-0 min-h-[350px]">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
@@ -33,12 +33,15 @@ export default function ProductGridSection({
         </ul>
       </div>
       {/* Sağ: Görsel */}
-      <div className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px] rounded-2xl overflow-hidden">
+      <div
+        className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px]
+      rounded-lg overflow-hidden"
+      >
         <Image
           src={image}
           alt={heading}
           fill
-          className="object-cover rounded-2xl"
+          className="object-cover"
           priority
         />
       </div>

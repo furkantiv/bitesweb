@@ -29,12 +29,12 @@ const ProductsPage = () => {
             key={cat.slug}
             whileTap={{ scale: 0.97 }}
             onClick={() => router.push(`/products/${cat.slug}`)}
-            className="cursor-pointer rounded-2xl transition group shadow-xl border border-[#303030] w-[400px] h-[260px] md:w-[600px] md:h-[340px] p-4"
+            className="cursor-pointer rounded-2xl transition group shadow-xl border border-[#303030] w-[400px] h-[260px] lg:w-[600px] lg:h-[340px] p-4"
           >
-            <div className="text-white font-semibold text-base m-2">
+            <div className="text-white font-semibold text-base m-1">
               {t("categories." + cat.slug)}
             </div>
-            <div className="w-full rounded-xl overflow-hidden">
+            <div className="w-full rounded-lg overflow-hidden">
               <SpotlightCard>
                 <Image
                   src={cat.image}

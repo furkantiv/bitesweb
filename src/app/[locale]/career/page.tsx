@@ -11,7 +11,7 @@ const images = {
   life: "/images/career/LifeasBites.png",
 };
 
-const cardBase = "rounded-2xl border border-gray-700 p-6 md:p-8 shadow-none";
+const cardBase = "rounded-2xl border border-gray-700 p-6 md:p-4 shadow-none";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -48,18 +48,18 @@ export default function CareersPage() {
             src={images.join}
             alt="Join Us"
             fill
-            className="object-cover"
+            className="object-cover rounded-2xl"
             priority
             quality={90}
           />
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/0 flex flex-col justify-end p-8"
+            className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/0 flex flex-col justify-end p-2 md:p-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1.1 }}
           >
             <motion.h1
-              className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg"
+              className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -88,17 +88,17 @@ export default function CareersPage() {
         </motion.div>
 
         {/* Main Grid */}
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           {/* Recruitment Criteria Row */}
           <motion.div
-            className={`${cardBase} flex flex-col md:flex-row items-stretch gap-6`}
+            className={`${cardBase} flex flex-col md:flex-row items-center `}
             variants={fadeInUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
           >
             {/* Text Side */}
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col justify-center">
               <div>
                 <motion.h2
                   className="text-2xl font-bold text-white mb-2"
@@ -125,7 +125,7 @@ export default function CareersPage() {
                   ))}
                 </motion.ul>
               </div>
-              <div className="mt-4">
+              <div className="my-6">
                 <AnimatedButton
                   text={t("criteriaButton")}
                   href="/career/recruitment"
@@ -137,13 +137,13 @@ export default function CareersPage() {
               className="flex-1 flex items-center justify-center"
               transition={{ type: "spring", stiffness: 250 }}
             >
-              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full rounded-2xl overflow-hidden flex-1">
+              <div className="relative w-full md:aspect-auto md:h-full rounded-lg overflow-hidden">
                 <Image
                   src={images.criteria}
                   alt="Recruitment"
-                  fill
+                  width={650}
+                  height={400}
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
                   style={{
                     objectFit: "cover",
                   }}
@@ -153,7 +153,7 @@ export default function CareersPage() {
           </motion.div>
 
           {/* Open Position + Internship Program Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Open Position */}
             <motion.div
               className={cardBase}
@@ -186,13 +186,16 @@ export default function CareersPage() {
               <p className="text-gray-200 text-sm mb-4">
                 {t("internshipDesc")}
               </p>
-              <AnimatedButton text={t("internshipButton")} />
+              <AnimatedButton
+                text={t("internshipButton")}
+                href="/career/talentprogram"
+              />
             </motion.div>
           </div>
 
           {/* Life at Bites Row */}
           <motion.div
-            className={`${cardBase} flex flex-col md:flex-row min-h-120 gap-6 items-stretch`}
+            className={`${cardBase} flex flex-col md:flex-row min-h-120 gap-5 items-stretch`}
             variants={fadeInUp}
             initial="hidden"
             whileInView="show"
@@ -203,7 +206,7 @@ export default function CareersPage() {
               className="flex-1 flex items-center justify-center"
               transition={{ type: "spring", stiffness: 250 }}
             >
-              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full rounded-2xl overflow-hidden flex-1">
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full rounded-lg overflow-hidden flex-1">
                 <Image
                   src={images.life}
                   alt="Life at Bites"

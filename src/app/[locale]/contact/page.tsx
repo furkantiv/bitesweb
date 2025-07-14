@@ -47,7 +47,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <motion.div
               variants={fadeUp}
-              className="w-full md:w-1/2 rounded-3xl flex flex-col gap-6 shadow-lg "
+              className="w-full md:w-1/2 flex flex-col gap-6 shadow-lg "
               transition={{ type: "spring", stiffness: 120 }}
             >
               <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2">
@@ -61,7 +61,7 @@ export default function ContactPage() {
                 <motion.input
                   type="text"
                   placeholder={t("namePlaceholder")}
-                  className="w-full h-10 px-4 rounded-md text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition"
+                  className="w-full h-10 px-4 rounded-lg text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition"
                   value={form.name}
                   whileFocus={{
                     scale: 1.01,
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 <motion.input
                   type="email"
                   placeholder={t("emailPlaceholder")}
-                  className="w-full h-10 px-4 rounded-md text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition"
+                  className="w-full h-10 px-4 rounded-lg text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition"
                   value={form.email}
                   whileFocus={{
                     scale: 1.01,
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 <motion.textarea
                   placeholder={t("messagePlaceholder")}
                   rows={5}
-                  className="w-full px-4 py-2 rounded-md text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition resize-none"
+                  className="w-full px-4 py-2 rounded-lg text-white/80 placeholder-white/50 outline-none border border-[#35434D] focus:border-blue-500 transition resize-none"
                   value={form.message}
                   whileFocus={{
                     scale: 1.01,
@@ -141,7 +141,7 @@ export default function ContactPage() {
 
           {/* Address Section */}
           <motion.div
-            className="w-full rounded-3xl  md:px-0 md:py-10 flex flex-col md:flex-row gap-8 shadow-lg items-start"
+            className="w-full md:px-0 md:py-10 flex flex-col md:flex-row gap-5 items-center"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
@@ -222,7 +222,7 @@ export default function ContactPage() {
               className=" flex flex-1 w-full md:w-96 h-64 md:h-96 rounded-lg overflow-hidden bg-white/10 mt-8 md:mt-0"
               variants={fadeLeft}
             >
-              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden">
+              <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
                 <iframe
                   title="BITES Defence Address"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6120.989237814215!2d32.750414!3d39.90794600000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3463a83f73e2f%3A0xe52b3eb25d0f1bee!2sBITES%20Defence%20%26%20Aerospace!5e0!3m2!1str!2str!4v1751469859608!5m2!1str!2str"

@@ -46,9 +46,9 @@ export default function ProductSliderSection({
   };
 
   return (
-    <section className="max-w-7xl mx-auto flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-lg min-h-[350px]">
+    <section className="max-w-7xl mx-auto mt-8 flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg min-h-[350px]">
       {/* Sol: Görsel */}
-      <div className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px] flex items-center justify-center overflow-hidden">
+      <div className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px] flex items-center justify-center rounded-l-lg overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={slide.image + index}
@@ -58,7 +58,7 @@ export default function ProductSliderSection({
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 400, damping: 30 },
+              x: { type: "spring", stiffness: 150, damping: 30 },
               opacity: { duration: 0.2 },
             }}
             className="absolute inset-0 w-full h-full"
@@ -76,7 +76,7 @@ export default function ProductSliderSection({
       </div>
 
       {/* Sağ: Metin alanı */}
-      <div className="w-full md:w-1/2 bg-[#032037] flex flex-col justify-center p-8 md:p-12 h-[400px] relative overflow-hidden">
+      <div className="w-full md:w-1/2 bg-[#032037] flex flex-col justify-center p-8 md:p-12 h-[400px] relative rounded-r-lg overflow-hidden">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={slide.title + index}

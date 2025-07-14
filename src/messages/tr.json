@@ -1,4 +1,5 @@
 {
+  "productBackToCategory": "Ürünlere Geri Dön",
   "Navigation": {
     "about": "Hakkımızda",
     "products": "Ürünler",
@@ -150,14 +151,21 @@
     "defenceinformation": "Savunma Bilgi Sistemleri",
     "technologyandbusiness": "Teknoloji ve İş Çözümleri Sistemleri",
     "avionicsandmission": "Aviyonik ve Görev Sistemleri",
-    "embedded-training-system": "Gömülü Eğitim Sistemi",
-    "breakdownmaintenance": "Arıza Bakım Simülasyon Sistemleri",
-    "missionsimulators": "Görev Simülatörleri",
-    "mixedreality": "Karma Gerçeklik Simülasyon ve Eğitim Sistemleri",
-    "atok": "Atok",
     "karma": "KARMA",
-    "digitaltwin": "Dijital İkiz",
-    "porsuk": "Porsuk"
+    "bites-lms-lxp": "BİTES LMS/LXP Platform",
+    "immersive-xr": "Immersive XR",
+    "embedded-training": "Gömülü Eğitim Sistemleri",
+    "augmented-reality-creator": "Artırılmış Gerçeklik İçerik Üreticisi",
+    "altay-data-management": "Altay Veri Yönetim Sistemi",
+    "virtual-maintenance": "Sanal Bakım Simulatörü",
+    "shooting-simulator": "Atış Eğitim Simülatörü",
+    "atok": "Atok",
+    "porsuk": "Porsuk",
+    "bright-sight": "Bright Sight - Zırh Ötesi Görüş",
+    "arsbox": "Sanal Kum Havuzu",
+    "video-management": "Video Yönetim Sistemi",
+    "digital-twin": "Dijital İkiz",
+    "avionics-systems-software": "Aviyonik Sistemler ve Programlar"
   },
   "productNav": {
     "backToProducts": "Tüm Ürünlere Dön",
@@ -175,5 +183,39 @@
     "categories": "Kategoriler",
     "followUs": "Bizi Takip Edin",
     "lastNews": "Son Haberler"
+  },
+  "TalentProgram": {
+    "title": "BİTES Yetenek & Staj Programı",
+    "subtitle": "BİTES ailesine katılmayı düşünen adayların asgari kriterleri sağlaması beklenmektedir. İşe alınacak adaylar ayrıca kişisel güvenlik sertifikası sorgulamasına tabi tutulacaktır.",
+    "sections": [
+      {
+        "title": "01 BI'STAR PROGRAMINA BAŞVURU ŞARTLARI",
+        "list": [
+          "T.C. vatandaşı olmak",
+          "Üniversitelerin Bilgisayar Mühendisliği, Yazılım Mühendisliği, Elektrik Elektronik Mühendisliği, Bilişim Sistemleri ve Teknolojileri, Yapay Zeka Mühendisliği, Endüstri Mühendisliği bölümlerinin 3. sınıf öğrencisi olmak",
+          "[Genel Not Ortalaması + (20.000 / Üniversiteye Giriş Sırası)] ≥ 3.75",
+          "2024-2025 eğitim-öğretim yılında ders programının Ankara ofislerimizde haftada en az 1,5 gün çalışmaya uygun olması"
+        ]
+      },
+      {
+        "title": "02 Yaz Stajı Başvuru Dönemi",
+        "content": "1 Mart 2025 - 19 Nisan 2025"
+      },
+      {
+        "title": "03 Başvuru Yöntemi",
+        "list": [
+          "Aşağıda belirtilen bilgi ve belgeler ile birlikte yetenek@bites.com.tr adresine e-posta göndermelisiniz:",
+          "CV'niz (PDF formatında)",
+          "Güncel transkriptiniz (PDF formatında)",
+          "Kısa bir şekilde kendinizi tanıttığınız ve staj yapmak istediğiniz alanları belirttiğiniz mesajınız"
+        ]
+      },
+      {
+        "title": "04 Değerlendirme ve Sonuçlar",
+        "content": "Başvurunuzun ardından ön değerlendirmeyi geçen adaylarla görüşmeler yapılabilir. Stajyer değerlendirme sonuçları en geç 1 Mayıs 2025 tarihinde açıklanacaktır."
+      }
+    ],
+    "applyButton": "Hemen Başvur",
+    "sendInfo": "Başvurunuzu yetenek@bites.com.tr adresine iletin"
   }
 }

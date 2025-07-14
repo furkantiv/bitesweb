@@ -197,9 +197,9 @@ export default function Timeline() {
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-5 left-5 right-5 h-1 rounded-2xl bg-gray-800 z-20">
+      <div className="absolute bottom-5 left-5 right-5 h-1 rounded-full bg-gray-800 z-20">
         <div
-          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl transition-all duration-500"
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500"
           style={{
             width: `${((currentIndex + 1) / total) * 100}%`,
           }}

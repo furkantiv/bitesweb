@@ -199,12 +199,12 @@ export default function RecruitmentPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20 py-8 md:py-12 w-full min-h-screen">
       {/* Banner */}
-      <div className="relative w-full h-40 md:h-64 rounded-2xl overflow-hidden mb-6">
+      <div className="relative w-full h-40 md:h-64 mb-6">
         <Image
-          src="/images/recruitment-banner.jpg"
+          src="/images/career/recruitment-banner.png"
           alt="Recruitment"
           fill
-          className="object-cover"
+          className="object-cover rounded-lg overflow-hidden"
           priority
           sizes="100vw"
         />

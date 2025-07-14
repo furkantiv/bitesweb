@@ -41,7 +41,7 @@ const HomePage = async () => {
     : [];
 
   return (
-    <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4">
+    <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4 pb-28 md:pb-0">
       <div className="flex flex-col items-center space-y-10 md:mt-30 max-h-full md:overflow-hidden">
         <HeroText title={title} words={words} interval={3000} />
 
@@ -66,7 +66,7 @@ const HomePage = async () => {
         </div>
       </div>
       {/* Sticky NewsGrid (Only visible on larger screens) */}
-      <div className="fixed bottom-0 right-0 z-30 hidden md:block">
+      <div className="fixed bottom-0 right-0 z-30 hidden xl:block short:hidden ">
         <NewsGrid />
       </div>
     </div>
