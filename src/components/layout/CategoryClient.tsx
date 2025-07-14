@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";

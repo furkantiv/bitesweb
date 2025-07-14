@@ -46,7 +46,7 @@ export default function ProductSliderSection({
   };
 
   return (
-    <section className="max-w-7xl mx-auto flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg min-h-[400px] mb-6">
+    <section className="max-w-7xl mx-auto flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg min-h-[400px] mb-14">
       {/* Sol: Görsel */}
       <div className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px] flex items-center justify-center rounded-l-lg overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>

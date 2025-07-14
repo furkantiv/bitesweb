@@ -10,7 +10,7 @@ export const immersiveXrSolutionsContent: ProductContent = {
     tr: "Göreve Hazırlık İçin Gerçekliğin Sınırlarını Zorlayın. BİTES Immersive XR Çözümleri, simülasyon, komuta-kontrol, eğitim ve mühendislik alanlarında yenilikçi VR ve MR teknolojileri sunar.",
   },
   heroImageUrl:
-    "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-1.png",
+    "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-4.png",
   sections: [
     {
       type: "feature",
@@ -122,7 +122,7 @@ export const immersiveXrSolutionsContent: ProductContent = {
         tr: "Taktik Alanda Her Zaman Bir Adım Önde",
       },
       image:
-        "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-4.png",
+        "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-1.png",
       heading: {
         en: "XR Applications in Product Design and Engineering",
         tr: "Ürün Tasarımı ve Mühendislikte XR Uygulamaları",

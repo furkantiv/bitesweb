@@ -9,7 +9,7 @@ export const atokContent: ProductContent = {
     en: "The Military Tactical Operation Kit ATOK, developed by BİTES and equipped with portable and wearable integrated technology, maximizes the security of military units.",
     tr: "BİTES tarafından geliştirilen, taşınabilir ve giyilebilir entegre teknolojiyle donatılmış Askeri Taktik Operasyon Kiti ATOK, askeri birimlerin güvenliğini en üst düzeye çıkarır.",
   },
-  videoUrl: "/videos/atok-hero.mp4",
+  videoUrl: "/images/products/atok/atok.mp4",
   sections: [
     {
       type: "feature",

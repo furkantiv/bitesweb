@@ -18,7 +18,7 @@ const Porsuk = () => {
   return (
     <div className="max-w-7xl my-20 md:my-40 mx-auto">
       <BackButton categorySlug="defenceinformation" />
-      <div className="pb-6 px-5  border rounded-2xl border-[#35434D] min-h-screen">
+      <div className="px-5 border rounded-2xl border-[#35434D] min-h-screen">
         <ProductHeader
           title={t(content.title)}
           description={t(content.description)}

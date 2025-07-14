@@ -41,8 +41,8 @@ const HomePage = async () => {
     : [];
 
   return (
-    <div className="fixed inset-10 w-screen h-screen overflow-hidden flex flex-col items-center justify-center md:justify-start px-5 pb-28 md:pb-0">
-      <div className="flex flex-col items-center justify-center md:items-center space-y-10 max-h-full md:overflow-hidden md:mt-24">
+    <div className="fixed w-screen h-screen overflow-hidden flex flex-col items-center justify-center md:justify-start px-5 pb-28 md:pb-0">
+      <div className="flex flex-col md:items-center space-y-10 max-h-full md:overflow-hidden md:mt-24">
         <HeroText title={title} words={words} interval={3000} />
 
         {/* Responsive Button Group */}

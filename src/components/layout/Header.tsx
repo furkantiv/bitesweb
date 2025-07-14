@@ -75,9 +75,14 @@ const Header = () => {
             className="fixed inset-0 bg-[#00192F] z-50 flex flex-col px-6 pt-6 md:hidden"
           >
             <div className="flex justify-between items-center mb-6">
-              <div className="text-2xl font-bold tracking-wider text-white">
-                BITES
-              </div>
+              <GlobeLink href={`/`}>
+                <Image
+                  src="/logo.svg"
+                  alt="Bites Logo"
+                  width={100}
+                  height={40}
+                />
+              </GlobeLink>
               <button
                 className="text-white"
                 onClick={() => setMobileMenuOpen(false)}

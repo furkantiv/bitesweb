@@ -75,7 +75,7 @@ export const categories: Category[] = [
       },
       {
         name: "Bright Sight",
-        image: "/images/products/karma.png",
+        image: "/images/products/BrightSight.png",
         slug: "bright-sight",
         items: [],
       },

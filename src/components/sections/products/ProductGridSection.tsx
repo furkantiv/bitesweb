@@ -20,7 +20,7 @@ export default function ProductGridSection({
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           {heading}
         </h2>
         <ul className="space-y-3">

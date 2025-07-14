@@ -15,7 +15,7 @@ export const porsukContent: ProductContent = {
     {
       type: "feature",
       image:
-        "/images/products/productpages/defence-information/porsuk/porsuk-1.png",
+        "/images/products/productpages/defence-information/porsuk/porsuk-3.png",
       heading: {
         en: "Features",
         tr: "Özellikler",

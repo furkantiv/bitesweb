@@ -197,7 +197,7 @@ const NewsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -32 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden fixed top-14 left-0 right-0 z-10 p-2"
+              className="lg:hidden fixed top-14 left-0 right-0 z-10 mt-4 p-2"
             >
               <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-wrap gap-2">

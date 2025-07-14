@@ -50,7 +50,7 @@ const VideoPlayer = ({
   }, []);
 
   return (
-    <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black flex items-center justify-center">
+    <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black flex items-center justify-center mb-14 ">
       <video
         ref={videoRef}
         src={videoUrl}

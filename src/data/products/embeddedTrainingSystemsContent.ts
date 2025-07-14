@@ -11,7 +11,7 @@ export const embeddedTrainingSystemsContent: ProductContent = {
   },
   videoUrl: "", // Video eklenirse yolunu gir, yoksa boş bırak
   heroImageUrl:
-    "/images/products/productpages/training-simulation/embedded-education-systems/embedded-education-1.png",
+    "/images/products/productpages/training-simulation/embedded-education-systems/embedded-education-0.png",
   sections: [
     {
       type: "feature",

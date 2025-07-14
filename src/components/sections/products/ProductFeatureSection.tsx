@@ -17,7 +17,7 @@ export default function ProductFeatureSection({
   product = "",
 }: FeatureSectionData) {
   return (
-    <section className="flex flex-col md:flex-row w-full pt-8 rounded-lg overflow-hidden min-h-[350px] mb-6">
+    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-14">
       {/* Sol: Görsel */}
       <div className="w-full md:w-1/2 relative h-[400px] rounded-lg overflow-hidden md:h-auto min-h-[300px]">
         <Image
@@ -33,17 +33,13 @@ export default function ProductFeatureSection({
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           {heading}
         </h2>
         <div className="space-y-4">
-          <p className="text-base md:text-lg text-white leading-snug">
-            {content}
-          </p>
+          <p className="text-base text-white leading-snug">{content}</p>
           {extra && (
-            <p className="text-base md:text-lg text-white leading-snug">
-              {extra}
-            </p>
+            <p className="text-base text-white leading-snug">{extra}</p>
           )}
         </div>
       </div>

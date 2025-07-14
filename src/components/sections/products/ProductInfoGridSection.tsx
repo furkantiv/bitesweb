@@ -46,7 +46,7 @@ export default function ProductInfoGridSection({
           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               {left.map((cat, idx) => (
-                <div key={idx} className="mb-6">
+                <div key={idx} className="mb-8">
                   <h3 className="text-xl font-semibold mb-2">{cat.title}</h3>
                   <ul className="list-disc ml-5 space-y-1">
                     {cat.items.map((item, i) => (
@@ -60,7 +60,7 @@ export default function ProductInfoGridSection({
             </div>
             <div>
               {right.map((cat, idx) => (
-                <div key={idx} className="mb-6">
+                <div key={idx} className="mb-8">
                   <h3 className="text-xl font-semibold mb-2">{cat.title}</h3>
                   <ul className="list-disc ml-5 space-y-1">
                     {cat.items.map((item, i) => (

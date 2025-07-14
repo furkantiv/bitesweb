@@ -16,16 +16,16 @@ export default function ProductSplitSection({
   features,
 }: ProductSplitSectionProps) {
   return (
-    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-6">
+    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-14">
       {/* Sol: Metin */}
       <div className="w-full md:w-1/2 flex flex-col justify-center min-h-[350px] mb-3">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
           {title}
         </h2>
-        <p className="text-base md:text-lg text-white mb-5">{heading}</p>
+        <p className="text-base text-white mb-4">{heading}</p>
         <ul className="space-y-1">
           {features.map((feature, i) => (
             <li key={i} className="text-base text-white flex items-start">
