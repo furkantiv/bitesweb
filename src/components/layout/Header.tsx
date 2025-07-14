@@ -48,15 +48,17 @@ const Header = () => {
           <Image src="/logo.svg" alt="Bites Logo" width={100} height={40} />
         </GlobeLink>
 
-        <LocaleSwitcher />
+        <div className="flex flex-row gap-4">
+          <LocaleSwitcher />
 
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen((prev) => !prev)}
-          aria-label="Toggle Navigation"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <button
+            className="md:hidden text-white"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle Navigation"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       <div className="hidden md:block mt-5 w-full">
         <Navigation />

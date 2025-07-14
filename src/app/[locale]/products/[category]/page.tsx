@@ -18,7 +18,7 @@ export default async function ProductSubCategoryPage({
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-20 md:px-0 md:pt-20 w-full min-h-screen items-center justify-center bg-transparent overflow-hidden">
+    <div className="max-w-7xl mx-auto px-6 py-20 md:px-0 md:pt-20 w-full items-center justify-center bg-transparent overflow-hidden">
       <CategoryClient
         items={category.items}
         name={t("categories." + category.slug)}

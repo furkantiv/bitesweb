@@ -30,7 +30,7 @@ export default function AboutPage() {
       <main className="max-w-7xl mx-auto px-6 md:px-0 space-y-12 md:py-20">
         {/* Our Mission & Vision Section */}
         <section>
-          <div className="p-6 rounded-2xl border items-center justify-center border-[#35434D]">
+          <div className="md:p-6 p-3 rounded-2xl border items-center justify-center border-[#35434D]">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               {/* Text Alanı */}
               <div className="flex-1 flex flex-col justify-between min-w-0">
@@ -79,11 +79,17 @@ export default function AboutPage() {
         {/* Our Core Values Section */}
         <section>
           <div className="max-w-7xl mx-auto">
-            <div className="mb-6 mx-6">
+            <div className="mb-6 md:mx-6 mx-3 flex flex-col md:block">
               <h2 className="text-4xl font-semibold text-white mb-3">
                 {t("coreValuesTitle")}
               </h2>
-              <h3 className="text-2xl font-medium text-white/80">
+              <h3
+                className={`
+          text-2xl font-medium text-white/80
+          ${/* Mobilde: yüksekliği sabitle, flex ile ortala */ ""}
+          h-20 flex items-center md:h-auto md:flex-none
+        `}
+              >
                 {t("coreValuesSubtitle")}
               </h3>
             </div>
@@ -95,12 +101,17 @@ export default function AboutPage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="border border-[#35434D] rounded-2xl p-6 shadow-xl transition-all duration-200 flex flex-col min-h-44"
+                  className="border border-[#35434D] rounded-2xl md:p-6 p-3 shadow-xl transition-all duration-200 flex flex-col min-h-44"
                 >
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h3 className="text-2xl font-semibold text-white items-center text-left md:block md:items-start mb-2">
                     {val.title}
                   </h3>
-                  <p className="text-white text-base flex-1">{val.desc}</p>
+                  <p
+                    className="text-white text-base flex-1 flex items-center text-left md:block md:items-start
+    "
+                  >
+                    {val.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -108,8 +119,8 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline Section */}
-        <section>
-          <div className="mb-6 px-6">
+        <section className="mb-6">
+          <div className="mb-6 px-6 mx-3">
             <h2 className="text-4xl font-semibold text-white mb-3">
               {t("historyTitle")}
             </h2>

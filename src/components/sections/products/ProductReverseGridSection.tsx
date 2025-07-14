@@ -30,7 +30,7 @@ export default function ProductReverseGridSection({
       </div>
 
       {/* Sag: Metin */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-0 min-h-[350px] items-end text-right">
+      <div className="w-full md:w-1/2 flex flex-col justify-center md:p-0 min-h-[350px]">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
@@ -41,10 +41,10 @@ export default function ProductReverseGridSection({
           {features.map((f, i) => (
             <li
               key={i}
-              className="flex items-center justify-end text-base text-white w-full"
+              className="flex items-center text-base text-white w-full"
             >
+              <span className="inline-block w-2 h-2 rounded-full bg-white mr-3" />
               <span className="">{f}</span>
-              <span className="inline-block mt-2 w-2 h-2 rounded-full bg-white ml-3" />
             </li>
           ))}
         </ul>

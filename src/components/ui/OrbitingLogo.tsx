@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function OrbitingLogo() {
   return (
-    <div className="relative w-[30vw] min-w-[96px] max-w-[220px] aspect-square flex items-center justify-center md:w-[180px]">
+    <div className="relative w-[40vw] min-w-[96px] max-w-[220px] aspect-square flex items-center justify-center md:w-[180px]">
       {/* Outer Orbit - Rotating */}
       <motion.div
         className="absolute left-0 top-0 w-full h-full flex items-center justify-center"

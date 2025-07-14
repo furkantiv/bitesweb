@@ -143,7 +143,7 @@
     "headquarter": "Headquarter",
     "address": "Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi,\n280/G Kat:4 No:14 PK, 06530 Çankaya / ANKARA",
     "workingHoursTitle": "Working Hours",
-    "workingHours": "Monday - Friday: 7:00 - 17:00\nSaturday: 7:00 - 12:00\nSunday and holidays: 8:00 - 10:00",
+    "workingHours": "Monday - Friday: 8:30 - 18:00",
     "socialMediaTitle": "Social Media"
   },
   "categories": {
@@ -217,5 +217,49 @@
     ],
     "applyButton": "Apply Now",
     "sendInfo": "Send your application to yetenek@bites.com.tr"
+  },
+  "Footer": {
+    "company": "Company",
+    "companyDesc": "BİTES is an ASELSAN company.",
+    "address": "Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi, 280/G Kat:4 No:14 PK, 06530\nÇankaya / ANKARA",
+    "quickLinks": "Quick Links",
+    "products": "Products",
+    "policy": "Policy",
+    "copyright": "© 2025 BİTES, all rights reserved.",
+    "productListLeft": [
+      "ATOK",
+      "KEÇİ",
+      "KARMA",
+      "Digital Twin",
+      "Beyond Armor Vision",
+      "CBT LMS",
+      "Immersive XR",
+      "SKS"
+    ],
+    "productListRight": [
+      "Video Management System",
+      "Embedded Training System",
+      "Augmented Training System",
+      "Avionic System & Software",
+      "ALTAY Data Management System",
+      "Virtual Maintenance Simulator",
+      "Shooting Training Simulator"
+    ],
+    "policyLinks": [
+      "Cookie Policy",
+      "Quality Policy",
+      "Information Security Policy",
+      "PDP Clarification Text",
+      "Application Form Under PPL",
+      "Personal Data Retention and Destruction Policy",
+      "Special Qualified Personel Data Protection and Processing Policy"
+    ],
+    "quickLinkList": [
+      { "label": "About Us", "href": "/about" },
+      { "label": "Products", "href": "/products" },
+      { "label": "News", "href": "/news" },
+      { "label": "Career", "href": "/career" },
+      { "label": "Contact", "href": "/contact" }
+    ]
   }
 }

@@ -70,7 +70,7 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({ newsList }) => {
               <Image
                 width={120}
                 height={80}
-                src={news.image}
+                src={news.image[0]}
                 alt={title}
                 className="w-full h-full object-cover"
               />

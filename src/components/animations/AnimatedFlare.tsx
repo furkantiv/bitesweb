@@ -8,18 +8,30 @@ interface AnimatedFlareProps {
   basePath?: string;
 }
 
+// En üstte
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 800);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return isMobile;
+}
+
 const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
   imageSrc = "/lens-flare.png",
   basePath = process.env.NEXT_PUBLIC_BASE_PATH || "",
 }) => {
   const [showFull, setShowFull] = useState(false);
   const controls = useAnimation();
+  const isMobile = useIsMobile(); // 👈 responsive kontrol
 
   useEffect(() => {
-    // İlk animasyon: 0'dan güçlü bir parlaklığa (opacity: 1.2 gibi!)
     controls
       .start({
-        opacity: [0, 1.15, 0.9], // 1.15 ile kısa bir "flash"
+        opacity: [0, 1.15, 0.9],
         scale: [1.5, 1.62, 1.5],
         transition: {
           duration: 2.5,
@@ -33,7 +45,6 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
   }, [controls]);
 
   useEffect(() => {
-    // Parlaklık zirvesinden sonra, sürekli minik bir titreme (nefes/pulse)
     if (showFull) {
       controls.start({
         opacity: [0.85, 0.95, 0.92, 0.95, 0.85],
@@ -49,16 +60,22 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
 
   return (
     <motion.div
-      className="absolute top-44 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none select-none"
+      className={`absolute left-1/2 -translate-x-1/2 z-10 pointer-events-none select-none
+        ${isMobile ? "top-1/2 -translate-y-1/3" : "top-44 -translate-y-1/2"}
+      `}
       initial={false}
       animate={controls}
     >
       <Image
         src={`${basePath}${imageSrc}`}
         alt="Lens Flare"
-        className="w-[900px] md:w-[1500px] h-auto"
         width={2000}
-        height={200}
+        height={300}
+        className={
+          isMobile
+            ? "max-w-[480px]" // mobilde neredeyse ekran kadar, max 480px
+            : "w-[1500px]"
+        }
         style={{
           pointerEvents: "none",
           userSelect: "none",

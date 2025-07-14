@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import NewsContent from "@/components/ui/NewsContent";
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/layout/Footer";
 import { newsList, NewsType } from "@/data/news";
@@ -11,29 +10,22 @@ import { useTranslations } from "next-intl";
 import { slugify } from "@/utils/slugify";
 import FollowUs from "@/components/ui/FollowUs";
 
-const categories = [
-  { value: "all" },
-  { value: "defence" },
-  { value: "bites" },
-  { value: "tech" },
-];
+const categories = [{ value: "all" }, { value: "defence" }, { value: "bites" }];
+const ITEMS_PER_PAGE = 3;
 
 const NewsPage = () => {
   const t = useTranslations();
 
-  const [selected, setSelected] = useState<string>("all");
-
-  // Filtered news by category
-  const filteredNews =
-    selected === "all"
-      ? newsList
-      : newsList.filter((n) => n.category === selected);
-
-  const [index, setIndex] = useState(0);
-  const lastThreeNews = newsList.slice(-3);
-  const [direction, setDirection] = useState(1);
+  const [selected, setSelected] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
   const [hideMobileFilters, setHideMobileFilters] = useState(false);
 
+  // Kategori değişince ilk sayfaya dön
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selected]);
+
+  // Mobil filtreyi scroll ile gizle/göster
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerWidth < 1024) {
@@ -44,10 +36,68 @@ const NewsPage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Seçili kategoriye göre haberleri filtrele
+  const filteredNews =
+    selected === "all"
+      ? newsList
+      : newsList.filter((n) => n.category === selected);
+
+  // Pagination hesapları
+  const pageCount = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
+  const paginatedNews = filteredNews.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  // Son 3 haber
+  const lastThreeNews = newsList.slice(-3);
+
+  // Pagination component
+  const Pagination = () =>
+    pageCount > 1 ? (
+      <div className="flex items-center justify-center gap-2 mt-4">
+        <button
+          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          disabled={currentPage === 1}
+          className={`px-3 py-1 rounded border text-sm ${
+            currentPage === 1
+              ? "bg-[#22293A] text-gray-400 border-[#35434D] cursor-not-allowed"
+              : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
+          }`}
+        >
+          &lt;
+        </button>
+        {Array.from({ length: pageCount }, (_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`px-3 py-1 rounded border text-sm ${
+              currentPage === i + 1
+                ? "bg-[#004CFF] text-white border-[#004CFF]"
+                : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
+            }`}
+          >
+            {i + 1}
+          </button>
+        ))}
+        <button
+          onClick={() => setCurrentPage((p) => Math.min(pageCount, p + 1))}
+          disabled={currentPage === pageCount}
+          className={`px-3 py-1 rounded border text-sm ${
+            currentPage === pageCount
+              ? "bg-[#22293A] text-gray-400 border-[#35434D] cursor-not-allowed"
+              : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
+          }`}
+        >
+          &gt;
+        </button>
+      </div>
+    ) : null;
+
   return (
     <>
-      <div className="max-w-7xl mx-auto px-6 py-20 md:px-0 md:pt-20 w-full min-h-screen bg-transparent flex gap-8 justify-center">
-        {/* Left: News List */}
+      <div className="max-w-7xl mx-auto px-5 py-20 md:px-0 md:pt-20 w-full min-h-screen bg-transparent flex gap-8 justify-center">
+        {/* Sol: News List */}
         <div className="flex-1 max-w-7xl">
           <motion.div
             layout
@@ -56,12 +106,12 @@ const NewsPage = () => {
             transition={{ duration: 0.1 }}
             className="flex flex-col gap-6"
           >
-            {filteredNews.length === 0 ? (
+            {paginatedNews.length === 0 ? (
               <div className="text-white text-center py-12">
                 No news found in this category.
               </div>
             ) : (
-              filteredNews.map((news) => (
+              paginatedNews.map((news) => (
                 <motion.div
                   key={news.id}
                   layout
@@ -92,9 +142,11 @@ const NewsPage = () => {
               ))
             )}
           </motion.div>
+          {/* Pagination */}
+          <Pagination />
         </div>
 
-        {/* Right: Fixed Sidebar - Hidden on mobile, visible on lg+ */}
+        {/* Sağ: Fixed Sidebar - Hidden on mobile, visible on lg+ */}
         <aside className="hidden lg:block w-full max-w-sm z-10">
           <div className="fixed top-40 w-full max-w-sm">
             <div className="w-full max-w-sm flex flex-col gap-10">
@@ -115,7 +167,7 @@ const NewsPage = () => {
                       onClick={() => setSelected(cat.value)}
                       className={`px-4 py-1 rounded-full border text-sm ${
                         selected === cat.value
-                          ? "bg-white text-black border-white"
+                          ? "bg-transparent text-white border-[#004CFF]"
                           : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
                       } transition-all`}
                     >
@@ -145,7 +197,7 @@ const NewsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -32 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden fixed top-14 left-0 right-0 z-10 backdrop-blur-md p-2"
+              className="lg:hidden fixed top-14 left-0 right-0 z-10 p-2"
             >
               <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-wrap gap-2">
@@ -155,7 +207,7 @@ const NewsPage = () => {
                       onClick={() => setSelected(cat.value)}
                       className={`px-4 py-1 rounded-full border text-sm ${
                         selected === cat.value
-                          ? "bg-white text-black border-white"
+                          ? "bg-transparent text-white border-[#004CFF]"
                           : "bg-transparent text-white border-[#35434D] hover:bg-white/10"
                       } transition-all`}
                     >

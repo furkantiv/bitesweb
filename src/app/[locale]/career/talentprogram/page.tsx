@@ -12,10 +12,10 @@ export default function TalentProgram() {
   const mail = "yetenek@bites.com.tr";
 
   return (
-    <main className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20">
-      <header className="mb-12 text-center">
+    <main className="max-w-7xl mx-auto px-5 md:px-0 md:pt-20">
+      <header className="mb-5 text-left">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-white"
+          className="text-4xl md:text-5xl  font-bold text-white"
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -24,31 +24,21 @@ export default function TalentProgram() {
         </motion.h1>
         <p className="mt-4 text-base text-gray-300">{t("subtitle")}</p>
       </header>
-      <section className="">
-        <div className="w-full h-80 relative rounded-lg overflow-hidden shadow-lg mb-8">
-          <Image
-            src="/images/career/talent-program-hero.png"
-            alt="Talent Program"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      </section>
       <section className="space-y-8">
         {sections.map((section, idx) => (
           <motion.div
             key={idx}
-            className="rounded-2xl border border-[#35434D] shadow-lg p-6"
+            className="rounded-2xl border border-[#35434D] shadow-lg p-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 * idx }}
           >
-            <h2 className="text-xl font-semibold text-white mb-2">
+            <h2 className="text-xl font-semibold text-white">
               {section.title}
             </h2>
 
             {"list" in section && (
-              <ul className="list-disc pl-4 space-y-2 text-gray-200">
+              <ul className="list-disc px-3 space-y-2 text-gray-200">
                 {section.list.map((item: string, i: number) => {
                   // Eğer cümlede mail varsa link haline getir
                   if (item.includes(mail)) {
@@ -121,8 +111,8 @@ export default function TalentProgram() {
         ))}
       </section>
 
-      <div className="flex flex-col items-center m-12">
-        <AnimatedButton text={t("applyButton")} />
+      <div className="flex flex-col items-start m-3">
+        {/* <AnimatedButton text={t("applyButton")} /> */}
         <span className="text-gray-400 mt-2 text-sm">
           {/* Alttaki info'da mail adresi link olsun */}
           {(() => {

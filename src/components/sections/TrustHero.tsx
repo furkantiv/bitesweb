@@ -38,7 +38,7 @@ const HeroText: React.FC<TrustHeroProps> = ({
       {/* ...text... */}
       <div className="z-30 flex flex-col items-center justify-center">
         <motion.span
-          className="text-white text-3xl md:text-3xl font-medium drop-shadow-[0_1px_24px_rgba(250,250,250,0.10)]"
+          className="text-white text-2xl md:text-3xl text-center md:pb-0 -mb-2  font-medium drop-shadow-[0_1px_24px_rgba(250,250,250,0.10)]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
@@ -48,7 +48,7 @@ const HeroText: React.FC<TrustHeroProps> = ({
         <AnimatePresence mode="wait">
           <motion.span
             key={words[index]}
-            className="text-white text-3xl md:text-7xl font-extrabold mt-2 drop-shadow-[0_2px_24px_rgba(255,255,255,0.10)]"
+            className="text-white text-[40px] md:text-7xl font-extrabold mt-2 drop-shadow-[0_2px_24px_rgba(255,255,255,0.10)]"
             initial={{ opacity: 0, y: 25, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -25, scale: 0.97 }}

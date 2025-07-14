@@ -44,13 +44,7 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="
-        flex flex-col lg:flex-row
-        items-center justify-center
-        w-full max-w-7xl gap-12
-        mx-auto
-        sm:px-8
-      "
+      className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl gap-12 mx-auto sm:px-8 overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -158,9 +152,9 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
         {selectedSub ? (
           <button
             onClick={() => setSelectedSub(null)}
-            className="flex items-center gap-3 text-white text-xl font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
+            className="flex items-center gap-3 text-white text-[16px] font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
           >
-            <ArrowLeft size={28} strokeWidth={1.5} />
+            <ArrowLeft size={24} strokeWidth={1.5} />
             {t("productNav.backToCategory", {
               category: name,
             })}
@@ -169,24 +163,16 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
           <Link
             href="/products"
             tabIndex={-1}
-            className="flex items-center gap-3 text-white text-xl font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
+            className="flex items-center gap-3 text-white text-[16px] font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
           >
-            <ArrowLeft size={28} strokeWidth={1.5} />
+            <ArrowLeft size={24} strokeWidth={1.5} />
             {t("productNav.backToProducts")}
           </Link>
         )}
       </motion.div>
 
       {/* Görsel */}
-      <div
-        className="
-          flex-1 flex items-center justify-center
-          relative w-full
-          min-h-[250px] sm:min-h-[300px]
-          max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl
-          aspect-square
-        "
-      >
+      <div className="hidden md:flex flex-1 items-center justify-center relative w-full min-h-[250px] sm:min-h-[300px] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl aspect-square">
         {hoveredIndex !== null && listedItems[hoveredIndex]?.image && (
           <motion.div
             key={listedItems[hoveredIndex].image}

@@ -1,14 +1,11 @@
 import { newsList } from "@/data/news";
-import { Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
 import BreadcrumbsWithSearch from "@/components/ui/BreadcrumbsWithSearch";
 import { slugify } from "@/utils/slugify";
 import { getLastNews } from "@/utils/getLastNews";
 import { LastNewsCard } from "@/components/ui/LastNewsCard";
 import FollowUs from "@/components/ui/FollowUs";
-import Image from "next/image";
+import NewsImageSlider from "@/components/ui/NewsImageSlider";
 
-// Eğer Next.js ile dinamik locale parametresi geliyorsa params'tan alabilirsin
-// Burası, route.ts tanımına göre değişir. Burada örnek olarak locale=tr verdim.
 type NewsDetailPageProps = {
   params: Promise<{
     slug: string;
@@ -30,11 +27,18 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     );
   }
 
+  const breadcrumbItems = [
+    { label: locale === "tr" ? "Ana Sayfa" : "Home", href: "/" },
+    { label: locale === "tr" ? "Haberler" : "News", href: "/news" },
+    { label: news.title[locale] }, // sonuncuda href yok; aktif sayfa
+  ];
+
   return (
-    <div className="max-w-7xl mx-auto px-6 py-20 md:px-0 md:pt-4 w-full min-h-screen bg-transparent flex flex-col lg:flex-row gap-8 justify-center">
+    <div className="max-w-7xl mx-auto px-6 py-20 md:px-0 md:pt-20 w-full min-h-screen bg-transparent flex flex-col lg:flex-row gap-8 justify-center">
       {/* Sol - İçerik */}
       <div className="flex-1 min-w-0">
-        <div className="border border-[#35434D] rounded-2xl p-6 md:p-10 flex flex-col gap-6">
+        <BreadcrumbsWithSearch items={breadcrumbItems} />
+        <div className="border border-[#35434D] rounded-2xl p-3 md:p-4 flex flex-col gap-6">
           {/* Üst başlık ve meta */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>
@@ -52,13 +56,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
           {/* Büyük görsel */}
           <div className="relative w-full ">
-            <Image
-              src={news.image}
+            <NewsImageSlider
+              images={news.image} // array of image URLs
               alt={news.title[locale]}
-              width={1500}
-              height={700}
-              className="object-contain object-center rounded-xl overflow-hidden shadow"
-              sizes="100vw"
             />
           </div>
           {/* Main Content */}
@@ -76,8 +76,8 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
       </div>
 
       {/* Sağ - Sidebar */}
-      <aside className="w-hidden lg:block w-full max-w-sm z-10">
-        <div className="fixed top-53 w-full space-y-8 max-w-sm h-screen overflow-y-auto">
+      <aside className="hidden lg:block w-full max-w-sm z-10">
+        <div className="fixed top-50 w-full space-y-8 max-w-sm h-screen overflow-y-auto">
           {/* Last News */}
 
           <div className="flex flex-col gap-4">

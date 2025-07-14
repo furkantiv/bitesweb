@@ -1,90 +1,75 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
-export interface NewsContentProps {
-  news: {
-    id: number;
-    timeAgo: string;
-    source: string;
-    date: string;
-    title: string;
-    description: string;
-    image: string;
-  };
-}
+type NewsItem = {
+  id: number;
+  source: { en: string; tr: string };
+  date: string; // ör: "23 September, 2025"
+  title: { en: string; tr: string };
+  description: { en: string; tr: string };
+  image: string[];
+  category: string;
+  content: { en: string; tr: string };
+};
 
-const NewsContentForHome: React.FC<NewsContentProps> = ({ news }) => (
-  <motion.div
-    key={news.id}
-    initial={{ opacity: 0, x: 50 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: -50 }}
-    transition={{ duration: 0.3, ease: "easeInOut" }}
-    className="flex gap-6"
-  >
-    {/* Time Badge */}
-    <div className="flex-shrink-0">
-      <div className="text-white">
-        <div className="text-4xl font-light mb-1">
-          {news.timeAgo.split(" ")[0]}
+type NewsContentForHomeProps = {
+  news: NewsItem;
+  locale?: "tr" | "en";
+};
+
+const NewsContentForHome: React.FC<NewsContentForHomeProps> = ({
+  news,
+  locale = "tr",
+}) => {
+  const [day, month, year] = news.date.replace(",", "").split(" ");
+
+  return (
+    <div className="flex items-center gap-4">
+      {/* Tarih */}
+      <div className="flex-row md:flex-col items-center md:items-start gap-1 flex-shrink-0 mb-2 md:mb-0 hidden md:block">
+        <div className="text-white text-2xl md:text-4xl font-light leading-none">
+          {day}
         </div>
-        <div className="text-xs md:text-sm text-gray-400">
-          {news.date.split(" ")[1]}
-        </div>
-        <div className="text-xs md:text-sm text-gray-400">
-          {news.date.split(" ")[2]}
-        </div>
+        <div className="text-xs md:text-sm text-gray-400">{month}</div>
+        <div className="text-xs md:text-sm text-gray-400">{year}</div>
       </div>
-    </div>
 
-    {/* Main Content with separator line */}
-    <div className="flex-1 flex gap-4 pl-4 border-l border-[#35434D]">
+      {/* Dikey divider */}
+      <div className="w-px h-12 bg-gray-700 mx-1 rounded hidden sm:block" />
+
       {/* Image */}
-      <div className="flex-shrink-0">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="w-32 h-28 rounded-lg overflow-hidden border border-[#35434D]"
-        >
+      {news.image && news.image.length > 0 && (
+        <div className="w-32 h-24 relative flex-shrink-0 rounded overflow-hidden bg-neutral-800">
           <Image
-            src={news.image}
-            alt={news.title}
-            width={128}
-            height={100}
-            className="w-full h-full object-cover"
+            src={news.image[0]}
+            alt={news.title[locale]}
+            fill
+            className="object-cover object-center rounded"
+            sizes="120px"
+            priority
           />
-        </motion.div>
-      </div>
-
-      {/* Text Content */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-gray-300 text-sm font-medium">
-            {news.source}
-          </span>
-          <span className="text-gray-500 text-sm">{news.date}</span>
         </div>
+      )}
 
-        <motion.h3
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-white text-lg font-medium mb-2 line-clamp-2"
-        >
-          {news.title}
-        </motion.h3>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-400 text-sm line-clamp-2"
-        >
-          {news.description}
-        </motion.p>
+      {/* İçerik */}
+      <div className="flex flex-col flex-1">
+        <div className="flex justify-between mb-2">
+          <span className="text-xs text-white px-2 rounded-full border border-[#35434D]">
+            {news.source[locale]}
+          </span>
+          <span className="text-xs text-white px-2 rounded-full ">
+            {news.date}
+          </span>
+        </div>
+        <h3 className="text-sm font-semibold text-white line-clamp-1">
+          {news.title[locale]}
+        </h3>
+        <p className="text-xs text-gray-300 mt-1 line-clamp-2">
+          {news.description[locale]}
+        </p>
       </div>
     </div>
-  </motion.div>
-);
+  );
+};
 
 export default NewsContentForHome;

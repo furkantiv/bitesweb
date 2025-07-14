@@ -29,15 +29,14 @@ export function LocaleSwitcher() {
         border border-[#35434D]
         text-[#35434D]
         bg-transparent
-        hover:bg-neutral-100
-        hover:text-neutral-600
+        hover:border-[#004DFF]
         focus:outline-none focus:ring-1 focus:ring-neutral-400
         transition-all cursor-pointer
       "
       aria-label={`Change language to ${nextLocale.toUpperCase()}`}
     >
-      <Globe size={16} className="text-neutral-600" />
-      <span className="text-sm font-medium tracking-wide">
+      <Globe size={16} className="text-white" />
+      <span className="text-sm font-medium text-white tracking-wide">
         {nextLocale.toUpperCase()}
       </span>
     </button>

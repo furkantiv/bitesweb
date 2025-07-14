@@ -17,9 +17,15 @@ const ProductsPage = () => {
   const t = useTranslations();
 
   return (
-    <div className="max-w-7xl mx-auto px-6 md:px-0  md:pt-20 flex flex-col items-center justify-center">
+    <div className="max-w-7xl mx-auto px-5 md:px-0 pt-20 mb-10 flex flex-col items-center justify-center w-full">
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-5 "
+        className="
+      grid 
+      grid-cols-1 
+      md:grid-cols-2 
+      gap-6 
+      w-full
+    "
         variants={gridVariants}
         initial="hidden"
         animate="visible"
@@ -29,19 +35,36 @@ const ProductsPage = () => {
             key={cat.slug}
             whileTap={{ scale: 0.97 }}
             onClick={() => router.push(`/products/${cat.slug}`)}
-            className="cursor-pointer rounded-2xl transition group shadow-xl border border-[#303030] w-[400px] h-[260px] lg:w-[600px] lg:h-[340px] p-4"
+            className="
+          cursor-pointer 
+          rounded-2xl 
+          transition 
+          group 
+          shadow-xl 
+          border border-[#303030] 
+          flex flex-col 
+          w-full 
+          max-w-full
+          aspect-[16/9]
+          min-h-[170px] 
+          md:min-h-[220px]
+          lg:min-h-[260px]
+          p-2 sm:p-3 md:p-4
+          hover:shadow-2xl
+        "
           >
-            <div className="text-white font-semibold text-base m-1">
+            <div className="text-white font-semibold text-base m-1 line-clamp-1">
               {t("categories." + cat.slug)}
             </div>
-            <div className="w-full rounded-lg overflow-hidden">
-              <SpotlightCard>
+            <div className="flex-1 flex w-full rounded-lg overflow-hidden">
+              <SpotlightCard className="w-full h-full">
                 <Image
                   src={cat.image}
                   alt={t("categories." + cat.slug)}
-                  width={600}
-                  height={340}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover w-full h-full"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={true}
                 />
               </SpotlightCard>
             </div>

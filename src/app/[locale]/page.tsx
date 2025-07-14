@@ -1,9 +1,10 @@
-import NewsGrid from "@/components/sections/NewsGrid";
 import HeroText from "@/components/sections/TrustHero";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import InfoCardsGrid from "@/components/ui/InfoCard";
 import { getTranslations } from "next-intl/server";
-
+import { newsList } from "@/data/news";
+import NewsCard from "@/components/sections/NewsGrid";
+import { getLastNews } from "@/utils/getLastNews";
 export const metadata = {
   title: "Bites",
   description: "Learn more about us...",
@@ -18,9 +19,8 @@ const HomePage = async () => {
   };
 
   async function getStrapiData(path: string) {
-    const baseUrl = "http://localhost:1337";
     try {
-      const response = await fetch(baseUrl + path, { cache: "no-store" });
+      const response = await fetch(path, { cache: "no-store" });
       const data = await response.json();
       if (!data?.data) throw new Error("No data");
       return data;
@@ -41,12 +41,12 @@ const HomePage = async () => {
     : [];
 
   return (
-    <div className="w-screen h-full overflow-auto md:overflow-hidden flex flex-col items-center justify-center px-4 pb-28 md:pb-0">
-      <div className="flex flex-col items-center space-y-10 md:mt-30 max-h-full md:overflow-hidden">
+    <div className="fixed inset-10 w-screen h-screen overflow-hidden flex flex-col items-center justify-center md:justify-start px-5 pb-28 md:pb-0">
+      <div className="flex flex-col items-center justify-center md:items-center space-y-10 max-h-full md:overflow-hidden md:mt-24">
         <HeroText title={title} words={words} interval={3000} />
 
         {/* Responsive Button Group */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-16">
+        <div className="flex flex-row gap-16 px-2 items-center justify-center">
           <AnimatedButton
             text={t("aboutUs")}
             color="#A2ACB4"
@@ -61,13 +61,14 @@ const HomePage = async () => {
         </div>
 
         {/* Info Grid */}
-        <div className="w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
+
+        <div className="hidden md:block w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
           <InfoCardsGrid />
         </div>
       </div>
       {/* Sticky NewsGrid (Only visible on larger screens) */}
-      <div className="fixed bottom-0 right-0 z-30 hidden xl:block short:hidden ">
-        <NewsGrid />
+      <div className="fixed bottom-0 right-0 z-30">
+        <NewsCard newsItems={getLastNews(newsList, 3)} locale="en" />
       </div>
     </div>
   );

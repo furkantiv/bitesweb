@@ -143,7 +143,7 @@
     "headquarter": "Genel Merkez",
     "address": "Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi,\n280/G Kat:4 No:14 PK, 06530 Çankaya / ANKARA",
     "workingHoursTitle": "Çalışma Saatleri",
-    "workingHours": "Pazartesi - Cuma: 7:00 - 17:00\nCumartesi: 7:00 - 12:00\nPazar ve tatil günleri: 8:00 - 10:00",
+    "workingHours": "Pazartesi - Cuma: 8:30 - 18:00",
     "socialMediaTitle": "Sosyal Medya"
   },
   "categories": {
@@ -168,7 +168,7 @@
     "avionics-systems-software": "Aviyonik Sistemler ve Programlar"
   },
   "productNav": {
-    "backToProducts": "Tüm Ürünlere Dön",
+    "backToProducts": "Ürünlere Dön",
     "backToCategory": "{category} kategorisine geri dön",
     "notFound": "Kategori bulunamadı"
   },
@@ -217,5 +217,49 @@
     ],
     "applyButton": "Hemen Başvur",
     "sendInfo": "Başvurunuzu yetenek@bites.com.tr adresine iletin"
+  },
+  "Footer": {
+    "company": "Şirket",
+    "companyDesc": "BİTES bir ASELSAN şirketidir.",
+    "address": "Mustafa Kemal Mahallesi, ODTÜ Teknokent Bilişim İnovasyon Merkezi, 280/G Kat:4 No:14 PK, 06530\nÇankaya / ANKARA",
+    "quickLinks": "Hızlı Bağlantılar",
+    "products": "Ürünler",
+    "policy": "Politikalar",
+    "copyright": "© 2025 BİTES, tüm hakları saklıdır.",
+    "productListLeft": [
+      "ATOK",
+      "KEÇİ",
+      "KARMA",
+      "Dijital İkiz",
+      "Zırh Ötesi Görüş",
+      "CBT LMS",
+      "Immersive XR",
+      "SKS"
+    ],
+    "productListRight": [
+      "Video Yönetim Sistemi",
+      "Gömülü Eğitim Sistemi",
+      "Artırılmış Eğitim Sistemi",
+      "Aviyonik Sistem & Yazılım",
+      "ALTAY Veri Yönetim Sistemi",
+      "Sanal Bakım Simülatörü",
+      "Atış Eğitim Simülatörü"
+    ],
+    "policyLinks": [
+      "Çerez Politikası",
+      "Kalite Politikası",
+      "Bilgi Güvenliği Politikası",
+      "KVKK Aydınlatma Metni",
+      "KVKK Başvuru Formu",
+      "Kişisel Veri Saklama ve İmha Politikası",
+      "Özel Nitelikli Kişisel Veri Koruma ve İşleme Politikası"
+    ],
+    "quickLinkList": [
+      { "label": "Hakkımızda", "href": "/about" },
+      { "label": "Ürünler", "href": "/products" },
+      { "label": "Haberler", "href": "/news" },
+      { "label": "Kariyer", "href": "/career" },
+      { "label": "İletişim", "href": "/contact" }
+    ]
   }
 }

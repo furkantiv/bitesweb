@@ -14,9 +14,9 @@ export default function ProductGridSection({
   product = "",
 }: ProductGridSectionProps) {
   return (
-    <section className="flex flex-col md:flex-row w-full pt-8 pb-8 rounded-lg space-x-6 overflow-hidden min-h-[350px]">
+    <section className="flex flex-col md:flex-row w-full mb-6 rounded-lg space-x-6 overflow-hidden min-h-[350px]">
       {/* Sol: Metin */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-0 min-h-[350px]">
+      <div className="w-full md:w-1/2 flex flex-col justify-center pb-3 min-h-[350px]">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>

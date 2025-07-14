@@ -11,7 +11,7 @@ const images = {
   life: "/images/career/LifeasBites.png",
 };
 
-const cardBase = "rounded-2xl border border-gray-700 p-6 md:p-4 shadow-none";
+const cardBase = "rounded-2xl border border-gray-700 p-3 md:p-4 shadow-none";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -34,7 +34,7 @@ export default function CareersPage() {
   return (
     <>
       <motion.div
-        className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20"
+        className="max-w-7xl mx-auto px-5 md:px-0 md:pt-20"
         initial="hidden"
         animate="show"
         variants={fadeIn}
@@ -52,8 +52,10 @@ export default function CareersPage() {
             priority
             quality={90}
           />
+
+          {/* Text OVER image - only md and up */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/0 flex flex-col justify-end p-2 md:p-8"
+            className="hidden md:flex absolute inset-0 bg-gradient-to-t from-black/80 to-black/0 flex-col justify-end p-2 md:p-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1.1 }}
@@ -85,6 +87,41 @@ export default function CareersPage() {
               {t("heroDesc")}
             </motion.p>
           </motion.div>
+        </motion.div>
+
+        {/* Text UNDER image - only mobile */}
+        <motion.div
+          className="flex md:hidden flex-col justify-end p-2 mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 1.1 }}
+        >
+          <motion.h1
+            className="text-2xl font-bold text-white mb-2 drop-shadow-lg"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              delay: 0.6,
+              duration: 0.8,
+              type: "spring",
+              stiffness: 50,
+            }}
+          >
+            {t("heroTitle")}
+          </motion.h1>
+          <motion.p
+            className="text-white text-base drop-shadow"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              delay: 0.75,
+              duration: 0.8,
+              type: "spring",
+              stiffness: 45,
+            }}
+          >
+            {t("heroDesc")}
+          </motion.p>
         </motion.div>
 
         {/* Main Grid */}

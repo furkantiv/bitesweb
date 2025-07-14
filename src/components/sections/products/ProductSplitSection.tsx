@@ -16,9 +16,9 @@ export default function ProductSplitSection({
   features,
 }: ProductSplitSectionProps) {
   return (
-    <section className="flex flex-col md:flex-row w-full mt-8 rounded-lg overflow-hidden min-h-[350px] space-x-6">
+    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-6">
       {/* Sol: Metin */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-0 min-h-[350px]">
+      <div className="w-full md:w-1/2 flex flex-col justify-center min-h-[350px] mb-3">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>

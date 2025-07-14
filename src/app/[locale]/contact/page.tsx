@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import Footer from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
+import FollowUs from "@/components/ui/FollowUs";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -47,10 +48,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <motion.div
               variants={fadeUp}
-              className="w-full md:w-1/2 flex flex-col gap-6 shadow-lg "
+              className="w-full md:w-1/2 flex flex-col gap-5 border p-3 rounded-2xl border-[#35434D] shadow-lg "
               transition={{ type: "spring", stiffness: 120 }}
             >
-              <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2">
+              <h2 className="text-3xl md:text-4xl font-semibold text-white">
                 {t("heroTitle")}
               </h2>
               {/* Name */}
@@ -141,7 +142,7 @@ export default function ContactPage() {
 
           {/* Address Section */}
           <motion.div
-            className="w-full md:px-0 md:py-10 flex flex-col md:flex-row gap-5 items-center"
+            className="w-full md:px-0 py-10 flex flex-col md:flex-row gap-5 items-center"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
@@ -149,7 +150,7 @@ export default function ContactPage() {
           >
             {/* Left side: info */}
             <motion.div
-              className="flex-1 flex flex-col gap-8"
+              className="flex-1 flex flex-col gap-5"
               variants={fadeUp}
             >
               <h2 className="text-3xl md:text-4xl font-semibold text-white">
@@ -174,48 +175,9 @@ export default function ContactPage() {
                 </p>
               </motion.div>
               {/* Social Media */}
-              <motion.div variants={fadeUp}>
-                <h3 className="text-base font-medium text-white border-t pt-2 border-[#35434D] pb-2 mb-2">
-                  {t("socialMediaTitle")}
-                </h3>
-                <motion.div
-                  className="flex items-center gap-5 mt-2"
-                  initial={false}
-                >
-                  <motion.div whileHover={{ scale: 1.2, color: "#60a5fa" }}>
-                    <Link
-                      href="#"
-                      className="text-white hover:text-blue-400 transition"
-                    >
-                      <Linkedin size={20} />
-                    </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.2, color: "#ef4444" }}>
-                    <Link
-                      href="#"
-                      className="text-white hover:text-red-500 transition"
-                    >
-                      <Youtube size={20} />
-                    </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.2, color: "#3b82f6" }}>
-                    <Link
-                      href="#"
-                      className="text-white hover:text-blue-500 transition"
-                    >
-                      <Facebook size={20} />
-                    </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.2, color: "#f472b6" }}>
-                    <Link
-                      href="#"
-                      className="text-white hover:text-pink-400 transition"
-                    >
-                      <Instagram size={20} />
-                    </Link>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
+              <div className="flex pl-3 mb-2">
+                <FollowUs />
+              </div>
             </motion.div>
             {/* Right side: Map */}
             <motion.div

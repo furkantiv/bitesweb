@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -11,24 +11,27 @@ export default function Timeline() {
   const [windowWidth, setWindowWidth] = React.useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const [mounted, setMounted] = React.useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Breakpoint: mobil < 640, masaüstü >= 640
-  const isMobile = windowWidth < 640;
+  const isMobile = mounted ? windowWidth < 640 : false; // SSR'da hep desktop göster
 
   // KART ÖLÇÜLERİ
-  const CARD_WIDTH = isMobile ? 350 : 500;
+  const CARD_WIDTH = isMobile ? 320 : 500;
   const CARD_HEIGHT = 300;
   const GAP = isMobile ? 16 : 32;
-  const ITEM_SIZE = isMobile ? CARD_HEIGHT + GAP : CARD_WIDTH + GAP;
+  const ITEM_SIZE = CARD_WIDTH + GAP;
   const VISIBLE_COUNT = isMobile ? 1 : 3;
-  const CONTAINER_SIZE = isMobile
-    ? CARD_HEIGHT * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1)
-    : CARD_WIDTH * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1);
+  const CONTAINER_SIZE = CARD_WIDTH * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const total = timelineData.length;
@@ -141,22 +144,18 @@ export default function Timeline() {
                   {/* Content Card */}
                   <div
                     className={`
-                      absolute left-1/2
+                      absolute left-1/2 
                       ${
-                        isMobile
-                          ? "top-1/2"
-                          : isUp
-                          ? "bottom-[calc(50%+36px)]"
-                          : "top-[calc(50%+36px)]"
+                        isUp
+                          ? "bottom-[calc(50%+32px)]"
+                          : "top-[calc(50%+32px)]"
                       }
-                      px-4 py-2 justify-center shadow-xl rounded-2xl border border-[#35434D]
+                      px-3 py-2 justify-center shadow-xl rounded-2xl border border-[#35434D]
                       transition-all duration-300 
-                      ${isActive ? "scale-105" : "opacity-60"}
+                      ${isActive ? "scale-100" : "opacity-60"}
                     `}
                     style={{
-                      transform: isMobile
-                        ? "translate(-50%, -50%)"
-                        : "translateX(-50%)",
+                      transform: "translateX(-50%)",
                     }}
                   >
                     <div className="text-3xl font-semibold text-center justify-center select-none">
@@ -167,24 +166,20 @@ export default function Timeline() {
                     className={`
                       absolute left-1/2
                       ${
-                        isMobile
-                          ? "top-1/2"
-                          : !isUp
-                          ? "bottom-[calc(50%+62px)]"
-                          : "top-[calc(50%+36px)]"
+                        !isUp
+                          ? "bottom-[calc(50%+32px)]"
+                          : "top-[calc(50%+16px)]"
                       }
                       px-2 shadow-xl w-full justify-center 
                       transition-all duration-300 
                       ${isActive ? "scale-105" : "opacity-60"}
                     `}
                     style={{
-                      transform: isMobile
-                        ? "translate(-50%, -50%)"
-                        : "translate(-50%, 50% )",
+                      transform: "translate(-50%, 50% )",
                     }}
                   >
                     {item.title && (
-                      <div className="text-center justify-center text-white text-sm font-normal">
+                      <div className="text-center p-2 justify-center text-white text-sm font-normal">
                         {item.title}
                       </div>
                     )}
