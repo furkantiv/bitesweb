@@ -154,9 +154,9 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
 
   const [colorMap, emissiveMap, displacementMap, metalnessMap, roughnessMap] =
     useLoader(THREE.TextureLoader, [
-      `/models/earth/BasecolorNight3_4k.png`,
+      `/models/earth/BasecolorNight3_4k.jpg`,
       `/models/earth/Emissive_Orange4k.png`,
-      `/models/earth/Height_Map.jpeg`,
+      `/models/earth/Height_Map.jpg`,
       `/models/earth/Metalness_4k.png`,
       `/models/earth/Reflectance.png`,
     ]);

@@ -27,7 +27,7 @@ export default function Timeline() {
 
   // KART ÖLÇÜLERİ
   const CARD_WIDTH = isMobile ? 320 : 500;
-  const CARD_HEIGHT = 300;
+  const CARD_HEIGHT = 200;
   const GAP = isMobile ? 16 : 32;
   const ITEM_SIZE = CARD_WIDTH + GAP;
   const VISIBLE_COUNT = isMobile ? 1 : 3;
@@ -46,15 +46,12 @@ export default function Timeline() {
 
   // translate için hesaplama (mobilde Y, masaüstünde X)
   const calcTranslate = () => {
-    const centerOffset =
-      CONTAINER_SIZE / 2 - (isMobile ? CARD_HEIGHT : CARD_WIDTH) / 2;
-    return isMobile
-      ? -currentIndex * ITEM_SIZE + centerOffset
-      : -currentIndex * ITEM_SIZE + centerOffset;
+    const centerOffset = CONTAINER_SIZE / 2 - CARD_WIDTH / 2;
+    return -currentIndex * ITEM_SIZE + centerOffset;
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto py-4 rounded-2xl border border-[#35434D] text-white overflow-hidden">
+    <div className="relative w-full py-4 rounded-2xl border border-[#35434D] text-white overflow-hidden">
       {/* Oklar */}
       <>
         {/* Sol */}
@@ -76,12 +73,7 @@ export default function Timeline() {
       </>
 
       {/* Timeline */}
-      <div
-        className={`
-          ${isMobile ? "px-2 py-8" : "py-2"}
-          flex items-center justify-center min-h-[300px]
-        `}
-      >
+      <div className="py-2 flex items-center justify-center min-h-[200px]">
         <div
           style={{
             width: isMobile ? `${CARD_WIDTH}px` : `${CONTAINER_SIZE}px`,
@@ -94,7 +86,7 @@ export default function Timeline() {
             style={{
               gap: `${GAP}px`,
               width: `${ITEM_SIZE * total}px`,
-              height: isMobile ? `${ITEM_SIZE * total}px` : "100%",
+              height: "100%",
             }}
             animate={{ x: calcTranslate() }}
             transition={{ type: "spring", stiffness: 80, damping: 22 }}
@@ -144,11 +136,11 @@ export default function Timeline() {
                   {/* Content Card */}
                   <div
                     className={`
-                      absolute left-1/2 
+                      absolute left-1/2
                       ${
                         isUp
-                          ? "bottom-[calc(50%+32px)]"
-                          : "top-[calc(50%+32px)]"
+                          ? "bottom-[calc(30%+32px)]"
+                          : "top-[calc(70%+32px)]"
                       }
                       px-3 py-2 justify-center shadow-xl rounded-2xl border border-[#35434D]
                       transition-all duration-300 
@@ -167,8 +159,8 @@ export default function Timeline() {
                       absolute left-1/2
                       ${
                         !isUp
-                          ? "bottom-[calc(50%+32px)]"
-                          : "top-[calc(50%+16px)]"
+                          ? "bottom-[calc(30%+32px)]"
+                          : "top-[calc(60%+32px)]"
                       }
                       px-2 shadow-xl w-full justify-center 
                       transition-all duration-300 

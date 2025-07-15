@@ -20,13 +20,13 @@ export default function NewsImageSlider({ images, alt }: NewsImageSliderProps) {
   }
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto">
+    <div className="relative w-full max-w-[400px] sm:max-w-[600px] md:max-w-[800px] aspect-square mx-0">
       {/* Main slider container */}
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative w-full h-full overflow-hidden rounded-lg">
         {/* Images container */}
         <div
           ref={sliderRef}
-          className="flex transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-500 ease-in-out h-full"
           style={{
             transform: `translateX(-${index * 100}%)`,
           }}
@@ -34,26 +34,17 @@ export default function NewsImageSlider({ images, alt }: NewsImageSliderProps) {
           {images.map((image, i) => (
             <div
               key={i}
-              className="w-full flex-shrink-0 flex flex-col items-center"
+              className="relative w-full aspect-square flex-shrink-0 flex items-center justify-center"
             >
-              {/* Main image */}
-              <div
-                className="relative w-full flex justify-center items-center "
-                style={{ minHeight: 380, maxHeight: 700 }}
-              >
-                <Image
-                  src={image}
-                  alt={`${alt} - Image ${i + 1}`}
-                  fill
-                  style={{
-                    objectFit: "contain",
-                    objectPosition: "center",
-                  }}
-                  className="select-none"
-                  priority={i === 0}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 768px"
-                />
-              </div>
+              <Image
+                src={image}
+                alt={`${alt} - Image ${i + 1}`}
+                fill
+                style={{ objectFit: "cover" }}
+                className="rounded-lg"
+                sizes="(max-width: 600px) 100vw, 600px"
+                priority={i === 0}
+              />
             </div>
           ))}
         </div>
@@ -81,7 +72,7 @@ export default function NewsImageSlider({ images, alt }: NewsImageSliderProps) {
 
       {/* Dots indicator */}
       {images.length > 1 && (
-        <div className="flex justify-center mt-4 space-x-2">
+        <div className="flex justify-center mt-2 space-x-2">
           {images.map((_, i) => (
             <button
               key={i}
@@ -97,7 +88,7 @@ export default function NewsImageSlider({ images, alt }: NewsImageSliderProps) {
 
       {/* Image counter */}
       {images.length > 1 && (
-        <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
+        <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded-lg text-sm">
           {index + 1} / {images.length}
         </div>
       )}

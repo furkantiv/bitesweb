@@ -41,12 +41,11 @@ const HomePage = async () => {
     : [];
 
   return (
-    <div className="fixed w-screen h-screen overflow-hidden flex flex-col items-center justify-center md:justify-start px-5 pb-28 md:pb-0">
-      <div className="flex flex-col md:items-center space-y-10 max-h-full md:overflow-hidden md:mt-24">
+    <div className="fixed inset-0 flex flex-col items-center justify-center md:justify-start overflow-hidden">
+      <div className="flex flex-col items-start md:items-center md:overflow-hidden md:mt-40 w-full space-y-30 md:space-y-15">
         <HeroText title={title} words={words} interval={3000} />
-
         {/* Responsive Button Group */}
-        <div className="flex flex-row gap-4 md:gap-16 px-2 items-center justify-center">
+        <div className="flex gap-4 md:gap-16 w-full justify-center items-center">
           <AnimatedButton
             text={t("aboutUs")}
             color="#A2ACB4"
@@ -59,15 +58,14 @@ const HomePage = async () => {
             href="/contact"
           />
         </div>
-
         {/* Info Grid */}
-
         <div className="hidden short:hidden md:block w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
           <InfoCardsGrid />
         </div>
       </div>
+
       {/* Sticky NewsGrid (Only visible on larger screens) */}
-      <div className="fixed bottom-0 right-0 z-30">
+      <div className="fixed shorty:hidden bottom-0 right-0 z-30">
         <NewsCard newsItems={getLastNews(newsList, 3)} locale="en" />
       </div>
     </div>

@@ -120,7 +120,7 @@ export default function AboutPage() {
 
         {/* Timeline Section */}
         <section className="mb-6">
-          <div className="mb-6 px-6">
+          <div className="mb-6 px-3">
             <h2 className="text-4xl font-semibold text-white mb-3">
               {t("historyTitle")}
             </h2>

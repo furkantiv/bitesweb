@@ -17,7 +17,7 @@ const ProductsPage = () => {
   const t = useTranslations();
 
   return (
-    <div className="max-w-7xl mx-auto px-5 md:px-0 pt-6 md:pt-20 mb-10 flex flex-col items-center justify-center w-full">
+    <div className="max-w-7xl mx-auto px-5 md:px-0 md:pt-20 mb-10 flex flex-col items-center justify-center w-full">
       <motion.div
         className="
       grid 

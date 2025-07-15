@@ -15,7 +15,7 @@ export default function BreadcrumbsWithSearch({
   items,
 }: BreadcrumbsWithSearchProps) {
   return (
-    <div className="flex items-center justify-between border-t pb-5 border-neutral-800">
+    <div className="flex items-center justify-between border-t py-2 border-[#35434D]">
       <nav className="flex items-center  text-sm text-neutral-400">
         {items.map((item, idx) => (
           <span key={idx} className="flex items-center">
@@ -28,7 +28,7 @@ export default function BreadcrumbsWithSearch({
                 <p className="line-clamp-1 ">{item.label}</p>
               </Link>
             ) : (
-              <span className="text-white">{item.label}</span>
+              <span className="text-white line-clamp-1">{item.label}</span>
             )}
           </span>
         ))}

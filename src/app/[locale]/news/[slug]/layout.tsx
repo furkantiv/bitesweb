@@ -6,10 +6,5 @@ export default function NewsDetailLayout({
 }: {
   children: ReactNode;
 }) {
-  return (
-    <div>
-      {/* Breadcrumb veya diğer ortak bileşenler */}
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }
