@@ -34,7 +34,15 @@ export default function Globe() {
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 5], fov: 30 }}>
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 30 }}
+        gl={{
+          powerPreference: "low-power",
+          stencil: false,
+          depth: true,
+          preserveDrawingBuffer: false,
+        }}
+      >
         <ambientLight intensity={10} />
         <directionalLight position={[-7, 7, 10]} intensity={0.1} />
 
@@ -73,8 +81,8 @@ const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
     () =>
       new THREE.ShaderMaterial({
         uniforms: {
-          c: { value: 0.9 },
-          p: { value: 2.5 },
+          c: { value: 0.8 },
+          p: { value: 2 },
           glowColor: { value: new THREE.Color(color) },
           viewVector: { value: new THREE.Vector3() },
           glowStrength: { value: glowStrength }, // add this!
@@ -108,6 +116,12 @@ const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
     [color, glowStrength]
   );
 
+  useEffect(() => {
+    return () => {
+      material.dispose();
+    };
+  }, [material]);
+
   useFrame(() => {
     if (meshRef.current) {
       material.uniforms.viewVector.value = new THREE.Vector3().subVectors(
@@ -123,7 +137,7 @@ const AtmosphericGlow: React.FC<AtmosphericGlowProps> = ({
       position={position as [number, number, number]}
       scale={scale}
     >
-      <sphereGeometry args={[radius, 64, 64]} />
+      <sphereGeometry args={[radius, 16, 16]} />
       <primitive object={material} attach="material" />
     </a.mesh>
   );
@@ -153,7 +167,7 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
 
   return (
     <a.mesh ref={meshRef} scale={scale} position={position as any}>
-      <sphereGeometry args={[2, 128, 128]} />
+      <sphereGeometry args={[2, 64, 64]} />
       <meshStandardMaterial
         map={colorMap}
         emissiveMap={emissiveMap}

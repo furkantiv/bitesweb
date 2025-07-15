@@ -17,7 +17,7 @@ export default function ProductHeroImage({
 }: ProductHeroImageProps) {
   return (
     <div
-      className={`relative rounded-lg overflow-hidden flex items-center justify-center mx-auto ${
+      className={`relative rounded-lg overflow-hidden flex items-center justify-center mx-auto mb-14 ${
         className ?? ""
       }`}
     >

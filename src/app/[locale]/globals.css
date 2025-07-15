@@ -20,7 +20,7 @@
   }
 }
 
-@media (max-height: 950px) {
+@media (max-height: 875px) {
   .short\:hidden {
     display: none !important;
   }

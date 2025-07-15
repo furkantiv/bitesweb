@@ -46,7 +46,7 @@ const HomePage = async () => {
         <HeroText title={title} words={words} interval={3000} />
 
         {/* Responsive Button Group */}
-        <div className="flex flex-row gap-16 px-2 items-center justify-center">
+        <div className="flex flex-row gap-4 md:gap-16 px-2 items-center justify-center">
           <AnimatedButton
             text={t("aboutUs")}
             color="#A2ACB4"
@@ -62,7 +62,7 @@ const HomePage = async () => {
 
         {/* Info Grid */}
 
-        <div className="hidden md:block w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
+        <div className="hidden short:hidden md:block w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
           <InfoCardsGrid />
         </div>
       </div>

@@ -28,6 +28,18 @@ type ButtonButtonProps = BaseProps &
 
 type AnimatedButtonProps = AnchorButtonProps | ButtonButtonProps;
 
+// Kendi hookumuzla mobil tespiti
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useLayoutEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+};
+
 export const AnimatedButton = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   AnimatedButtonProps
@@ -46,6 +58,9 @@ export const AnimatedButton = forwardRef<
   const [hovered, setHovered] = useState(false);
   const [pillWidth, setPillWidth] = useState(168);
   const textRef = useRef<HTMLSpanElement>(null);
+
+  // Ekran boyutu tespiti (mobilde animasyonları atla)
+  const isMobile = useIsMobile();
 
   useLayoutEffect(() => {
     if (textRef.current) {
@@ -66,7 +81,6 @@ export const AnimatedButton = forwardRef<
           border: `1px solid ${color}`,
         };
 
-  const iconColor = variant === "filled" ? "#fff" : color;
   const pillBg =
     variant === "ghost"
       ? "transparent"
@@ -79,22 +93,31 @@ export const AnimatedButton = forwardRef<
   const pillBorder = `1px solid ${color}`;
   const pillTextColor = "#fff";
   const pillArrowColor = "#fff";
+  const iconColor = variant === "filled" ? "#fff" : color;
 
-  const handleMouseEnter = (
-    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
-  ) => {
-    setHovered(true);
-    onMouseEnter?.(e as any);
-  };
-
-  const handleMouseLeave = (
-    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
-  ) => {
-    setHovered(false);
-    onMouseLeave?.(e as any);
-  };
-
-  const buttonContent = (
+  // Animasyonları mobilde kapatıyoruz!
+  const buttonContent = isMobile ? (
+    // -- Mobil Görünüm --
+    <div
+      className="flex items-center justify-center w-auto h-11 rounded-full transition-all duration-200 shadow"
+      style={{
+        background: pillBg,
+        border: pillBorder,
+        minWidth: 0,
+        padding: "0 18px",
+        gap: 8,
+      }}
+    >
+      <ArrowUpRight size={20} strokeWidth={2.3} color={iconColor} />
+      <span
+        className="font-medium text-base whitespace-nowrap"
+        style={{ color: pillTextColor, paddingLeft: 4, paddingRight: 2 }}
+      >
+        {text}
+      </span>
+    </div>
+  ) : (
+    // -- Desktop / Animasyonlu Görünüm --
     <>
       <motion.div
         className="flex items-center justify-center z-10"
@@ -113,7 +136,6 @@ export const AnimatedButton = forwardRef<
       >
         <ArrowUpRight size={22} strokeWidth={2.3} color={iconColor} />
       </motion.div>
-
       <motion.span
         animate={{
           opacity: hovered ? 0 : 1,
@@ -128,7 +150,6 @@ export const AnimatedButton = forwardRef<
       >
         {text}
       </motion.span>
-
       {/* Hidden span for measuring the text width */}
       <span
         ref={textRef}
@@ -141,7 +162,6 @@ export const AnimatedButton = forwardRef<
       >
         {text}
       </span>
-
       <motion.div
         initial={false}
         animate={{
@@ -190,7 +210,7 @@ export const AnimatedButton = forwardRef<
     </>
   );
 
-  // Eğer href varsa Link + <a>, yoksa <button>
+  // Eğer href varsa Link + <a>
   if ("href" in props && props.href) {
     return (
       <Link
@@ -200,9 +220,28 @@ export const AnimatedButton = forwardRef<
           "flex items-center relative bg-transparent focus:outline-none cursor-pointer select-none " +
           (className || "")
         }
-        style={{ minHeight: 48, minWidth: 48, padding: 0, ...style }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        style={{
+          minHeight: 44,
+          minWidth: isMobile ? 0 : 48,
+          padding: 0,
+          ...style,
+        }}
+        onMouseEnter={
+          isMobile
+            ? undefined
+            : (e) => {
+                setHovered(true);
+                onMouseEnter?.(e as any);
+              }
+        }
+        onMouseLeave={
+          isMobile
+            ? undefined
+            : (e) => {
+                setHovered(false);
+                onMouseLeave?.(e as any);
+              }
+        }
         ref={ref as React.Ref<HTMLAnchorElement>}
         {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
@@ -211,7 +250,6 @@ export const AnimatedButton = forwardRef<
     );
   }
 
-  // Button için type default olarak "button" yap (submit hatasını önler)
   return (
     <button
       type={(props as ButtonButtonProps).type || "button"}
@@ -220,9 +258,28 @@ export const AnimatedButton = forwardRef<
         "flex items-center relative bg-transparent focus:outline-none cursor-pointer select-none " +
         (className || "")
       }
-      style={{ minHeight: 48, minWidth: 48, padding: 0, ...style }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      style={{
+        minHeight: 44,
+        minWidth: isMobile ? 0 : 48,
+        padding: 0,
+        ...style,
+      }}
+      onMouseEnter={
+        isMobile
+          ? undefined
+          : (e) => {
+              setHovered(true);
+              onMouseEnter?.(e as any);
+            }
+      }
+      onMouseLeave={
+        isMobile
+          ? undefined
+          : (e) => {
+              setHovered(false);
+              onMouseLeave?.(e as any);
+            }
+      }
       {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {buttonContent}

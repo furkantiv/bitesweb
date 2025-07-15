@@ -71,11 +71,10 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
         alt="Lens Flare"
         width={2000}
         height={300}
-        className={
-          isMobile
-            ? "max-w-[480px]" // mobilde neredeyse ekran kadar, max 480px
-            : "w-[1500px]"
-        }
+        className={`
+            ${
+              isMobile ? "max-w-[480px]" : "w-full max-w-[2000px] min-w-[500px]"
+            }`}
         style={{
           pointerEvents: "none",
           userSelect: "none",
