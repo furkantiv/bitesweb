@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
@@ -17,10 +16,6 @@ const fadeUpVariant = {
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
   const values = t.raw("values"); // Array<{title, desc}>
-
-  useEffect(() => {
-    document.title = t("metaTitle");
-  }, [t]);
 
   return (
     <>

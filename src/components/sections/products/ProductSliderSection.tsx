@@ -46,7 +46,7 @@ export default function ProductSliderSection({
   };
 
   return (
-    <section className="max-w-7xl mx-auto flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg min-h-[400px] mb-14">
+    <section className="max-w-7xl mx-auto flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg min-h-[450px] mb-14">
       {/* Sol: Görsel */}
       <div className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px] flex items-center justify-center rounded-l-lg overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>
@@ -76,7 +76,7 @@ export default function ProductSliderSection({
       </div>
 
       {/* Sağ: Metin alanı */}
-      <div className="w-full md:w-1/2 bg-[#032037] flex flex-col justify-center h-[400px] py-3 px-1 md:p-6 relative rounded-r-lg overflow-hidden">
+      <div className="w-full md:w-1/2 bg-[#032037] flex flex-col justify-center min-h-[450px] py-3 px-1 md:p-6 relative rounded-r-lg overflow-hidden">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={slide.title + index}

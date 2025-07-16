@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "productsTitle": "Our Products | Bites",
+    "productsDescription": "Explore the software and system solutions developed by Bites."
+  },
   "productBackToCategory": "Back to Products",
   "Navigation": {
     "about": "About Us",

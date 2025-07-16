@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "productsTitle": "Ürünlerimiz | Bites",
+    "productsDescription": "Bites olarak geliştirdiğimiz yazılım ve sistem çözümlerine göz atın."
+  },
   "productBackToCategory": "Ürünlere Geri Dön",
   "Navigation": {
     "about": "Hakkımızda",

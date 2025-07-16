@@ -5,10 +5,8 @@ import React, { useEffect, useState } from "react";
 
 interface AnimatedFlareProps {
   imageSrc?: string;
-  basePath?: string;
 }
 
-// En üstte
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -22,11 +20,10 @@ function useIsMobile() {
 
 const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
   imageSrc = "/lens-flare.png",
-  basePath = process.env.NEXT_PUBLIC_BASE_PATH || "",
 }) => {
   const [showFull, setShowFull] = useState(false);
   const controls = useAnimation();
-  const isMobile = useIsMobile(); // 👈 responsive kontrol
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     controls
@@ -61,23 +58,23 @@ const AnimatedFlare: React.FC<AnimatedFlareProps> = ({
   return (
     <motion.div
       className={`absolute left-1/2 -translate-x-1/2 z-10 pointer-events-none select-none
-        ${isMobile ? "top-1/2 -translate-y-1/3" : "top-44 -translate-y-1/2"}
+        ${isMobile ? "top-1/2 -translate-y-1/4" : "top-44 -translate-y-1/2"}
       `}
       initial={false}
       animate={controls}
     >
       <Image
-        src={`${basePath}${imageSrc}`}
+        src={imageSrc}
         alt="Lens Flare"
-        width={2000}
-        height={300}
-        className={`
-            ${
-              isMobile ? "max-w-[480px]" : "w-full max-w-[2000px] min-w-[500px]"
-            }`}
+        width={700}
+        height={140}
+        className={
+          isMobile ? "max-w-[336px]" : " min-h-14 max-h-48 max-w-[700px]"
+        }
         style={{
           pointerEvents: "none",
           userSelect: "none",
+          mixBlendMode: "screen",
         }}
         draggable={false}
       />

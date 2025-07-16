@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import NewsContentForHome from "../ui/NewsContentForHome";
+import { formatNewsDate } from "@/utils/formatDate"; // EKLENDİ
 
 type NewsItem = {
   id: number;
@@ -24,7 +25,6 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItems, locale = "tr" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Memoize the function to avoid unnecessary re-renders
   const nextNews = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % (newsItems?.length || 1));
   }, [newsItems?.length]);
@@ -35,7 +35,6 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItems, locale = "tr" }) => {
     );
   }, [newsItems?.length]);
 
-  // Otomatik geçiş
   useEffect(() => {
     if (!newsItems || newsItems.length === 0) return;
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -49,7 +48,6 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItems, locale = "tr" }) => {
     };
   }, [currentIndex, nextNews, newsItems]);
 
-  // Eğer veri yoksa, içerik render etme
   if (!newsItems || newsItems.length === 0) return null;
 
   const currentNews = newsItems[currentIndex];

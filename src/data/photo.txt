@@ -1,0 +1,154 @@
+📦public
+ ┣ 📂images
+ ┃ ┣ 📂about
+ ┃ ┃ ┣ 📂values
+ ┃ ┃ ┃ ┗ 📜cube.png
+ ┃ ┃ ┣ 📜about-mission.jpg
+ ┃ ┃ ┗ 📜about-mission.png
+ ┃ ┣ 📂career
+ ┃ ┃ ┣ 📜joinus.png
+ ┃ ┃ ┣ 📜LifeasBites.png
+ ┃ ┃ ┣ 📜recruitment-banner.png
+ ┃ ┃ ┗ 📜recruitment-criteria.png
+ ┃ ┣ 📂icons
+ ┃ ┃ ┣ 📂about
+ ┃ ┃ ┃ ┣ 📜data-analytics.svg
+ ┃ ┃ ┃ ┗ 📜TimeLineDot.svg
+ ┃ ┃ ┗ 📂home
+ ┃ ┃ ┃ ┣ 📜AIntelligence.png
+ ┃ ┃ ┃ ┣ 📜CloudComputing.png
+ ┃ ┃ ┃ ┣ 📜DataAnalytics.png
+ ┃ ┃ ┃ ┣ 📜DigitalTwin.png
+ ┃ ┃ ┃ ┣ 📜ExtendedReality.png
+ ┃ ┃ ┃ ┣ 📜MobileApp.png
+ ┃ ┃ ┃ ┣ 📜SafetyMission.png
+ ┃ ┃ ┃ ┗ 📜SimulationTraining.png
+ ┃ ┣ 📂news
+ ┃ ┃ ┣ 📂1
+ ┃ ┃ ┃ ┣ 📜85947d0d-1011-4cb8-a022-aed4d3cba4ca.jpg
+ ┃ ┃ ┃ ┗ 📜fb55ddd7-9a01-4c49-ade0-7d09e72c81da.jpg
+ ┃ ┃ ┣ 📂2
+ ┃ ┃ ┃ ┗ 📜afea2e03-c7e5-45cc-9d81-044e248706cc.jpg
+ ┃ ┃ ┗ 📂3
+ ┃ ┃ ┃ ┗ 📜0c1ed2c9-a076-4df6-b016-4cb7dc8f7897.jpg
+ ┃ ┗ 📂products
+ ┃ ┃ ┣ 📂categories
+ ┃ ┃ ┃ ┣ 📜Avionics and Mission Systems.png
+ ┃ ┃ ┃ ┣ 📜Defence Systems.png
+ ┃ ┃ ┃ ┣ 📜Technology and Business Solutions Systems.png
+ ┃ ┃ ┃ ┗ 📜Training and Simulation Systems.png
+ ┃ ┃ ┣ 📂productpages
+ ┃ ┃ ┃ ┣ 📂avionics-mission
+ ┃ ┃ ┃ ┃ ┗ 📂avionics-systems-software
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜avionics-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜avionics-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜avionics-3.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜avionics-4.png
+ ┃ ┃ ┃ ┣ 📂defence-information
+ ┃ ┃ ┃ ┃ ┣ 📂atok
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-3.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-4-paratrooper.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-5-slider-soldier.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-6-slider-team-commander.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜atok-7.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜atok.mp4
+ ┃ ┃ ┃ ┃ ┣ 📂bright-sight
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜zırh-otesi-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜zırh-otesi-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜zırh-otesi-3.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜zırh-otesi-4.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜zırh-otesi.mp4
+ ┃ ┃ ┃ ┃ ┣ 📂porsuk
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜porsuk-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜porsuk-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜porsuk-3.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜porsuk-baskin.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜porsuk-split.svg
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜porsuk-wide.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜Porsuk_video.mp4
+ ┃ ┃ ┃ ┃ ┣ 📂sks
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜sks-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜sks-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜sks-3.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜sks.mp4
+ ┃ ┃ ┃ ┃ ┗ 📂video-management
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜video-management-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜video-management-2.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜video-management-3.png
+ ┃ ┃ ┃ ┣ 📂technology-business
+ ┃ ┃ ┃ ┃ ┗ 📂digital-twin
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜digital-twin-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜digital-twin-2.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜digital-twin-3.png
+ ┃ ┃ ┃ ┗ 📂training-simulation
+ ┃ ┃ ┃ ┃ ┣ 📂altay-data-management-system
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜altay-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜altay-2.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜altay-3.png
+ ┃ ┃ ┃ ┃ ┣ 📂augmented-reality-content-creator
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜augmented-reality-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜augmented-reality-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜augmented-reality-3.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜augmented-reality.mp4
+ ┃ ┃ ┃ ┃ ┣ 📂bites-lms-lxp
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bites-lms-lxp-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bites-lms-lxp-2.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜bites-lms-lxp-3.png
+ ┃ ┃ ┃ ┃ ┣ 📂embedded-education-systems
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜embedded-education-0.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜embedded-education-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜embedded-education-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜embedded-education-3.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜embedded-education.mp4
+ ┃ ┃ ┃ ┃ ┣ 📂immersive-xr-solutions
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜immersive-xr-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜immersive-xr-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜immersive-xr-3.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜immersive-xr-4.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜immersive-xr-5.png
+ ┃ ┃ ┃ ┃ ┣ 📂karma
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜karma-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜karma-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜karma-3.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜karma-4.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜karma.mp4
+ ┃ ┃ ┃ ┃ ┣ 📂shooting-training-simulator
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜shooting-training-simulator-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜shooting-training-simulator-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜shooting-training-simulator-3.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜shooting-training-simulator-4.png
+ ┃ ┃ ┃ ┃ ┗ 📂virtual-maintenance-simulator
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜virtual-maintenance-simulator-1.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜virtual-maintenance-simulator-2.png
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜virtual-maintenance-simulator-3.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜virtual-maintenance-simulator.mp4
+ ┃ ┃ ┣ 📜atok.png
+ ┃ ┃ ┣ 📜augmented-reality-content-creator.png
+ ┃ ┃ ┣ 📜augmented-reality.png
+ ┃ ┃ ┣ 📜avionic-system-software.png
+ ┃ ┃ ┣ 📜BrightSight.png
+ ┃ ┃ ┣ 📜digital-twin.png
+ ┃ ┃ ┣ 📜embedded-training-system.png
+ ┃ ┃ ┣ 📜immersive-xr.png
+ ┃ ┃ ┣ 📜karma.png
+ ┃ ┃ ┣ 📜porsuk.png
+ ┃ ┃ ┣ 📜sand-box.png
+ ┃ ┃ ┗ 📜video-management-system.png
+ ┣ 📂models
+ ┃ ┗ 📂earth
+ ┃ ┃ ┣ 📜BasecolorNight3_4k-yedek.png
+ ┃ ┃ ┣ 📜BasecolorNight3_4k.jpg
+ ┃ ┃ ┣ 📜Emissive_Orange4k.png
+ ┃ ┃ ┣ 📜Height_Map-yedek.jpeg
+ ┃ ┃ ┣ 📜Height_Map.jpg
+ ┃ ┃ ┣ 📜Metalness_4k.png
+ ┃ ┃ ┗ 📜Reflectance.png
+ ┣ 📂videos
+ ┃ ┗ 📜atok-hero.mp4
+ ┣ 📜favicon.ico
+ ┣ 📜lens-flare.png
+ ┣ 📜logo-inner.png
+ ┣ 📜logo-outer.png
+ ┗ 📜logo.svg

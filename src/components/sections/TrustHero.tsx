@@ -32,9 +32,8 @@ const HeroText: React.FC<TrustHeroProps> = ({
   }, [index, words.length, interval]);
 
   return (
-    <div className="flex items-center overflow-visible justify-center min-h-[200px] w-full relative ">
+    <div className="flex items-center overflow-visible justify-center min-h-[100px] md:min-h-[200px] w-full relative ">
       <AnimatedFlare />
-
       {/* ...text... */}
       <div className="z-30 flex flex-col items-center justify-center">
         <motion.span

@@ -14,37 +14,37 @@ export const categories: Category[] = [
       },
       {
         name: "BİTES LMS/LXP Platform",
-        image: "/images/products/atok.png",
+        image: "public/images/products/bites-lms-lxp.png",
         slug: "bites-lms-lxp",
         items: [],
       },
       {
         name: "Immersive XR",
-        image: "/images/products/atok.png",
+        image: "/images/products/immersive-xr.png",
         slug: "immersive-xr",
         items: [],
       },
       {
         name: "Embedded Training Systems",
-        image: "/images/products/atok.png",
+        image: "/images/products/embedded-training-system.png",
         slug: "embedded-training",
         items: [],
       },
       {
         name: "Augmented Reality Content Creator",
-        image: "/images/products/atok.png",
+        image: "/images/products/augmented-reality-content-creator.png",
         slug: "augmented-reality-creator",
         items: [],
       },
       {
         name: "ALTAY Data Management System",
-        image: "/images/products/atok.png",
+        image: "/images/products/altay.png",
         slug: "altay-data-management",
         items: [],
       },
       {
         name: "Virtual Maintenance Simulators",
-        image: "/images/products/atok.png",
+        image: "/images/products/virtual-maintenace.png",
         slug: "virtual-maintenance",
         items: [],
       },
@@ -81,13 +81,13 @@ export const categories: Category[] = [
       },
       {
         name: "Augmented Reality Sand BOX",
-        image: "/images/products/sks.png",
+        image: "/images/products/sand-box.png",
         slug: "arsbox",
         items: [],
       },
       {
         name: "Video Management System",
-        image: "/images/products/karma.png",
+        image: "/images/products/video-management-system.png",
         slug: "video-management",
         items: [],
       },
@@ -110,7 +110,7 @@ export const categories: Category[] = [
   {
     name: "Avionics and Mission Systems",
     slug: "avionicsandmission",
-    image: "/images/products/categories/Avionics and Mission Systems.png",
+    image: "/images/products/avionic-system-software.png",
     items: [
       {
         name: "Digital Twin",

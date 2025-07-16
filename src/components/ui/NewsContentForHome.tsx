@@ -1,4 +1,5 @@
 "use client";
+import { formatNewsDate } from "@/utils/formatDate";
 import Image from "next/image";
 
 type NewsItem = {
@@ -58,7 +59,7 @@ const NewsContentForHome: React.FC<NewsContentForHomeProps> = ({
             {news.source[locale]}
           </span>
           <span className="text-xs text-white px-2 rounded-full ">
-            {news.date}
+            {formatNewsDate(news.date, locale, "short")}
           </span>
         </div>
         <h3 className="text-sm font-semibold text-white line-clamp-1">

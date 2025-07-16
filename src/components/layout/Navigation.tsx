@@ -71,6 +71,10 @@ interface NavigationProps {
 
 const Navigation = ({ onNavigate }: NavigationProps) => {
   const pathname = usePathname();
+  const stripLocale = (pathname: string) => {
+    // İlk iki slash'ı bul, ilkini kaldır: /tr/about → /about, /en/products → /products
+    return pathname.replace(/^\/(en|tr)(\/|$)/, "/");
+  };
   const t = useTranslations("Navigation");
 
   // Artık title'lar burada dinamik:
@@ -108,7 +112,7 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
         <NavigationItem
           key={item.href}
           {...item}
-          isActive={pathname === item.href}
+          isActive={stripLocale(pathname) === item.href}
           onNavigate={onNavigate}
         />
       ))}

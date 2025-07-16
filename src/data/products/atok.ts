@@ -9,11 +9,12 @@ export const atokContent: ProductContent = {
     en: "The Military Tactical Operation Kit ATOK, developed by BİTES and equipped with portable and wearable integrated technology, maximizes the security of military units.",
     tr: "BİTES tarafından geliştirilen, taşınabilir ve giyilebilir entegre teknolojiyle donatılmış Askeri Taktik Operasyon Kiti ATOK, askeri birimlerin güvenliğini en üst düzeye çıkarır.",
   },
-  videoUrl: "/images/products/atok/atok.mp4",
+  videoUrl: "/images/products/productpages/defence-information/atok/atok.mp4",
   sections: [
     {
       type: "feature",
-      image: "/images/products/atok/Atok_Features.png",
+      image:
+        "/images/products/productpages/defence-information/atok/atok-1.png",
       heading: {
         en: "Features",
         tr: "Özellikler",
@@ -29,11 +30,13 @@ export const atokContent: ProductContent = {
     },
     {
       type: "banner",
-      image: "/images/products/atok/atok-banner.png",
+      image:
+        "/images/products/productpages/defence-information/atok/atok-2.png",
     },
     {
       type: "split",
-      image: "/images/products/atok/Atok_Split.png",
+      image:
+        "/images/products/productpages/defence-information/atok/atok-3.png",
       title: {
         en: "Always One Step Ahead on the Tactical Area",
         tr: "Taktik Alanda Her Zaman Bir Adım Önde",
@@ -63,11 +66,11 @@ export const atokContent: ProductContent = {
             en: "Team Commander Configuration",
             tr: "Tim Komutanı Konfigürasyonu",
           },
-          image: "/images/products/atok/Atok_Slider.png",
+          image:
+            "/images/products/productpages/defence-information/atok/atok-6-slider-team-commander.png",
           features: {
             en: [
               "Augmented Reality Glasses",
-              "Augmneted Reality Glases",
               "Oriantatien Sensor",
               "Mobile Devices",
               "Health Sensor",
@@ -75,7 +78,6 @@ export const atokContent: ProductContent = {
               "Precision Positioning Sensor",
             ],
             tr: [
-              "Artırılmış Gerçeklik Gözlükleri",
               "Artırılmış Gerçeklik Gözlükleri",
               "Yönelim Sensörü",
               "Mobil Cihazlar",
@@ -87,27 +89,52 @@ export const atokContent: ProductContent = {
         },
         {
           title: {
-            en: "Radio Configuration",
-            tr: "Telsiz Konfigürasyonu",
+            en: "Paratrooper Configuration",
+            tr: "Paraşütçü Konfigürasyonu",
           },
-          image: "/images/products/atok/Atok_Slider.png",
+          image:
+            "/images/products/productpages/defence-information/atok/atok-4-paratrooper.png",
           features: {
             en: [
               "Augmented Reality Glasses",
-              "Augmneted Reality Glases",
-              "Oriantatien Sensor",
               "Mobile Devices",
-              "Health Sensor",
               "Smart Watch",
+              "Health Sensor",
               "Precision Positioning Sensor",
+              "Oriantatien Sensor",
+              "Analog Compass",
+              "GPS Device",
             ],
             tr: [
               "Artırılmış Gerçeklik Gözlükleri",
-              "Artırılmış Gerçeklik Gözlükleri",
+              "Mobil Cihazlar",
+              "Akıllı Saat",
+              "Sağlık Sensörü",
               "Yönelim Sensörü",
+              "Hassas Konumlandırma Sensörü",
+              "Analog Pusula",
+              "Gps Cihazı",
+            ],
+          },
+        },
+        {
+          title: {
+            en: "Soldier Configuration",
+            tr: "Asker Konfigürasyonu",
+          },
+          image:
+            "/images/products/productpages/defence-information/atok/atok-5-slider-soldier.png",
+          features: {
+            en: [
+              "Smart Watch",
+              "Mobile Devices",
+              "Health Sensor",
+              "Precision Positioning Sensor",
+            ],
+            tr: [
+              "Akıllı Saat",
               "Mobil Cihazlar",
               "Sağlık Sensörü",
-              "Akıllı Saat",
               "Hassas Konumlandırma Sensörü",
             ],
           },
