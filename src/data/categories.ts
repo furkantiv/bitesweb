@@ -110,11 +110,11 @@ export const categories: Category[] = [
   {
     name: "Avionics and Mission Systems",
     slug: "avionicsandmission",
-    image: "/images/products/avionic-system-software.png",
+    image: "/images/products/categories/Avionics and Mission Systems.png",
     items: [
       {
         name: "Digital Twin",
-        image: "/images/products/digital-twin.png",
+        image: "/images/products/avionic-system-software.png",
         slug: "avionics-systems-software",
         items: [],
       },

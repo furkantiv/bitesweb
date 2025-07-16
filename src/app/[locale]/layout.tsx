@@ -39,7 +39,7 @@ export default async function LocaleLayout({
               {/* Persistent background */}
               <div className="relative z-10">
                 <AnimatedBackground />
-                <Globe />
+                {/* <Globe /> */}
               </div>
               <Header />
               <div className="relative mt-20 z-20">{children}</div>

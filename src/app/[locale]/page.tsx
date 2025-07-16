@@ -16,37 +16,33 @@ const HomePage = async () => {
   const words = Array.isArray(fallbackData.words) ? fallbackData.words : [];
 
   return (
-    <ClientOnlyLoader>
-      <div className="fixed inset-0 flex flex-col items-center justify-center md:justify-start overflow-hidden">
-        <div className="flex flex-col items-start md:items-center md:overflow-hidden md:mt-40 w-full space-y-15">
-          <HeroText title={t("title")} words={words} interval={3000} />
-          {/* Responsive Button Group */}
-          <div className="flex gap-4 md:gap-16 w-full justify-center items-center">
-            <AnimatedButton
-              text={t("aboutUs")}
-              color="#A2ACB4"
-              variant="ghost"
-              href="/about"
-            />
-            <AnimatedButton
-              text={t("getInTouch")}
-              color="#004DFF"
-              href="/contact"
-            />
-          </div>
+    // <ClientOnlyLoader>
+    <div className="flex flex-col items-center justify-center md:justify-start overflow-hidden">
+      <div className="flex flex-col items-start md:items-center md:overflow-hidden mt-40 w-full space-y-15">
+        <HeroText title={t("title")} words={words} interval={3000} />
 
-          {/* Info Grid */}
-          <div className="hidden short:hidden md:block w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
-            <InfoCardsGrid />
-          </div>
+        <div className="flex gap-4 md:gap-16 w-full justify-center items-center">
+          <AnimatedButton
+            text={t("aboutUs")}
+            color="#A2ACB4"
+            variant="ghost"
+            href="/about"
+          />
+          <AnimatedButton
+            text={t("getInTouch")}
+            color="#004DFF"
+            href="/contact"
+          />
         </div>
-
-        {/* Sticky NewsGrid */}
-        <div className="fixed shorty:hidden bottom-0 right-0 z-30">
-          <NewsCard newsItems={getLastNews(newsList, 3)} />
+        <div className="hidden short:hidden md:block w-full max-w-7xl md:max-h-[30vh] md:overflow-auto">
+          <InfoCardsGrid />
         </div>
       </div>
-    </ClientOnlyLoader>
+      <div className="fixed shorty:hidden bottom-0 right-0 z-30">
+        <NewsCard newsItems={getLastNews(newsList, 3)} />
+      </div>
+    </div>
+    // </ClientOnlyLoader>
   );
 };
 

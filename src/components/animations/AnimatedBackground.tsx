@@ -10,7 +10,7 @@ const AnimatedBackground = () => {
     let frame: number;
     let startTime: number | null = null;
     const delay = 1500; // ms cinsinden delay
-    const duration = 250; // animasyon süresi (ms)
+    const duration = 120; // animasyon süresi (ms)
     const target = 85; // Yüzdelik olarak nereye kadar gitsin (örn: %70)
 
     const animateGradient = (timestamp: number) => {

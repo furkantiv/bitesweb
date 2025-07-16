@@ -51,6 +51,27 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="flex-1 flex flex-col w-full "
       >
+        {/* Geri Dön butonu */}
+        {selectedSub ? (
+          <button
+            onClick={() => setSelectedSub(null)}
+            className="flex items-center gap-3 text-white text-[16px] my-3 font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
+          >
+            <ArrowLeft size={24} strokeWidth={1.5} />
+            {t("productNav.backToCategory", {
+              category: name,
+            })}
+          </button>
+        ) : (
+          <Link
+            href="/products"
+            tabIndex={-1}
+            className="flex items-center gap-3 text-white text-[16px] my-3 font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
+          >
+            <ArrowLeft size={24} strokeWidth={1.5} />
+            {t("productNav.backToProducts")}
+          </Link>
+        )}
         {/* Başlık */}
         <motion.h2
           initial={{ opacity: 0, y: -12 }}
@@ -146,28 +167,6 @@ function CategoryClient({ items, name, categorySlug }: CategoryClientProps) {
             })}
           </div>
         </motion.div>
-
-        {/* Geri Dön butonu */}
-        {selectedSub ? (
-          <button
-            onClick={() => setSelectedSub(null)}
-            className="flex items-center gap-3 text-white text-[16px] font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
-          >
-            <ArrowLeft size={24} strokeWidth={1.5} />
-            {t("productNav.backToCategory", {
-              category: name,
-            })}
-          </button>
-        ) : (
-          <Link
-            href="/products"
-            tabIndex={-1}
-            className="flex items-center gap-3 text-white text-[16px] font-medium hover:text-[#2C6BFF] transition w-max focus:outline-none shadow-lg"
-          >
-            <ArrowLeft size={24} strokeWidth={1.5} />
-            {t("productNav.backToProducts")}
-          </Link>
-        )}
       </motion.div>
 
       {/* Görsel */}

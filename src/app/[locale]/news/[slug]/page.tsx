@@ -38,30 +38,30 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     <>
       <div className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20 w-full min-h-screen bg-transparent flex flex-col lg:flex-row gap-8 justify-center mb-6">
         {/* Sol - İçerik */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 items-center justify-center md:px-3">
           <BreadcrumbsWithSearch items={breadcrumbItems} />
           <div className="border border-[#35434D] rounded-2xl p-3 flex flex-col gap-3">
-            {/* Üst başlık ve meta */}
-            <div className="flex flex-col md:justify-between gap-2">
-              <div>
-                <h1 className="text-2xl md:text-3xl font-semibold text-white">
-                  {news.title[locale]}
-                </h1>
-              </div>
-              {/* Tarih ve Kaynak */}
-              <div className="flex justify-between gap-4">
-                <span className="text-gray-400 text-sm">{news.date}</span>
-                <span className="text-xs text-white px-3 py-1 rounded-full border border-[#35434D] ml-1">
-                  {news.source[locale]}
-                </span>
-              </div>
-            </div>
             {/* Büyük görsel */}
             <div className="relative w-full ">
               <NewsImageSlider
                 images={news.image} // array of image URLs
                 alt={news.title[locale]}
               />
+            </div>
+            {/* Üst başlık ve meta */}
+            <div className="flex flex-col md:justify-between gap-2">
+              {/* Tarih ve Kaynak */}
+              <div className="flex justify-between gap-4">
+                <span className="text-gray-400 text-sm">{news.date}</span>
+                <span className="text-xs text-white px-3 py-1 rounded-full border border-[#35434D]">
+                  {news.source[locale]}
+                </span>
+              </div>
+              <div>
+                <h1 className="text-2xl md:text-3xl font-semibold text-white">
+                  {news.title[locale]}
+                </h1>
+              </div>
             </div>
             {/* Main Content */}
             <div className="text-gray-200 text-base md:text-lg leading-relaxed w-full">

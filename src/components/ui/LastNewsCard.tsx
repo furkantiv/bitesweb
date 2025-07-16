@@ -52,7 +52,7 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({ newsList }) => {
       <h4 className="text-md font-semibold border-t pt-2 border-[#35434D] text-white mb-3 truncate">
         {t("newsPage.lastNews")}
       </h4>
-      <div className="relative h-[90px] overflow-hidden">
+      <div className="relative h-[84px] overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={index}
@@ -66,14 +66,8 @@ export const LastNewsCard: React.FC<LastNewsCardProps> = ({ newsList }) => {
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={handleDragEnd}
           >
-            <div className="w-[120px] h-[80px] rounded-lg overflow-hidden flex-shrink-0">
-              <Image
-                width={120}
-                height={80}
-                src={news.image[0]}
-                alt={title}
-                className="w-full h-full object-cover"
-              />
+            <div className="w-[80x] h-[80px] rounded-lg overflow-hidden">
+              <Image width={80} height={80} src={news.image[0]} alt={title} />
             </div>
             <div className="flex-1 min-w-0 flex flex-col">
               <div className="text-white font-medium text-sm line-clamp-1 mb-1">

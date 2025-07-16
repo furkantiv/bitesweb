@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header
       className={`
-    fixed left-0 w-full z-50 pt-3 px-3 transition-all duration-300
+    fixed left-0 w-full z-50 pt-3 px-5 transition-all duration-300
     ${
       mobileMenuOpen
         ? "bg-[#00192F] h-full"

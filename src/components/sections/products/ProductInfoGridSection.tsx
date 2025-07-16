@@ -21,8 +21,8 @@ export default function ProductInfoGridSection({
   const right = categories.slice(mid);
 
   return (
-    <section className=" text-white py-6 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col items-center">
+    <section className=" text-white mb-14">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         {heading ? (
           <h2 className="text-2xl md:text-3xl font-normal text-center mb-8">
             {heading}
