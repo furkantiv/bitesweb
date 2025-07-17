@@ -9,6 +9,7 @@ import { GlobeProvider } from "@/contexts/GlobeContext";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import ClientOnlyLoader from "@/components/layout/ClientOnlyLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,20 +34,22 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider>
-          <div className="w-full bg-black text-white overflow-hidden relative">
-            <GlobeProvider>
-              <GlobeController />
-              {/* Persistent background */}
-              <div className="relative z-10">
-                <AnimatedBackground />
-                <Globe />
-              </div>
-              <Header />
-              <div className="relative mt-20 z-20">{children}</div>
-            </GlobeProvider>
-          </div>
-        </NextIntlClientProvider>
+        <ClientOnlyLoader>
+          <NextIntlClientProvider>
+            <div className="w-full bg-black text-white overflow-hidden relative">
+              <GlobeProvider>
+                <GlobeController />
+                {/* Persistent background */}
+                <div className="relative z-10">
+                  <AnimatedBackground />
+                  <Globe />
+                </div>
+                <Header />
+                <div className="relative mt-20 z-20">{children}</div>
+              </GlobeProvider>
+            </div>
+          </NextIntlClientProvider>
+        </ClientOnlyLoader>
       </body>
     </html>
   );

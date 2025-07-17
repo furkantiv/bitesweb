@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 // Minimum bekleme süresi (ms)
-const MINIMUM_LOADER_TIME = 2500; // dilediğin süre
+const MINIMUM_LOADER_TIME = 3500; // dilediğin süre
 
 export default function ClientOnlyLoader({
   children,

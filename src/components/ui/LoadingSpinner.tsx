@@ -7,16 +7,16 @@ const LoadingSpinner = () => {
   return (
     <div className="min-h-screen w-full bg-[#000816] flex items-center justify-center">
       <div className="text-center">
-        <div className="relative w-20 h-20 mx-auto mb-4">
+        <div className="relative w-64 h-64 mx-auto mb-4">
           {/* Dönen çember */}
-          <div className="absolute inset-0 rounded-full border-4 border-blue-400 border-t-transparent animate-spin" />
+          <div className="absolute inset-0 rounded-full border-16 border-blue-400 border-t-transparent animate-spin" />
           {/* Ortadaki logo */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-2 flex items-center justify-center">
             <Image
-              src="/logo-inner.png" // ← burada kendi logonu kullanabilirsin
+              src="/inner-logo.svg" // ← burada kendi logonu kullanabilirsin
               alt="Logo"
-              width={64}
-              height={64}
+              width={256}
+              height={256}
               className="rounded-full"
               priority
             />

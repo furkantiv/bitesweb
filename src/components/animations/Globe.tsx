@@ -156,7 +156,7 @@ function SpringEarth({ scale, position, rotationSpeed }: SpringEarthProps) {
     useLoader(THREE.TextureLoader, [
       `/models/earth/BasecolorNight3_4k.jpg`,
       `/models/earth/Emissive_Orange4k.png`,
-      `/models/earth/Height_1k.png`,
+      `/models/earth/Height_Map.jpg`,
       `/models/earth/Metalness_4k.png`,
       `/models/earth/Reflectance.png`,
     ]);
