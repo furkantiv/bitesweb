@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import NewsContentForHome from "../ui/NewsContentForHome";
 import { formatNewsDate } from "@/utils/formatDate"; // EKLENDİ
+import { useLocale } from "next-intl";
 
 type NewsItem = {
   id: number;
@@ -21,9 +22,10 @@ interface NewsCardProps {
   locale?: "tr" | "en";
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ newsItems, locale = "tr" }) => {
+const NewsCard: React.FC<NewsCardProps> = ({ newsItems }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const locale = useLocale();
 
   const nextNews = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % (newsItems?.length || 1));
@@ -53,7 +55,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItems, locale = "tr" }) => {
   const currentNews = newsItems[currentIndex];
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-0">
+    <div className="w-full max-w-xl mx-auto p-0">
       <div className="bg-transparent rounded-2xl p-6 relative overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#35434D]">
@@ -91,7 +93,10 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItems, locale = "tr" }) => {
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.35 }}
           >
-            <NewsContentForHome news={currentNews} locale={locale} />
+            <NewsContentForHome
+              news={currentNews}
+              locale={locale as "tr" | "en"}
+            />
           </motion.div>
         </AnimatePresence>
       </div>

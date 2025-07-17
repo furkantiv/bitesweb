@@ -34,22 +34,22 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <ClientOnlyLoader>
-          <NextIntlClientProvider>
-            <div className="w-full bg-black text-white overflow-hidden relative">
-              <GlobeProvider>
-                <GlobeController />
-                {/* Persistent background */}
-                <div className="relative z-10">
-                  <AnimatedBackground />
+        <NextIntlClientProvider>
+          <div className="w-full bg-black text-white overflow-hidden relative">
+            <GlobeProvider>
+              <GlobeController />
+              {/* Persistent background */}
+              <div className="relative z-10">
+                <AnimatedBackground />
+                <ClientOnlyLoader>
                   <Globe />
-                </div>
-                <Header />
-                <div className="relative mt-20 z-20">{children}</div>
-              </GlobeProvider>
-            </div>
-          </NextIntlClientProvider>
-        </ClientOnlyLoader>
+                </ClientOnlyLoader>
+              </div>
+              <Header />
+              <div className="relative mt-20 z-20">{children}</div>
+            </GlobeProvider>
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

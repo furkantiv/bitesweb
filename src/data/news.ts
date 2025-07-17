@@ -17,7 +17,7 @@ export const newsList: NewsType[] = [
       en: "Bites News",
       tr: "Bites Haberleri",
     },
-    date: "23 September, 2025",
+    date: "23 Sep 2025",
     title: {
       en: "Mr. Ahmet Bahadır Bülbül and his accompanying delegation visited our company.",
       tr: "Sayın Ahmet Bahadır Bülbül ve beraberindeki heyet şirketimizi ziyaret etti.",
@@ -42,7 +42,7 @@ export const newsList: NewsType[] = [
       en: "Bites News",
       tr: "Bites Haberleri",
     },
-    date: "23 September, 2025",
+    date: "23 Sep 2025",
     title: {
       en: "Aselsan Konya Genel Müdürü Serhan ÖZSOY ofisimize ziyarette bulundu",
       tr: "Mr. Serhan ÖZSOY, General Manager of Aselsan Konya , visited our office.",
@@ -64,7 +64,7 @@ export const newsList: NewsType[] = [
       en: "Defence News",
       tr: "Savunma Haberleri",
     },
-    date: "23 September, 2025",
+    date: "23 Sep 2025",
     title: {
       en: "Mr. Faruk YILMAZ, Head of Strategy Department of UDHAM Presidency of the Ministry of Transport and Infrastructure of the Republic of Turkey and his accompanying delegation visited our company.",
       tr: "T.C. Ulaştırma ve Altyapı Bakanlığı UDHAM Başkanlığı Strateji Daire Başkanı Sayın Faruk YILMAZ ve beraberindeki heyet şirketimizi ziyaret etti.",
@@ -87,30 +87,104 @@ export const newsList: NewsType[] = [
   {
     id: 4,
     source: {
-      en: "Tech News",
-      tr: "Teknoloji Haberleri",
+      en: "Bites News",
+      tr: "Bites Haberleri",
     },
-    date: "23 September, 2025",
+    date: "12 May 2025",
     title: {
-      en: "2025's AI and VR Trends",
-      tr: "2025'in Yapay Zeka ve VR Trendleri",
+      en: "Happy Mother's Day to all our mothers!",
+      tr: "Tüm annelerimizin #AnnelerGünü kutlu olsun.",
     },
     description: {
-      en: "The new generation of AI and VR is transforming work and society. New opportunities and challenges arise for innovation and ethics.",
-      tr: "Yeni nesil AI ve VR, iş ve toplumu dönüştürüyor. Yenilik ve etik için yeni fırsatlar ve zorluklar ortaya çıkıyor.",
+      en: "Happy Mother’s Day to all our mothers who enlighten our path with their love, add value to our lives with their endless effort and devotion.",
+      tr: "Sevgi ve şefkatiyle yolumuzu aydınlatan; sonsuz emekleri ve özverileriyle hayatımıza değer katan tüm annelerimizin #AnnelerGünü kutlu olsun.",
     },
-    image: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=240&fit=crop&crop=center",
-    ],
-    category: "tech",
+    image: ["/images/news/4/anne.jpg"],
+    category: "bites",
     content: {
-      en: `
-        2025's AI and VR trends are transforming human-computer interaction, education, and entertainment. New potentials are emerging, and discussions on innovation and ethics are gaining momentum. These technologies are shaping society and business.
-      `,
-      tr: `
-        2025'in AI ve VR trendleri, insan-bilgisayar etkileşimini, eğitimi ve eğlenceyi dönüştürüyor. Yeni potansiyeller ortaya çıkarken, inovasyon ve etik konusunda da yeni tartışmalar baş gösteriyor. Bu teknolojiler, toplumu ve iş dünyasını şekillendiriyor.
-      `,
+      en: "Wishing a Happy Mother’s Day to all our mothers who enlighten our lives with their love and add value to our lives with their endless effort and devotion.",
+      tr: "Sevgi ve şefkatiyle yolumuzu aydınlatan; sonsuz emekleri ve özverileriyle hayatımıza değer katan tüm annelerimizin #AnnelerGünü kutlu olsun.",
     },
   },
-  // ... Devamı aynı mantıkla
+  {
+    id: 5,
+    source: {
+      en: "Bites News",
+      tr: "Bites Haberleri",
+    },
+    date: "25 May 2025",
+    title: {
+      en: 'We were at the "Avionics and Artificial Intelligence" Panel at IEEE ICHORA 2025!',
+      tr: "IEEE ICHORA 2025 Konferansı’nda “Aviyonik ve Yapay Zeka” Panelindeydik!",
+    },
+    description: {
+      en: "At the conference held in Ankara on May 24–25, we presented on mission optimization, digital twin applications, and AI in testing processes. Special thanks to Dr. Ali Berkol, Uğur Topak, and İdil Gökçe Demirtaş for their contributions.",
+      tr: "24–25 Mayıs tarihlerinde Ankara’da düzenlenen konferansta; görev optimizasyonu, dijital ikiz uygulamaları ve test süreçlerinde yapay zeka kullanımını ele aldığımız sunumlarla yer aldık. Dr. Ali Berkol, Uğur Topak ve İdil Gökçe Demirtaş’a katkıları için teşekkür ederiz.",
+    },
+    image: [
+      "/images/news/5/ichora.jpg",
+      "/images/news/5/ichora2.jpg",
+      "/images/news/5/ichora3.jpg",
+      "/images/news/5/ichora4.jpg",
+    ],
+    category: "ai",
+    content: {
+      en: "At IEEE ICHORA 2025, we took part in the 'Avionics and Artificial Intelligence' panel, presenting our work on mission optimization, digital twin applications, and the use of artificial intelligence in testing processes. We would like to thank Dr. Ali Berkol, Uğur Topak, and İdil Gökçe Demirtaş for their valuable contributions.",
+      tr: "IEEE ICHORA 2025 Konferansı’nda “Aviyonik ve Yapay Zeka” Panelindeydik! Görev optimizasyonu, dijital ikiz uygulamaları ve test süreçlerinde yapay zeka kullanımını ele aldığımız sunumlarla yer aldık. Dr. Ali Berkol, Uğur Topak ve İdil Gökçe Demirtaş’a katkıları için teşekkür ederiz.",
+    },
+  },
+  {
+    id: 6,
+    source: {
+      en: "Bites News",
+      tr: "Bites Haberleri",
+    },
+    date: "25 May 2025",
+    title: {
+      en: "Children met technology at the event by the Ministry of Family and Social Services!",
+      tr: "Aile ve Sosyal Hizmetler Bakanlığı Çocuk Evleri Koordinasyon Merkezi Müdürlüğü tarafından düzenlenen etkinlikte çocuklarımız teknolojiyle buluştu!",
+    },
+    description: {
+      en: "We look forward to reuniting with all our children who explored and experienced technology at the event organized by the Ministry of Family and Social Services.",
+      tr: "Teknolojiyi keşfeden ve deneyimleyen tüm çocuklarımızla yeniden bir araya gelmek için sabırsızlanıyoruz.",
+    },
+    image: [
+      "/images/news/6/aile.jpg",
+      "/images/news/6/aile2.jpg",
+      "/images/news/6/aile3.jpg",
+      "/images/news/6/aile4.jpg",
+    ],
+    category: "social",
+    content: {
+      en: "At the event organized by the Children's Homes Coordination Center Directorate of the Ministry of Family and Social Services, our children had the opportunity to explore and experience technology. We look forward to meeting all our children again soon.",
+      tr: "Aile ve Sosyal Hizmetler Bakanlığı Çocuk Evleri Koordinasyon Merkezi Müdürlüğü tarafından düzenlenen etkinlikte çocuklarımız teknolojiyle buluştu! Teknolojiyi keşfeden ve deneyimleyen tüm çocuklarımızla yeniden bir araya gelmek için sabırsızlanıyoruz.",
+    },
+  },
+  {
+    id: 7,
+    source: {
+      en: "Bites News",
+      tr: "Bites Haberleri",
+    },
+    date: "28 May 2025",
+    title: {
+      en: "We attended #Risk’25 organized by Optimum Club at Manisa Celal Bayar University.",
+      tr: "Manisa Celal Bayar Üniversitesi’nde Optimum Kulüp tarafından gerçekleştirilen #Risk’25 etkinliğine katılım sağladık.",
+    },
+    description: {
+      en: "On the first day, our General Manager Cemil Sağıroğlu discussed risk factors in business life, gave advice to young people, and introduced our company.",
+      tr: "Etkinliğin ilk gününde konuşma yapan Genel Müdürümüz Cemil Sağıroğlu iş hayatındaki risk faktörlerine değindi, gençlere tavsiyelerde bulundu ve son olarak şirketimizi tanıttı.",
+    },
+    image: [
+      "/images/news/7/riks1.jpg",
+      "/images/news/7/risk2.jpg",
+      "/images/news/7/risk3.jpg",
+      "/images/news/7/risk4.jpg",
+    ],
+    category: "event",
+    content: {
+      en: "We participated in #Risk’25, organized by the Optimum Club at Manisa Celal Bayar University on May 27-28. On the first day, our General Manager Cemil Sağıroğlu spoke about risk factors in business life, offered advice to the youth, and introduced our company. We would like to thank everyone who contributed to this event that brought us together with young people. See you again!",
+      tr: "27-28 Mayıs tarihlerinde Manisa Celal Bayar Üniversitesi’nde Optimum Kulüp tarafından gerçekleştirilen #Risk’25 etkinliğine katılım sağladık. Etkinliğin ilk gününde konuşma yapan Genel Müdürümüz Cemil Sağıroğlu iş hayatındaki risk faktörlerine değindi, gençlere tavsiyelerde bulundu ve son olarak şirketimizi tanıttı. Bizleri gençlerle buluşturan etkinlikte emeği geçen herkese teşekkür ederiz. Tekrar görüşmek üzere…",
+    },
+  },
 ];

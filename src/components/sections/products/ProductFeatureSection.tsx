@@ -17,7 +17,7 @@ export default function ProductFeatureSection({
   product = "",
 }: FeatureSectionData) {
   return (
-    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-14">
+    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden md:min-h-[350px] mb-14">
       {/* Sol: Görsel */}
       <div className="w-full md:w-1/2 aspect-[575/385] relative rounded-lg overflow-hidden">
         <Image
@@ -30,7 +30,7 @@ export default function ProductFeatureSection({
         />
       </div>
       {/* Sağ: Metin alanı */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center py-3 md:p-6 min-h-[350px]">
+      <div className="w-full md:w-1/2 flex flex-col justify-center py-3 md:p-6 md:min-h-[350px]">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>

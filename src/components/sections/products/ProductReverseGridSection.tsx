@@ -41,7 +41,7 @@ export default function ProductReverseGridSection({
               key={i}
               className="flex items-center text-base text-white w-full"
             >
-              <span className="inline-block w-2 h-2 rounded-full bg-white mr-3" />
+              <span className="inline-block w-2 h-2 rounded-full items-center bg-white mr-3" />
               <span className="">{f}</span>
             </li>
           ))}

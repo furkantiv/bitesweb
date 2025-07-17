@@ -22,9 +22,9 @@ export default function ProductInfoGridSection({
 
   return (
     <section className=" text-white mb-14">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
+      <div className="max-w-7xl mx-auto flex flex-col items-start">
         {heading ? (
-          <h2 className="text-2xl md:text-3xl font-normal text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-normal text-left mb-8">
             {heading}
           </h2>
         ) : null}

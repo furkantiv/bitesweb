@@ -161,9 +161,15 @@ export default function ContactPage() {
                 <h3 className="text-base font-medium text-white border-t pt-2 border-[#35434D] pb-2 mb-2">
                   {t("headquarter")}
                 </h3>
-                <p className="text-sm text-white/60 whitespace-pre-line">
+                <p className="text-sm text-white/60 whitespace-pre-line mb-2">
                   {t("address")}
                 </p>
+                <a
+                  className="text-sm underline text-[#004DFF] hover:text-blue-400 transition whitespace-pre-line"
+                  href="bitessav@hs01.kep.tr"
+                >
+                  bitessav@hs01.kep.tr
+                </a>
               </motion.div>
               {/* Working Hours */}
               <motion.div variants={fadeUp}>
@@ -175,7 +181,7 @@ export default function ContactPage() {
                 </p>
               </motion.div>
               {/* Social Media */}
-              <div className="flex pl-3 mb-2">
+              <div className="flex mb-2">
                 <FollowUs />
               </div>
             </motion.div>

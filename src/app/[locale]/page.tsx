@@ -10,7 +10,7 @@ import ClientOnlyLoader from "@/components/layout/ClientOnlyLoader";
 const HomePage = async () => {
   const t = await getTranslations("HomePage");
   const fallbackData = {
-    words: t.raw("words"), // string[] from `messages/tr.json` or `messages/en.json`
+    words: t.raw("words"),
   };
 
   const words = Array.isArray(fallbackData.words) ? fallbackData.words : [];

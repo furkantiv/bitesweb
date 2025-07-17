@@ -60,7 +60,7 @@ export const altayDataManagementSystemContent: ProductContent = {
       },
     },
     {
-      type: "grid",
+      type: "reverseGrid",
       image:
         "/images/products/productpages/training-simulation/altay-data-management-system/altay-1.png",
       heading: {
