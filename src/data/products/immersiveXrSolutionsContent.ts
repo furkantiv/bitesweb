@@ -165,9 +165,9 @@ export const immersiveXrSolutionsContent: ProductContent = {
       },
     },
     {
-      type: "image",
+      type: "banner",
       image:
-        "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-1.png",
+        "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-6.png",
     },
     {
       type: "infoGrid",

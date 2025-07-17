@@ -53,7 +53,7 @@ export const digitalTwinContent: ProductContent = {
     {
       type: "reverseGrid",
       image:
-        "/images/products/productpages/technology-business/digital-twin/digital-twin-2.png",
+        "/images/products/productpages/technology-business/digital-twin/digital-twin-3.png",
       heading: {
         en: "Benefits for End Users",
         tr: "Son Kullanıcıya Faydaları",
