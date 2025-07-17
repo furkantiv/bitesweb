@@ -14,7 +14,7 @@ export const categories: Category[] = [
       },
       {
         name: "BİTES LMS/LXP Platform",
-        image: "public/images/products/bites-lms-lxp.png",
+        image: "/images/products/bites-lms-lxp.png",
         slug: "bites-lms-lxp",
         items: [],
       },
@@ -50,7 +50,7 @@ export const categories: Category[] = [
       },
       {
         name: "Shooting Training Simulator",
-        image: "/images/products/atok.png",
+        image: "/images/products/shooting-training-simulator.png",
         slug: "shooting-simulator",
         items: [],
       },

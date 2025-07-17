@@ -16,16 +16,14 @@ export default function ProductReverseGridSection({
   return (
     <section className="flex flex-col md:flex-row w-full pt-8 pb-8 rounded-lg space-x-6 overflow-hidden min-h-[350px]">
       {/* Sol: Görsel */}
-      <div
-        className="w-full md:w-1/2 relative h-[400px] md:h-auto min-h-[300px]
-      rounded-lg overflow-hidden"
-      >
+      <div className="w-full md:w-1/2 aspect-[575/385] relative rounded-lg overflow-hidden">
         <Image
           src={image}
           alt={heading}
           fill
-          className="object-cover"
+          className="object-cover" // veya object-contain
           priority
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 

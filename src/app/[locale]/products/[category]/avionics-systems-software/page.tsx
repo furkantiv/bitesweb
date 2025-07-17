@@ -20,7 +20,7 @@ const AvionicsSystemsSoftware = () => {
   return (
     <div className="max-w-7xl px-5 my-20 md:my-40 mx-auto">
       <BackButton categorySlug="avionicsandmission" />
-      <div className="px-3 pb-6 border rounded-2xl border-[#35434D] min-h-screen">
+      <div className="px-3 md:px-6 border rounded-2xl border-[#35434D] min-h-screen">
         <ProductHeader
           title={t(content.title)}
           description={t(content.description)}

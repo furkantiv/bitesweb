@@ -16,9 +16,9 @@ export default function ProductSplitSection({
   features,
 }: ProductSplitSectionProps) {
   return (
-    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-14">
+    <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] space-x-6 mb-14">
       {/* Sol: Metin */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center min-h-[350px] mb-3">
+      <div className="w-full md:w-1/2 flex flex-col justify-center min-h-[350px]">
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
@@ -28,16 +28,23 @@ export default function ProductSplitSection({
         <p className="text-base text-white mb-4">{heading}</p>
         <ul className="space-y-1">
           {features.map((feature, i) => (
-            <li key={i} className="text-base text-white flex items-start">
-              <span className="inline-block mt-2 w-2 h-2 rounded-full bg-white mr-3" />
-              {feature}
+            <li key={i} className="text-base text-white flex items-center">
+              <span className="inline-block w-2 h-2 rounded-full bg-white mr-3 shrink-0" />
+              <span className="leading-snug">{feature}</span>
             </li>
           ))}
         </ul>
       </div>
       {/* Sağ: Görsel */}
-      <div className="w-full md:w-1/2 relative h-[400px] md:h-auto rounded-lg overflow-hidden min-h-[300px]">
-        <Image src={image} alt={title} fill className="object-cover" priority />
+      <div className="w-full md:w-1/2 aspect-[575/385] relative rounded-lg overflow-hidden">
+        <Image
+          src={image}
+          alt={heading}
+          fill
+          className="object-cover" // veya object-contain
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ export const avionicsSystemsContent: ProductContent = {
   },
   description: {
     en: "BİTES conducts safety-critical/RTCA DO-178C & DO-254 certified activities, in collaboration with ASELSAN.",
-    tr: "BİTES, ASELSAN iş birliğiyle emniyet kritik/RTCA DO-178C & DO-254 sertifikalı faaliyetler yürütmektedir.",
+    tr: "BİTES, bünyesinde de bulunan Sistem Entegrasyon Laboratuvarları (SEL) içerisinde ASELSAN ile birlikte emniyet kritik RTCA DO-178C & DO-254 sertifikalı faaliyetler yürütmektedir.",
   },
 
   sections: [
@@ -122,11 +122,12 @@ export const avionicsSystemsContent: ProductContent = {
       columns: {
         en: [
           {
-            title: "Certified Expertise",
+            title: "RTCA DO-178C & DO-254 Certified Expertise",
             items: [
-              "RTCA DO-178C & DO-254 Certification",
-              "Safety-critical software development",
-              "Advanced test and verification methods",
+              "Software Development",
+              "Software Level Verification",
+              "System Level Verification",
+              "System Engineering/Integration Activities",
             ],
           },
           {
@@ -139,11 +140,12 @@ export const avionicsSystemsContent: ProductContent = {
         ],
         tr: [
           {
-            title: "Sertifikalı Uzmanlık",
+            title: "RTCA DO-178C & DO-254 Sertifikalı Uzmanlıklarımız",
             items: [
-              "RTCA DO-178C & DO-254 Sertifikasyonu",
-              "Emniyet kritik yazılım geliştirme",
-              "İleri test ve doğrulama yöntemleri",
+              "Yazılım Geliştirme",
+              "Yazılım Seviyesi Doğrulama",
+              "Sistem Seviyesi Doğrulama",
+              "Sistem Mühendisliği/Entegrasyon",
             ],
           },
           {

@@ -108,7 +108,7 @@ const NewsPage = () => {
           >
             {paginatedNews.length === 0 ? (
               <div className="text-white text-center py-12">
-                No news found in this category.
+                {t("newsPage.noNews")}
               </div>
             ) : (
               paginatedNews.map((news) => (

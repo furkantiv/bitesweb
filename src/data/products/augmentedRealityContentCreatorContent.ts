@@ -6,8 +6,8 @@ export const augmentedRealityContentCreatorContent: ProductContent = {
     tr: "Artırılmış Gerçeklik İçerik Oluşturucu",
   },
   description: {
-    en: "ARCC is used to move the user manuals, maintenance manuals, and illustrated parts catalogues of a product into the Augmented Reality world, making training and support more immersive and efficient.",
-    tr: "ARCC, bir ürünün kullanıcı ve bakım kılavuzları ile yedek parça kataloglarının içeriklerini Artırılmış Gerçeklik ortamına taşıyarak, eğitim ve destek süreçlerini daha etkili ve etkileşimli hale getirir.",
+    en: "ARCC is used to move the User Manuals, Maintenance Manual,Illustrated Parts Catalogue contents of a device/product to Augmented RealityWorld.",
+    tr: "Artırılmış Gerçeklik İçerik Üreticisi, Kullanım/Bakım Kılavuzları ve Resimli Parça Katalog içeriklerini Artırılmış Gerçeklik dünyasında kodlama yapılmadan oluşturan bir sistemdir.",
   },
   videoUrl:
     "/images/products/productpages/training-simulation/augmented-reality-content-creator/augmented-reality.mp4",
@@ -54,34 +54,73 @@ export const augmentedRealityContentCreatorContent: ProductContent = {
         ],
       },
     },
+    {
+      type: "infoGrid",
+      image: "",
+      heading: {
+        en: "Virtual/Mixed Reality Interactive Immersive Training Devices",
+        tr: "Sanal/Karma Gerçeklik Etkileşimli Sürükleyici Eğitim Cihazları",
+      },
+      columns: {
+        en: [
+          {
+            title: "Augmented Reality-Based Maintenance System",
+            items: [
+              "The system provides effective support to users and maintenance personnel by showing the steps in the User and Maintenance Manuals as holograms and animations directly on the real system.",
+              "The Augmented Reality-Based Maintenance System enhances user and maintenance training efficiency, reducing training durations.",
+              "The system increases efficiency, speeds up intervention, reduces error rates, and also lowers maintenance costs.",
+              "By guiding maintenance and user training for critical systems and platforms, it minimizes human errors and reduces human-induced failures.",
+            ],
+          },
+          {
+            title: "Augmented Reality-Based Remote Maintenance/Support",
+            items: [
+              "With AR glasses, guidance and remote support can be provided via holograms placed on the real system.",
+              "Experts can send guiding markers to the 3D real-world view of the user in the field.",
+              "Experts can support field users with video, documents, and images.",
+              "This is an application that increases efficiency and shortens maintenance durations.",
+            ],
+          },
+        ],
+        tr: [
+          {
+            title: "Artırılmış Gerçeklik Tabanlı Bakım Sistemi",
+            items: [
+              "Sistem, Kullanıcı ve Bakım Kılavuzlarında belirtilen işlem adımlarını gerçek sistem üzerinde hologram ve animasyonlar yardımıyla göstererek, Kullanıcıya ve Bakım personeline etkin bir destek sağlamaktadır.",
+              "Artırılmış Gerçeklik Tabanlı Bakım Sistemi kullanıcı ve bakım eğitimlerini etkin hâle getirerek, eğitim sürelerini azaltmaktadır.",
+              "Sistem, verimlilik artışı ile müdahale hızını ve hata oranlarını azaltırken bakım işlemlerindeki maliyeti de azaltmaktadır.",
+              "Kritik sistem ve platformların bakım ve kullanıcı eğitimlerine kılavuzluk ederek insan hatalarını en aza indirmekte ve insan kaynaklı arızaları minimuma düşürmektedir.",
+            ],
+          },
+          {
+            title: "Artırılmış Gerçeklik Tabanlı Uzaktan Bakım/Destek",
+            items: [
+              "AG gözlüğü ile gerçek sistem üzerine yerleştirilebilen hologramlarla yönlendirme ve uzaktan destek sağlanabilmektedir.",
+              "Uzman, sahadaki kullanıcının 3B gerçek dünyasına yönlendirici işaretler gönderebilmektedir.",
+              "Uzman, saha kullanıcısına video, doküman ve resimlerle destek olabilmektedir.",
+              "Verimliliği arttıran ve bakım süresini kısaltan bir uygulamadır.",
+            ],
+          },
+        ],
+      },
+    },
     // Uzaktan destek ayrı bir başlık olarak slider veya feature-section ile de eklenebilir:
     {
       type: "feature",
       image:
         "/images/products/productpages/training-simulation/augmented-reality-content-creator/augmented-reality-1.png",
       heading: {
-        en: "AR Remote Maintenance & Assistance",
-        tr: "AR Uzaktan Bakım ve Destek",
+        en: "ARCC Contents are Transferred to AR Glasses",
+        tr: "ARCC tarafından oluşturulan içerikler, AR gözlüklerine aktarılır.",
       },
       content: {
-        en: "Holographic content-based remote assistance is possible via live video connection. The expert can place directive marks in the operator's real 3D world, share videos, PDFs and images to guide field operations.",
-        tr: "Canlı video bağlantısı ile holografik içerik tabanlı uzaktan destek sağlanabilir. Uzman, operatörün gerçek 3D ortamına yönlendirici işaretler ekleyebilir, video, PDF ve görseller paylaşabilir.",
+        en: "It provides guidance for maintenance and training of critical systems/platforms. It reduces human errors, execution time, failures, downtime, and costs.",
+        tr: "Kritik sistemler/platformların bakımı ve eğitimine rehberlik sağlar. İnsan hatalarını, uygulama süresini, arızaları, iş duruşlarını ve maliyetleri azaltır.",
       },
       extra: {
-        en: "This increases field efficiency and reduces maintenance times. All ARCC-created contents are instantly available on AR glasses.",
-        tr: "Bu sayede sahada verimlilik artar, bakım süreleri azalır. ARCC ile oluşturulan tüm içerikler, anında AR gözlüklerde kullanılabilir.",
+        en: "Reduces maintenance and user training durations. Increases productivity, operation speed, fix rates, compliance, and profit.",
+        tr: "Bakım ve kullanıcı eğitim sürelerini azaltır. Üretkenliği, işlem hızını, düzeltme oranlarını, uyumu ve karlılığı artırır. ",
       },
     },
-    // İstersen avantajları slider olarak da gösterebilirsin:
-    // {
-    //   type: "slider",
-    //   slides: [
-    //     {
-    //       title: { en: "Key Benefits", tr: "Başlıca Avantajlar" },
-    //       image: "/images/products/productpages/training-simulation/augmented-reality-content-creator/augmented-reality-3.png",
-    //       features: { en: [...], tr: [...] }
-    //     }
-    //   ]
-    // }
   ],
 };

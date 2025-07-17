@@ -31,6 +31,10 @@ export interface BannerSectionData {
   type: "banner";
   image: string;
 }
+export interface ImageSectionData {
+  type: "image";
+  image: string;
+}
 export interface SplitSectionData {
   type: "split";
   image: string;
@@ -79,7 +83,8 @@ export type ProductSection =
   | SplitSectionData
   | SliderSectionData
   | InfoGridSectionData
-  | ReverseGridSectionData;
+  | ReverseGridSectionData
+  | ImageSectionData;
 
 export interface ProductContent {
   title: LocalizedString;

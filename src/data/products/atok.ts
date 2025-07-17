@@ -50,11 +50,19 @@ export const atokContent: ProductContent = {
           "Augmented Reality Glasses",
           "Positioning Sensor (Integrated onto glasses)",
           "Health Sensor",
+          "Mobile Device and Case",
+          "Smart Watch",
+          "Precision Positioning Sensor",
+          "Analog Compass",
         ],
         tr: [
-          "Artırılmış Gerçeklik Gözlükleri",
-          "Konumlandırma Sensörü (Gözlüklere entegre)",
-          "Sağlık Sensörü",
+          "Taktik Saha Ekranı",
+          "Dost Birlik Takibi",
+          "Mesajlaşma",
+          "Paraşütçü Modülü",
+          "İHA Görüntü Gösterimi",
+          "Sağlık Modülü",
+          "Video Konferans",
         ],
       },
     },
@@ -124,6 +132,7 @@ export const atokContent: ProductContent = {
           },
           image:
             "/images/products/productpages/defence-information/atok/atok-5-slider-soldier.png",
+
           features: {
             en: [
               "Smart Watch",
@@ -143,7 +152,9 @@ export const atokContent: ProductContent = {
     },
     {
       type: "grid",
-      image: "/images/products/atok/Atok_Grid.png",
+      image:
+        "/images/products/productpages/defence-information/atok/atok-7.png",
+
       heading: {
         en: "Features",
         tr: "Özellikler",
@@ -159,11 +170,11 @@ export const atokContent: ProductContent = {
         ],
         tr: [
           "Güvenli İletişim Ağı",
-          "Zırhlı Araç Üzerinde LTE Baz İstasyonu",
-          "Sesli İletişim, Dosya Paylaşımı ve Video Konferans",
-          "İHA’dan Görüntü Alımı ve Takım İçinde Paylaşımı",
-          "Anlık Sağlık Durumu Takibi",
-          "İnternet Bağlantısı Olmadan Konum Verisi Üretme",
+          "Zırhlı Araç Üzerine Kurulu LTE Baz İstasyonu",
+          "Tim İçi Mobil Mesajlaşma Kabiliyeti ile Sesli Haberleşme, Dosya Paylaşımı ve Video Konferans İmkânı",
+          "İHA Görüntülerinin SATCOM Üzerinden Alınması ve Tim İçinde Paylaşılması",
+          "Her Askerin Anlık Sağlık Durumu Takibinin Sağlanması",
+          "GPS Bilgisinin Olmadığı Durumlarda Bile Askerin Konum Bilgisinin Bulunması ve Paylaşılması",
         ],
       },
     },

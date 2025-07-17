@@ -5,6 +5,7 @@ import ProductSliderSection from "@/components/sections/products/ProductSliderSe
 import ProductSplitSection from "@/components/sections/products/ProductSplitSection";
 import ProductInfoGridSection from "../sections/products/ProductInfoGridSection";
 import ProductReverseGridSection from "../sections/products/ProductReverseGridSection";
+import ProductImage from "../sections/products/ProductImage";
 
 const SectionRenderer = ({
   section,
@@ -86,6 +87,8 @@ const SectionRenderer = ({
           }
         />
       );
+    case "image":
+      return <ProductImage image={section.image} />;
     default:
       return null;
   }

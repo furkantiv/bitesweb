@@ -36,18 +36,16 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-6 md:px-0 md:pt-20 w-full min-h-screen bg-transparent flex flex-col lg:flex-row gap-8 justify-center mb-6">
+      <div className="max-w-7xl my-20 md:my-40 mx-auto w-full min-h-screen bg-transparent flex flex-col lg:flex-row gap-8 justify-center mb-6">
         {/* Sol - İçerik */}
-        <div className="flex-1 items-center justify-center md:px-3">
+        <div className="flex-1 items-center justify-center px-3 md:px-6">
           <BreadcrumbsWithSearch items={breadcrumbItems} />
-          <div className="border border-[#35434D] rounded-2xl p-3 flex flex-col gap-3">
+          <div className="border border-[#35434D] rounded-2xl p-6 flex flex-col gap-3">
             {/* Büyük görsel */}
-            <div className="relative w-full ">
-              <NewsImageSlider
-                images={news.image} // array of image URLs
-                alt={news.title[locale]}
-              />
-            </div>
+            <NewsImageSlider
+              images={news.image} // array of image URLs
+              alt={news.title[locale]}
+            />
             {/* Üst başlık ve meta */}
             <div className="flex flex-col md:justify-between gap-2">
               {/* Tarih ve Kaynak */}

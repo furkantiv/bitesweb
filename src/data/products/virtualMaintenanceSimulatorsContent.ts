@@ -7,7 +7,7 @@ export const virtualMaintenanceSimulatorsContent: ProductContent = {
   },
   description: {
     en: "Virtual Maintenance Simulators are cost-effective solutions that provide the opportunity for virtual maintenance training on critical and high-cost devices 'without causing damage.'",
-    tr: "Sanal Bakım Simülatörleri, kritik ve yüksek maliyetli cihazlarda ‘zarar vermeden’ sanal bakım eğitimi imkânı sunan uygun maliyetli çözümlerdir.",
+    tr: "Kritik ve yüksek maliyetli cihazlara hasar vermeden sanal bakım eğitimine imkân sağlayan, maliyet etkin yapılardır. Aynı zamanda bu yapılara entegre edilmiş uzaktan destek modülleri ile sahadaki kullanıcılara bakım ve onarım desteği de sağlar.",
   },
   videoUrl:
     "/images/products/productpages/training-simulation/virtual-maintenance-simulator/virtual-maintenance-simulator.mp4",
@@ -64,38 +64,29 @@ export const virtualMaintenanceSimulatorsContent: ProductContent = {
       },
     },
     {
-      type: "infoGrid",
-      image: "",
+      type: "reverseGrid",
+      image: "/images/products/productpages/corporate-customers.jpg",
       heading: {
         en: "Our References",
         tr: "Referanslarımız",
       },
-      columns: {
+      features: {
         en: [
-          {
-            title: "Corporate Customers",
-            items: [
-              "Aselsan",
-              "Higher Colleges of Technology (United Arab Emirates)",
-              "Sikorsky - Lockheed Martin",
-              "TAI",
-              "Turkish Air Force Command",
-              "Aviation School Command",
-            ],
-          },
+          "Aselsan",
+          "Higher Colleges of Technology (United Arab Emirates)",
+          "Sikorsky - Lockheed Martin",
+          "TAI",
+          "Turkish Air Force Command",
+          "Aviation School Command",
         ],
+
         tr: [
-          {
-            title: "Kurumsal Müşteriler",
-            items: [
-              "Aselsan",
-              "Higher Colleges of Technology (Birleşik Arap Emirlikleri)",
-              "Sikorsky - Lockheed Martin",
-              "TAI",
-              "Türk Hava Kuvvetleri Komutanlığı",
-              "Hava Okulu Komutanlığı",
-            ],
-          },
+          "Aselsan",
+          "Higher Colleges of Technology (Birleşik Arap Emirlikleri)",
+          "Sikorsky - Lockheed Martin",
+          "TAI",
+          "Türk Hava Kuvvetleri Komutanlığı",
+          "Hava Okulu Komutanlığı",
         ],
       },
     },

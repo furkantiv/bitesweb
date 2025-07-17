@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Head from "next/head";
 import Image from "next/image";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import TimelineComponent from "@/components/ui/TimelineComponent";
@@ -19,9 +18,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <Head>
-        <title>{t("metaTitle")}</title>
-      </Head>
       <main className="max-w-7xl mx-auto px-6 md:px-0 space-y-12 md:py-20">
         {/* Our Mission & Vision Section */}
         <section>

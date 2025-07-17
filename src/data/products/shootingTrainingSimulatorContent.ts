@@ -61,20 +61,27 @@ export const shootingTrainingSimulatorContent: ProductContent = {
       },
     },
     {
-      type: "split",
+      type: "reverseGrid",
       image:
         "/images/products/productpages/training-simulation/shooting-training-simulator/shooting-training-simulator-4.png",
-      title: {
+      heading: {
         en: "Command and Control Center",
         tr: "Komuta ve Kontrol Merkezi",
       },
-      heading: {
-        en: `Scenario creation and control, 2D and 3D maps, statistical data reporting, and after action debriefing system for comprehensive training management.`,
-        tr: `Kapsamlı eğitim yönetimi için senaryo oluşturma ve kontrol, 2D/3D haritalar, istatistiksel veri raporlama ve eğitim sonrası değerlendirme sistemi.`,
-      },
+
       features: {
-        en: [],
-        tr: [],
+        en: [
+          "Scenario creation and control",
+          "2D and 3D maps",
+          "Statistical data reporting",
+          "After action debriefing system for comprehensive training management",
+        ],
+        tr: [
+          "Kapsamlı eğitim yönetimi için senaryo oluşturma ve kontrol",
+          "2D/3D haritalar",
+          "istatistiksel veri raporlama",
+          "eğitim sonrası değerlendirme sistemi",
+        ],
       },
     },
   ],

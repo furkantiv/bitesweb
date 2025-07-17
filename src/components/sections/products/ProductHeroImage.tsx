@@ -11,7 +11,7 @@ interface ProductHeroImageProps {
 export default function ProductHeroImage({
   image,
   alt,
-  width = 600,
+  width = 1280,
   height = 400,
   className,
 }: ProductHeroImageProps) {

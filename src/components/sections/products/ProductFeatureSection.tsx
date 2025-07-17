@@ -19,13 +19,14 @@ export default function ProductFeatureSection({
   return (
     <section className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden min-h-[350px] mb-14">
       {/* Sol: Görsel */}
-      <div className="w-full md:w-1/2 relative h-[400px] rounded-lg overflow-hidden md:h-auto min-h-[300px]">
+      <div className="w-full md:w-1/2 aspect-[575/385] relative rounded-lg overflow-hidden">
         <Image
           src={image}
           alt={heading}
           fill
-          className="object-cover"
+          className="object-cover" // veya object-contain
           priority
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
       {/* Sağ: Metin alanı */}

@@ -17,7 +17,7 @@ export default function OrbitingLogo() {
         style={{ willChange: "transform" }}
       >
         <Image
-          src={`/logo-outer.png`}
+          src={`/outer-logo.svg`}
           alt="Orbiting Outer Logo"
           width={140}
           height={140}
@@ -28,7 +28,7 @@ export default function OrbitingLogo() {
       {/* Inner Logo - Fixed */}
       <div className="absolute  w-[100%] h-[100%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
         <Image
-          src={`/logo-inner.png`}
+          src={`/inner-logo.svg`}
           alt="Inner Logo"
           width={100}
           height={100}

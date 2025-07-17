@@ -6,12 +6,72 @@ export const immersiveXrSolutionsContent: ProductContent = {
     tr: "BİTES Immersive XR Çözümleri",
   },
   description: {
-    en: "Extending Reality for Mission Readiness. BİTES Immersive XR Solutions deliver cutting-edge VR and MR technologies for simulation, command-control, training, and engineering.",
-    tr: "Göreve Hazırlık İçin Gerçekliğin Sınırlarını Zorlayın. BİTES Immersive XR Çözümleri, simülasyon, komuta-kontrol, eğitim ve mühendislik alanlarında yenilikçi VR ve MR teknolojileri sunar.",
+    en: "Extending Reality for Mission Readiness",
+    tr: "Göreve Hazır Olmak için Genişletilmiş Gerçeklik",
   },
   heroImageUrl:
     "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-4.png",
   sections: [
+    {
+      type: "infoGrid",
+      image: "",
+      heading: {
+        en: "Virtual/Mixed Reality Interactive Immersive Training Devices",
+        tr: "Sanal/Karma Gerçeklik Etkileşimli Sürükleyici Eğitim Cihazları",
+      },
+      columns: {
+        en: [
+          {
+            title: "Realistic Exercise Experience",
+            items: [
+              "MR teknolojisi, gerçek ve sanal dünyaları birleştirerek benzersiz tatbikat deneyimi sunar.",
+              "MR tabanlı çözümler, geleneksel tatbikatlara göre daha ekonomiktir ve daha fazla kişiye erişim sağlar.",
+              "MR simülasyonları, esneklik ve kişiselleştirme imkânı sunar.",
+            ],
+          },
+          {
+            title: "Error Detection, Analysis & Evaluation",
+            items: [
+              "MR çözümleri, hataları hızlı bir şekilde tespit etmeyi ve performansı iyileştirmeyi sağlar.",
+              "MR simülasyonları, takım çalışmasını teşvik eder ve koordinasyon becerilerini geliştirir.",
+              "MR simülasyonları, riskli durumları güvenli bir ortamda deneyimleme imkânı sunar.",
+            ],
+          },
+          {
+            title: "Data Analysis, Measurability & Skill Development",
+            items: [
+              "MR çözümleri, kullanıcının performansını analiz eder ve eğitim programlarının etkinliğini ölçer.",
+              "MR tabanlı tatbikat ve simülasyon çözümleri, gerçekçi fiziksel aktivitelerin simülasyonuyla kas hafızasını güçlendirir ve becerilerin gelişmesine yardımcı olur.",
+            ],
+          },
+        ],
+        tr: [
+          {
+            title: "Gerçekçi Tatbikat Deneyimi",
+            items: [
+              "MR teknolojisi, gerçek ve sanal dünyaları birleştirerek benzersiz tatbikat deneyimi sunar.",
+              "MR tabanlı çözümler, geleneksel tatbikatlara göre daha ekonomiktir ve daha fazla kişiye erişim sağlar.",
+              "MR simülasyonları, esneklik ve kişiselleştirme imkânı sunar.",
+            ],
+          },
+          {
+            title: "Hata Tespiti, Analiz & Değerlendirme",
+            items: [
+              "MR çözümleri, hataları hızlı bir şekilde tespit etmeyi ve performansı iyileştirmeyi sağlar.",
+              "MR simülasyonları, takım çalışmasını teşvik eder ve koordinasyon becerilerini geliştirir.",
+              "MR simülasyonları, riskli durumları güvenli bir ortamda deneyimleme imkânı sunar.",
+            ],
+          },
+          {
+            title: "Veri Analizi, Ölçülebilirlik & Beceri Gelişimi",
+            items: [
+              "MR çözümleri, kullanıcının performansını analiz eder ve eğitim programlarının etkinliğini ölçer.",
+              "MR tabanlı tatbikat ve simülasyon çözümleri, gerçekçi fiziksel aktivitelerin simülasyonuyla kas hafızasını güçlendirir ve becerilerin gelişmesine yardımcı olur.",
+            ],
+          },
+        ],
+      },
+    },
     {
       type: "feature",
       image:
@@ -29,168 +89,145 @@ export const immersiveXrSolutionsContent: ProductContent = {
         tr: "Otomatik/programlanmış veya manuel tetiklenen senaryo olayları, hızlı başlatma mekanizmaları ve kullanıcı dostu 3D senaryo planlama arayüzü.",
       },
     },
-    // MR Holographic COP & Command Control Solutions
-    {
-      type: "grid",
-      image:
-        "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-3.png",
-      heading: {
-        en: "MR Holographic Tactical Common Operational Picture & Command Control",
-        tr: "MR Holografik Taktik Ortak Operasyon Resmi & Komuta Kontrol",
-      },
-      features: {
-        en: [
-          "Mixed Reality human system interface for Integrated Command & Control Systems providing a 3D holographic map viewable in an AR headset",
-          "Gestural input commands tracked with motion capture system",
-          "Accurate representation of the battlefield on a 3D ‘command table’, showing real-time tactical information and entity locations",
-          "Remote access capability: operators can be tele-present on the same 3D holographic map and mission data from anywhere",
-        ],
-        tr: [
-          "Artırılmış Gerçeklik gözlüklerinde görüntülenebilen 3D holografik harita sunan entegre komuta-kontrol sistemleri için Karma Gerçeklik arayüzü",
-          "Hareket yakalama sistemiyle izlenen jest komutları",
-          "Savaş alanının, çoklu taktik unsurların konumlarını ve gerçek zamanlı taktik bilgileri gösteren 3D ‘komuta masası’nda hassas temsili",
-          "Uzaktan erişim yeteneği: operatörler dünyanın herhangi bir yerinden aynı 3D holografik harita ve görev verisi üzerinde birlikte çalışabilir",
-        ],
-      },
-    },
-    // Virtual/Mixed Reality Immersive Training Devices
+
     {
       type: "infoGrid",
       image: "",
       heading: {
-        en: "Virtual/Mixed Reality Interactive Immersive Training Devices",
-        tr: "Sanal/Karma Gerçeklik Etkileşimli Sürükleyici Eğitim Cihazları",
+        en: "XR Applications in Product Design and Engineering",
+        tr: "Ürün Tasarımı ve Mühendislikte XR Uygulamaları",
       },
       columns: {
         en: [
           {
-            title: "Immersive 3D Visual Environment",
+            title: "Design Visualization and Prototyping",
             items: [
-              "Fully interactive and high-end 3D visuals for effective knowledge and skill development",
-              "Complete interactive simulation of platforms and equipment for operational or maintenance tasks",
-              "Replicates corrective and preventive maintenance tasks",
+              "XR applications are used for visualization and prototyping in product design and engineering processes.",
+              "Virtual environments allow products to be visually experienced and rapid prototypes to be created.",
             ],
           },
           {
-            title: "Cost-effective & Scalable",
+            title: "Collaboration and Teamwork",
             items: [
-              "Commercial off-the-shelf, cost effective hardware solutions",
-              "Scalable to a variety of operational and training requirements",
+              "XR applications support collaboration and teamwork among remote teams.",
+              "Teams can come together in virtual environments to view the same project and exchange ideas.",
             ],
           },
           {
-            title: "Integrated Training Platform",
+            title: "Training and Skill Development",
             items: [
-              "Integrated virtual learning for inspection, diagnosis, fault isolation, and troubleshooting",
-              "Total training transformation with dedicated software and hardware components",
-              "Turnkey ITD, ICD, and IOS solutions based on commercial simulation environments",
+              "XR applications are used for training in product design and engineering.",
+              "Practical experiences can be gained in virtual environments and students can learn new skills.",
+            ],
+          },
+          {
+            title: "Product Simulation with Digital Twins",
+            items: [
+              "XR technology is used in product simulation when combined with digital twins.",
+              "Digital twins are digital copies that fully simulate real products.",
+              "With XR, designers and engineers can work on digital twins in real time, test and improve product performance.",
+              "This accelerates the design process and facilitates collaboration.",
             ],
           },
         ],
         tr: [
           {
-            title: "Sürükleyici 3D Görsel Ortam",
+            title: "Tasarım Görselleştirme ve Prototipleme",
             items: [
-              "Etkili bilgi ve beceri geliştirmek için tam etkileşimli, üst düzey 3D görsel deneyim",
-              "Operasyonel veya bakım görevleri için platform ve ekipmanın eksiksiz etkileşimli simülasyonu",
-              "Düzeltici ve önleyici bakım görevlerinin simülasyonu",
+              "XR uygulamaları, ürün tasarımı ve mühendislik süreçlerinde görselleştirme ve prototipleme için kullanılır.",
+              "Sanal ortamlar, ürünlerin görsel deneyimlenmesini ve hızlı prototiplerin oluşturulmasını sağlar.",
             ],
           },
           {
-            title: "Entegre Eğitim Platformu",
+            title: "İş birliği ve Ekip Çalışması",
             items: [
-              "Denetim, teşhis, arıza tespiti ve sorun giderme için entegre sanal eğitim ortamı",
-              "Eğitim dönüşümü için özel yazılım ve donanım bileşenleriyle eksiksiz çözüm",
-              "Ticari simülasyon ortamlarıyla uyumlu anahtar teslim ITD, ICD ve IOS çözümleri",
+              "XR uygulamaları, uzaktaki ekipler arasında iş birliği ve ekip çalışmasını destekler.",
+              "Sanal ortamlarda bir araya gelerek aynı projeyi görüntüleyebilir ve fikir alışverişinde bulunabilirler.",
             ],
           },
           {
-            title: "Maliyet Etkin & Ölçeklenebilir",
+            title: "Eğitim ve Yetenek Geliştirme",
             items: [
-              "Uygun maliyetli, raf ürünü donanım çözümleri",
-              "Farklı operasyonel ve eğitim gereksinimlerine ölçeklenebilir yapı",
+              "XR uygulamaları, ürün tasarımı ve mühendislik eğitimi için kullanılır.",
+              "Sanal ortamlarda pratik deneyimler yaşanabilir ve öğrenciler yeni beceriler öğrenebilirler.",
+            ],
+          },
+          {
+            title: "Dijital İkizlerle Ürün Simülasyonu",
+            items: [
+              "XR teknolojisi, dijital ikizlerle birleştiğinde ürün simülasyonunda kullanılır..",
+              "Dijital ikizler, gerçek ürünleri tam olarak simüle eden dijital kopyalardır.",
+              "XR ile birlikte, tasarımcılar ve mühendisler gerçek zamanlı olarak dijital ikizler üzerinde çalışabilir, ürün performansını test edebilir ve iyileştirebilir.",
+              "Bu, tasarım sürecini hızlandırır ve iş birliğini kolaylaştırır.",
             ],
           },
         ],
       },
     },
-    // XR Applications in Product Design & Engineering
     {
-      type: "split",
-      title: {
-        en: "Always One Step Ahead on the Tactical Area",
-        tr: "Taktik Alanda Her Zaman Bir Adım Önde",
-      },
+      type: "image",
       image:
         "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-1.png",
+    },
+    {
+      type: "infoGrid",
+      image: "",
       heading: {
-        en: "XR Applications in Product Design and Engineering",
-        tr: "Ürün Tasarımı ve Mühendislikte XR Uygulamaları",
+        en: "Interactive Immersive Training Devices with Augmented/Virtual/Mixed Reality",
+        tr: "Artırılmış/Sanal/Karma Gerçeklik ile Etkileşimli Immersive Eğitim Cihazları",
       },
-      features: {
+      columns: {
         en: [
-          "Visualization of virtual prototypes",
-          "Realization of scale and spatial context in the physical world in high fidelity much earlier in the process",
-          "Significantly reduces investment compared to other forms of rapid prototyping",
-          "Enables real-time collaboration across locations with holographic tools and 3D product models",
+          {
+            title: "Realistic Training Experience",
+            items: [
+              "Immersive training devices with Augmented/Virtual/Mixed Reality (AR/VR/MR) offer trainees a realistic training experience by simulating real-world scenarios.",
+              "Trainees can practice in a safe environment, develop their skills, and learn to manage critical situations.",
+            ],
+          },
+          {
+            title: "Interactive Learning and Feedback",
+            items: [
+              "Immersive training devices provide an interactive learning experience for trainees.",
+              "Users can interact with objects in augmented/virtual/mixed reality environments, make decisions in scenarios, and receive feedback.",
+              "This makes learning more active, participatory, and interactive, deepens understanding, and allows for correction of mistakes.",
+            ],
+          },
+          {
+            title: "Multi-Disciplinary Training",
+            items: [
+              "Immersive training devices with Augmented/Virtual/Mixed Reality bring together training areas across different disciplines.",
+              "Trainees can come together in fields such as medicine, engineering, aviation, and architecture using AR/VR/MR technologies.",
+              "This provides trainees with different perspectives and encourages teamwork and collaboration.",
+            ],
+          },
         ],
         tr: [
-          "Sanal prototiplerin görselleştirilmesi",
-          "Gerçek dünyada ölçü ve mekânsal bağlamın sürecin başında yüksek doğrulukla anlaşılması",
-          "Diğer hızlı prototipleme yöntemlerine kıyasla önemli ölçüde daha düşük yatırım maliyeti",
-          "Holografik işbirliği araçları ve 3D ürün modelleriyle farklı lokasyonlarda eşzamanlı çalışma",
+          {
+            title: "Gerçekçi Eğitim Deneyimi",
+            items: [
+              "Artırılmış/Sanal/Karma Gerçeklik (AR/VR/MR) ile sürükleyici eğitim cihazları, kursiyerlere gerçek dünyadaki senaryoları simüle ederek gerçekçi bir eğitim deneyimi sunar.",
+              "Kursiyerler, güvenli bir ortamda pratik yapabilir, becerilerini geliştirebilir ve kritik durumları yönetmeyi öğrenebilir.",
+            ],
+          },
+          {
+            title: "İnteraktif Öğrenme ve Geribildirim",
+            items: [
+              "Sürükleyici eğitim cihazları, kursiyerlere etkileşimli bir öğrenme deneyimi sağlar.",
+              "Kullanıcılar, artırılmış/sanal/karma gerçeklik ortamlarında nesnelerle etkileşime geçebilir, senaryolarda kararlar alabilir ve geribildirim alabilir.",
+              "Bu, öğrenmeyi daha aktif, katılımcı ve etkileşimli hale getirir, anlayışı derinleştirir ve hataların düzeltilmesini sağlar.",
+            ],
+          },
+          {
+            title: "Çoklu Disiplinler Arası Eğitim",
+            items: [
+              "Artırılmış/Sanal/Karma Gerçeklik ile sürükleyici eğitim cihazları, farklı disiplinler arasında eğitim alanlarını birleştirir.",
+              "Kursiyerler, AR/VR/MR teknolojilerini kullanarak tıp, mühendislik, havacılık, mimarlık gibi alanlarda bir araya gelebilir.",
+              "u, kursiyerlere farklı perspektifler kazandırır, takım çalışması ve iş birliğini teşvik eder.",
+            ],
+          },
         ],
       },
-    },
-
-    {
-      type: "slider",
-      slides: [
-        {
-          title: {
-            en: "Key Domains",
-            tr: "Temel Alanlar",
-          },
-          image:
-            "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-5.png",
-          features: {
-            en: [
-              "Mission rehearsal and tactical simulation",
-              "Command and control holographic systems",
-              "Engineering, product design, and collaboration",
-              "Immersive training platforms",
-            ],
-            tr: [
-              "Görev provası ve taktik simülasyonu",
-              "Komuta ve kontrol holografik sistemler",
-              "Mühendislik, ürün tasarımı ve işbirliği",
-              "Sürükleyici eğitim platformları",
-            ],
-          },
-        },
-        {
-          title: {
-            en: "Main Advantages",
-            tr: "Başlıca Avantajlar",
-          },
-          image:
-            "/images/products/productpages/training-simulation/immersive-xr-solutions/immersive-xr-5.png",
-          features: {
-            en: [
-              "Enhanced realism and engagement with mixed/virtual reality",
-              "Rapid scenario generation and real-time feedback",
-              "Remote access and telepresence for collaborative operations",
-              "Significantly reduced costs in prototyping and training",
-            ],
-            tr: [
-              "Karma/sanal gerçeklik ile artırılmış gerçekçilik ve etkileşim",
-              "Hızlı senaryo oluşturma ve gerçek zamanlı geri bildirim",
-              "Uzaktan erişim ve işbirliği için tele-varlık",
-              "Prototipleme ve eğitimde önemli ölçüde azalan maliyetler",
-            ],
-          },
-        },
-      ],
     },
   ],
 };

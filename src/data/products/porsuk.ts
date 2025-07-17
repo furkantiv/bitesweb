@@ -7,7 +7,7 @@ export const porsukContent: ProductContent = {
   },
   description: {
     en: "Porsuk, developed in response to the complexity of modern battlefields and operational tasks, is a reliable partner with its adaptation capacity to challenging terrain conditions and advanced sensor technology.",
-    tr: "Porsuk, modern muharebe alanlarının ve operasyonel görevlerin karmaşıklığına yanıt olarak geliştirildi; zorlu arazi koşullarına ve gelişmiş sensör teknolojisine uyum yeteneğiyle güvenilir bir iş ortağıdır.",
+    tr: "Modern savaş alanlarının ve operasyonel görevlerin karmaşıklığına cevap olarak geliştirilen KEÇİ, zorlu arazi koşullarına adaptasyon kapasitesi ve üstün sensör teknolojisiyle güvenilir bir partnerdir.",
   },
   videoUrl:
     "/images/products/productpages/defence-information/porsuk/Porsuk_video.mp4",
@@ -22,7 +22,7 @@ export const porsukContent: ProductContent = {
       },
       content: {
         en: "Both in the battlefield and the civilian operations, it is ideal for various missions with its lightweight and compact structure.",
-        tr: "Hem muharebe sahasında hem de sivil operasyonlarda, hafif ve kompakt yapısıyla çeşitli görevler için idealdir.",
+        tr: "Hem savaş alanında hem de sivil operasyonlarda, hafif ve kompakt yapısıyla çeşitli görevler için idealdir.",
       },
       extra: {
         en: "",

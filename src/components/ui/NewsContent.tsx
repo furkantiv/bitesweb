@@ -16,7 +16,6 @@ export interface NewsContentProps {
 
 const NewsContent: React.FC<NewsContentProps> = ({ news }) => {
   const locale = useLocale();
-
   const source = news.source[locale] || news.source["en"];
   const title = news.title[locale] || news.title["en"];
   const description = news.description[locale] || news.description["en"];
@@ -44,11 +43,17 @@ const NewsContent: React.FC<NewsContentProps> = ({ news }) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col md:flex-row flex-1 gap-3 md:gap-4 md:pl-4 border-l-0 md:border border-[#35434D]">
+      <div className="flex flex-col md:flex-row flex-1 gap-3 md:gap-4 md:pl-4 border-l-0 md:border-l border-[#35434D]">
         {/* Image */}
         <div className="flex-shrink-0 mb-2 md:mb-0">
-          <div className="rounded-lg overflow-hidden border border-[#35434D] bg-gray-900/50">
-            <Image src={news.image[0]} alt={title} width={194} height={194} />
+          <div className="rounded-lg overflow-hidden border border-[#35434D] bg-gray-900/50 md:w-[194px] md:h-[194px] ">
+            <Image
+              src={news.image[0]}
+              alt={title}
+              width={194}
+              height={194}
+              className="rounded-lg object-cover w-full h-full"
+            />
           </div>
         </div>
         {/* Text Content */}

@@ -3,11 +3,11 @@ import { ProductContent } from "@/utils/types";
 export const augmentedRealitySandBoxContent: ProductContent = {
   title: {
     en: "Augmented Reality Sand Box",
-    tr: "Artırılmış Gerçeklik Kum Kutusu",
+    tr: "Sanal Kum Sandığı",
   },
   description: {
     en: "Augmented Reality Sand Box enables the visualization of data from Command Control Information Systems in the three-dimensional holographic tactical field using NATO Vector Graphics (NVG) format with Augmented Reality glasses.",
-    tr: "Artırılmış Gerçeklik Kum Kutusu, NATO Vektör Grafikleri (NVG) formatında veri sağlayabilen Komuta Kontrol Bilgi Sistemlerinden gelen verilerin Artırılmış Gerçeklik gözlükleriyle üç boyutlu holografik taktik sahada görselleştirilmesini sağlar.",
+    tr: "Sanal Kum Sandığı, NATO Vektör Grafikleri (NVG) formatında veri sağlayabilen Komuta Kontrol Bilgi Sistemlerinden gelen verilerin Artırılmış Gerçeklik gözlükleriyle üç boyutlu holografik taktik sahada görselleştirilmesini sağlar.",
   },
   videoUrl: "/images/products/productpages/defence-information/sks/sks.mp4", // veya uygun bir görsel
   sections: [
@@ -20,7 +20,7 @@ export const augmentedRealitySandBoxContent: ProductContent = {
       },
       content: {
         en: "Augmented Reality Sand Box enables real-time 3D terrain and tactical data visualization through AR glasses. It supports dynamic NVG (NATO Vector Graphics) data and provides effective tactical development capability with holographic field display.",
-        tr: "Artırılmış Gerçeklik Kum Kutusu, AR gözlüklerle gerçek zamanlı 3D arazi ve taktik veri görselleştirmesi sunar. Dinamik NVG (NATO Vektör Grafikleri) verisiyle desteklenir ve holografik saha gösterimiyle etkili taktik geliştirme kabiliyeti sağlar.",
+        tr: "Sanal Kum Sandığı, AR gözlüklerle gerçek zamanlı 3D arazi ve taktik veri görselleştirmesi sunar. Dinamik NVG (NATO Vektör Grafikleri) verisiyle desteklenir ve holografik saha gösterimiyle etkili taktik geliştirme kabiliyeti sağlar.",
       },
       extra: {
         en: "The system is portable and can be used at all command levels and training environments. Situation assessments for past operations and live C2IS (Command and Control Information Systems) integration are also supported.",
@@ -33,7 +33,7 @@ export const augmentedRealitySandBoxContent: ProductContent = {
       image: "",
       heading: {
         en: "Augmented Reality Sand Box at a Glance",
-        tr: "Artırılmış Gerçeklik Kum Kutusu Genel Özellikler",
+        tr: "Sanal Kum Sandığı Genel Özellikler",
       },
       columns: {
         en: [
@@ -59,6 +59,7 @@ export const augmentedRealitySandBoxContent: ProductContent = {
               "Situation analysis and assessment for past operations",
               "Enables hands-on exploration and tactical experimentation",
               "Visualizes terrain and overland information as 3D holograms",
+              "“Spectator Mode” that allows the operations to be monitored by personnel other than the users wearing Augmented Reality glasses.",
             ],
           },
         ],
@@ -85,6 +86,7 @@ export const augmentedRealitySandBoxContent: ProductContent = {
               "Geçmiş operasyonlar için durum analizi ve değerlendirme",
               "Uygulamalı keşif ve taktik denemeleri için ideal",
               "Arazi ve üstyapı bilgilerini 3D hologram olarak sunar",
+              "İzleyici Modu (Artırılmış Gerçeklik gözlüğü takan kullanıcıların faaliyete katılabilmesi)",
             ],
           },
         ],
