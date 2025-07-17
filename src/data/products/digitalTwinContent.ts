@@ -10,7 +10,7 @@ export const digitalTwinContent: ProductContent = {
     tr: "Dijital İkiz, bir ürünün, sürecin veya hizmetin sanal bir modelidir. Dijital İkiz ile genellikle karıştırılan Simülasyon arasındaki temel fark; Dijital İkiz’in fiziksel ortamdan toplanan gerçek zamanlı sensör verileriyle beslenmesidir.",
   },
   heroImageUrl:
-    "/images/products/productpages/technology-business/digital-twin/digital-twin-1.png",
+    "/images/products/productpages/technology-business/digital-twin/digital-twin-0.png",
   sections: [
     {
       type: "feature",
@@ -32,7 +32,7 @@ export const digitalTwinContent: ProductContent = {
     {
       type: "grid",
       image:
-        "/images/products/productpages/technology-business/digital-twin/digital-twin-3.png",
+        "/images/products/productpages/technology-business/digital-twin/digital-twin-1.png",
       heading: {
         en: "We aim to:",
         tr: "Hedeflerimiz:",
@@ -73,7 +73,7 @@ export const digitalTwinContent: ProductContent = {
     {
       type: "grid",
       image:
-        "/images/products/productpages/technology-business/digital-twin/digital-twin-3.png",
+        "/images/products/productpages/technology-business/digital-twin/digital-twin-4.png",
       heading: {
         en: "What is the innovation?",
         tr: "Yenilik Nedir?",

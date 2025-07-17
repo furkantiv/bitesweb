@@ -27,6 +27,8 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const messages = (await import(`@/messages/${locale}.json`)).default;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -34,7 +36,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="w-full bg-black text-white overflow-hidden relative">
             <GlobeProvider>
               <GlobeController />
