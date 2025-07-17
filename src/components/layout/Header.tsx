@@ -6,10 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { GlobeLink } from "../ui/GlobeLink";
 import { LocaleSwitcher } from "../ui/LocaleSwitcher";
+import { useLocale } from "next-intl";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const locale = useLocale();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -44,7 +46,7 @@ const Header = () => {
       }}
     >
       <div className="flex justify-between items-center w-full">
-        <GlobeLink href={`/`}>
+        <GlobeLink href={`/${locale}`}>
           <Image src="/logo.svg" alt="Bites Logo" width={100} height={40} />
         </GlobeLink>
 
@@ -75,7 +77,7 @@ const Header = () => {
             className="fixed inset-0 bg-[#00192F] z-50 flex flex-col px-6 pt-6 md:hidden"
           >
             <div className="flex justify-between items-center mb-6">
-              <GlobeLink href={`/`}>
+              <GlobeLink href={`/${locale}`}>
                 <Image
                   src="/logo.svg"
                   alt="Bites Logo"
