@@ -5,7 +5,6 @@ import { getTranslations } from "next-intl/server";
 import { newsList } from "@/data/news";
 import NewsCard from "@/components/sections/NewsGrid";
 import { getLastNews } from "@/utils/getLastNews";
-import ClientOnlyLoader from "@/components/layout/ClientOnlyLoader";
 
 const HomePage = async () => {
   const t = await getTranslations("HomePage");
@@ -17,7 +16,7 @@ const HomePage = async () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-0 space-y-12 py-20">
-      <div className="flex flex-col items-center justify-center md:justify-start overflow-hidden">
+      <div className="flex flex-col items-center justify-between md:justify-start min-h-[calc(100vh-64px)] overflow-hidden">
         <div className="flex flex-col items-start md:items-center md:overflow-hidden w-full space-y-15">
           <HeroText title={t("title")} words={words} interval={3000} />
 
@@ -38,7 +37,7 @@ const HomePage = async () => {
             <InfoCardsGrid />
           </div>
         </div>
-        <div className="fixed shorty:hidden bottom-0 right-0 z-30">
+        <div className="w-full md:fixed md:bottom-0 md:right-0 md:w-auto shorty:hidden">
           <NewsCard newsItems={getLastNews(newsList, 3)} />
         </div>
       </div>

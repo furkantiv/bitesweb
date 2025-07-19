@@ -152,9 +152,14 @@
   },
   "categories": {
     "trainingsimulation": "Training and Simulation Systems",
-    "defenceinformation": "Defence Information Systems",
+    "defenceinformation": "Defence Systems",
     "technologyandbusiness": "Technology and Business Solutions Systems",
     "avionicsandmission": "Avionics and Mission Systems",
+    "embedded-simulations": "Embedded Simulations",
+    "troubleshooting-maintenance-simulation": "Troubleshooting & Maintenance Simulation",
+    "mission-simulators": "Mission Simulations",
+    "mixed-reality-simulation-training": "Mixed Reality Simulation & Training Systems",
+    "digital-assessment-systems": "Digital Assessment Systems",
     "karma": "KARMA",
     "bites-lms-lxp": "BİTES LMS/LXP Platform",
     "immersive-xr": "Immersive XR",
@@ -264,6 +269,115 @@
       { "label": "News", "href": "/news" },
       { "label": "Career", "href": "/career" },
       { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "RecruitmentCriteria": {
+    "mainTitle": "Our Recruitment Criteria",
+    "mainDesc": "Candidates considering joining the BITES family are expected to meet the minimum criteria listed below. Candidates to be hired are also subject to a personal security clearance check.",
+    "items": [
+      {
+        "title": "Recruitment Criteria for Candidates with a Bachelor’s Degree and/or Above",
+        "content": {
+          "type": "table",
+          "desc": "Candidates who have graduated with a bachelor's degree from domestic universities will be considered if they meet the conditions listed in the table below.",
+          "headers": [
+            "ÖSYM Exam Ranking for the Evaluated Branch",
+            "Bachelor's Degree GPA Criteria on a 4.0 Scale"
+          ],
+          "rows": [
+            [
+              "If greater than 50,000",
+              "(20,000/ÖSYM Exam Ranking) + Bachelor's GPA + Additional Points ≥ 3.00 *"
+            ],
+            ["If 1-50,000", "Bachelor's GPA + Additional Points ≥ 2.50"]
+          ],
+          "note": "* When calculating the academic average, mathematical rounding rules are applied to take two decimal places. (If the third decimal place is 5 or higher, the second decimal place is rounded up.)"
+        }
+      },
+      {
+        "title": "Additional Point Criteria",
+        "content": {
+          "type": "table-adv",
+          "desc": "Additional points may be awarded to candidates if they meet the following additional point criteria.",
+          "headers": ["Additional Point Criteria", "Additional Point Amount"],
+          "rows": [
+            [
+              "For candidates with 2 ≤ x < 5 years of work experience, provided their experience is related to the job description",
+              "0.2"
+            ],
+            [
+              "For candidates with 5 ≤ x < 10 years of work experience, provided their experience is related to the job description",
+              "0.4"
+            ],
+            [
+              "For candidates with a master's degree from domestic or foreign universities ranked within the top 1000 in Quacquarelli Symonds (QS), Round University Ranking (RUR), or Times Higher Education (THE) world university rankings, and whose degree is relevant to the job description",
+              "0.2"
+            ],
+            [
+              "For candidates proficient in a foreign language (subject to the criteria in 2.8)",
+              "0.2"
+            ],
+            [
+              "For candidates with other relevant master's degrees fulfilling the job description requirements",
+              "0.1"
+            ],
+            [
+              "For candidates who have served as researchers or scholars in national or international projects of TÜBİTAK, the Ministry of Industry and Technology, or the European Union in their field of education",
+              "0.1"
+            ],
+            [
+              "For candidates with publications in SCI, SCI Exp., or SSCI indexes",
+              "0.1"
+            ],
+            [
+              "For candidates with an ALES score of 70 or above in their field of study in the last 5 years (numerical for engineering, verbal or equally weighted for administrative fields)",
+              "0.1"
+            ]
+          ],
+          "notes": [
+            "2. For candidates with 10 or more years of experience in administrative and engineering fields, provided their experience is related to the job description, criteria such as minimum GPA, foreign language proficiency, ÖSYM ranking, and relevance of undergraduate major to the job description are not required.",
+            "3. The conditions specified in item 1 and the additional point applications specified in Article 2.1 will apply to candidates who have graduated from domestic universities with a minimum GPA of 2.20/4.00. Candidates with a GPA below 2.20/4.00, regardless of meeting additional conditions, will not be considered. The minimum GPA requirement will not apply to candidates with 10 or more years of experience in positions related to the job description.",
+            "4. Candidates without ÖSYM University Entrance Exam rankings (such as transfer students, completion students, etc.) must have a bachelor's GPA + Additional Points ≥ 3.00/4.00.",
+            "5. Candidates graduating from foreign universities (Bachelor's, Master's, and/or Doctorate) must provide diploma equivalency documents from the Council of Higher Education (YÖK) or the Interuniversity Board. ...",
+            "6. Candidates with undergraduate degrees from distance learning and open education programs are not considered for Administrative and Engineering fields.",
+            "7. Candidates graduating from universities where GPA is not calculated on a 4.00 scale will use the approved equivalency table ...",
+            "8. Candidates will earn additional points if they meet any of the following foreign language (English) criteria. The validity period ...",
+            "IELTS-Academic ≥ 6.0, YDS/eYDS ≥ 70, Pearson PTE – Academic ≥ 71, TOEFL-IBT ≥ 84, TBA ≥ 6.0, YÖKDİL/e YÖKDİL ≥ 70, ITEP Academic Plus – Virtual Proctoring (IVP) ≥ 3.9, Cambridge CPE ≥ C, Cambridge CAE ≥ B, Versant ≥ 62, TOEIC (Reading and Listening) ≥ 732"
+          ]
+        }
+      },
+      {
+        "title": "Candidates with Undergraduate Degrees Abroad",
+        "content": {
+          "type": "list",
+          "items": [
+            "Candidates with bachelor's degrees from foreign universities ... will be evaluated if they meet all of the following conditions:",
+            "The total of the bachelor's degree GPA and the additional points specified in Section 2 must correspond to at least 65% for universities ranked within the top 1000 in ... and at least 85% for universities ranked above 1000.",
+            "The equivalency of the graduate university's diploma by the Council of Higher Education and/or Interuniversity Board ..."
+          ]
+        }
+      },
+      {
+        "title": "Doctoral Graduate Candidates",
+        "content": {
+          "type": "list",
+          "items": [
+            "Candidates with doctoral degrees that meet the job description requirements are not expected to fulfill the bachelor's degree graduation conditions specified in items 1, 2.1, 2.2, 2.3, and 2.4.",
+            "The total of the bachelor's degree GPA and the additional points specified in Section 2 must correspond to at least 65% for universities ranked within the top 1000 in ... and at least 85% for universities ranked above 1000.",
+            "The equivalency of the graduate university's diploma by the Council of Higher Education and/or Interuniversity Board ..."
+          ]
+        }
+      },
+      {
+        "title": "Recruitment Criteria for Candidates with High School / Associate Degree Graduates",
+        "content": {
+          "type": "list",
+          "items": [
+            "In fields such as Technician, Office Personnel, Service Personnel, etc., where recruitment is done through exams, candidates with 10 or more years of work experience, ...",
+            "For General Manager, Assistant General Manager, Director positions, criteria such as GPA and ÖSYM ranking mentioned in this document are not required."
+          ]
+        }
+      }
     ]
   }
 }

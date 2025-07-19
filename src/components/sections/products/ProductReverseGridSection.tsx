@@ -3,6 +3,7 @@ import Image from "next/image";
 interface ProductReverseGridSectionProps {
   image: string;
   heading: string;
+  subheading: string;
   features: string[];
   product?: string;
 }
@@ -10,11 +11,12 @@ interface ProductReverseGridSectionProps {
 export default function ProductReverseGridSection({
   image,
   heading,
+  subheading,
   features,
   product = "",
 }: ProductReverseGridSectionProps) {
   return (
-    <section className="flex flex-col md:flex-row w-full pt-8 pb-8 rounded-lg space-x-6 overflow-hidden min-h-[350px]">
+    <section className="flex flex-col md:flex-row w-full pb-8 rounded-lg space-x-6 space-y-6 overflow-hidden min-h-[350px] mb-14">
       {/* Sol: Görsel */}
       <div className="w-full md:w-1/2 aspect-[575/385] relative rounded-lg overflow-hidden">
         <Image
@@ -32,10 +34,17 @@ export default function ProductReverseGridSection({
         <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
           {product}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-          {heading}
-        </h2>
-        <ul className="space-y-3 w-full">
+        {heading && (
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            {heading}
+          </h2>
+        )}
+        {subheading && (
+          <h2 className="text-base md:text-lg font-bold text-white mb-4">
+            {subheading}
+          </h2>
+        )}
+        <ul className="space-y-2 w-full">
           {features.map((f, i) => (
             <li
               key={i}

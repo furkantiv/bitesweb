@@ -8,12 +8,16 @@ interface ProductInfoGridSectionProps {
   heading: string;
   categories: InfoGridCategory[];
   image?: string;
+  features?: string;
+  product?: string;
 }
 
 export default function ProductInfoGridSection({
   heading,
   categories,
   image,
+  features,
+  product = "",
 }: ProductInfoGridSectionProps) {
   // Grid'i iki sütuna böl: (sol 3, sağ 3 örneği gibi)
   const mid = Math.ceil(categories.length / 2);
@@ -21,16 +25,17 @@ export default function ProductInfoGridSection({
   const right = categories.slice(mid);
 
   return (
-    <section className=" text-white mb-14">
+    <section className="text-white mb-14">
       <div className="max-w-7xl mx-auto flex flex-col items-start">
         {heading ? (
           <h2 className="text-2xl md:text-3xl font-normal text-left mb-8">
             {heading}
           </h2>
-        ) : null}
+        ) : (
+          <hr className="w-full border-t border-[#35434D] my-3" />
+        )}
 
         <div className="flex w-full gap-10 justify-center">
-          {/* Solda görsel istersek (örn: logo veya robot foto) */}
           {image && (
             <div className="hidden md:flex flex-col items-center justify-center w-56">
               <Image
@@ -40,6 +45,16 @@ export default function ProductInfoGridSection({
                 height={160}
                 className=" opacity-100 "
               />
+            </div>
+          )}
+          {features && (
+            <div className="hidden md:flex flex-col items-start justify-start w-90">
+              <span className="uppercase text-[13px] tracking-wider text-white/70 font-semibold mb-2">
+                {product}
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-left text-white mb-4">
+                {features}
+              </h2>
             </div>
           )}
           {/* Grid */}

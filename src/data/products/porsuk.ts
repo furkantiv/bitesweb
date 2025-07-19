@@ -132,7 +132,7 @@ export const porsukContent: ProductContent = {
     {
       type: "split",
       image:
-        "/images/products/productpages/defence-information/porsuk/porsuk-2.png", // sağda iki asker ve porsuk robotun olduğu görsel
+        "/images/products/productpages/defence-information/porsuk/porsuk-2.png",
       title: {
         en: "New Hero Of Tough Terrains",
         tr: "Zorlu Arazilerin Yeni Kahramanı",

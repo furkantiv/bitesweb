@@ -6,6 +6,9 @@ import ProductSplitSection from "@/components/sections/products/ProductSplitSect
 import ProductInfoGridSection from "../sections/products/ProductInfoGridSection";
 import ProductReverseGridSection from "../sections/products/ProductReverseGridSection";
 import ProductImage from "../sections/products/ProductImage";
+import ProductTableListSection from "../sections/products/ProductTableListSection";
+import ProductTableSection from "../sections/products/ProductTableSection";
+import GridTextSection from "../sections/products/GridTextSection";
 
 const SectionRenderer = ({
   section,
@@ -63,6 +66,7 @@ const SectionRenderer = ({
           product={productName}
           image={section.image}
           heading={t(section.heading)}
+          subheading={t(section.subheading)}
           features={
             section.features?.[locale] ?? section.features?.["en"] ?? []
           }
@@ -71,9 +75,11 @@ const SectionRenderer = ({
     case "infoGrid":
       return (
         <ProductInfoGridSection
+          product={productName}
           heading={section.heading?.[locale] ?? section.heading?.en}
           categories={section.columns?.[locale] ?? section.columns?.en ?? []}
           image={section.image}
+          features={section.features?.[locale] ?? section.features?.en ?? []}
         />
       );
     case "reverseGrid":
@@ -82,6 +88,7 @@ const SectionRenderer = ({
           product={productName}
           image={section.image}
           heading={t(section.heading)}
+          subheading={t(section.subheading)}
           features={
             section.features?.[locale] ?? section.features?.["en"] ?? []
           }
@@ -89,6 +96,51 @@ const SectionRenderer = ({
       );
     case "image":
       return <ProductImage image={section.image} />;
+
+    case "tableList":
+      return (
+        <ProductTableListSection
+          heading={t(section.heading)}
+          columns={section.columns.map((col: any) => ({
+            ...col,
+            title: t(col.title),
+          }))}
+          data={section.data}
+          listItems={section.listItems?.[locale] ?? section.listItems?.en ?? []}
+        />
+      );
+
+    case "table":
+      return (
+        <ProductTableSection
+          heading={t(section.heading)}
+          product={productName}
+          image={section.image}
+          columns={section.columns.map((col: any) => ({
+            ...col,
+            title: t(col.title),
+          }))}
+          data={section.data.map((row: any) => {
+            const localizedRow: Record<string, string> = {};
+            Object.keys(row).forEach((key) => {
+              const value = row[key];
+              localizedRow[key] =
+                typeof value === "object" && value !== null && locale in value
+                  ? value[locale as "en" | "tr"]
+                  : value;
+            });
+            return localizedRow;
+          })}
+        />
+      );
+
+    case "gridText":
+      return (
+        <GridTextSection
+          texts={section.texts?.[locale] ?? section.texts?.en ?? []}
+        />
+      );
+
     default:
       return null;
   }

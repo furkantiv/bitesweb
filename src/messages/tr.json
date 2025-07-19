@@ -152,9 +152,14 @@
   },
   "categories": {
     "trainingsimulation": "Eğitim ve Simülasyon Sistemleri",
-    "defenceinformation": "Savunma Bilgi Sistemleri",
+    "defenceinformation": "Savunma Sistemleri",
     "technologyandbusiness": "Teknoloji ve İş Çözümleri Sistemleri",
     "avionicsandmission": "Aviyonik ve Görev Sistemleri",
+    "embedded-simulations": "Gömülü Simülasyonlar",
+    "troubleshooting-maintenance-simulation": "Sorun Giderme & Bakım Simülasyonu",
+    "mission-simulators": "Görev Simülatörleri",
+    "mixed-reality-simulation-training": "Karma Gerçeklik Simülasyon & Eğitim Sistemleri",
+    "digital-assessment-systems": "Digital Değerlendirme Sistemi",
     "karma": "KARMA",
     "bites-lms-lxp": "BİTES LMS/LXP Platform",
     "immersive-xr": "Immersive XR",
@@ -264,6 +269,115 @@
       { "label": "Haberler", "href": "/news" },
       { "label": "Kariyer", "href": "/career" },
       { "label": "İletişim", "href": "/contact" }
+    ]
+  },
+  "RecruitmentCriteria": {
+    "mainTitle": "Alım Kriterlerimiz",
+    "mainDesc": "BİTES ailesine katılmak isteyen adayların aşağıda listelenen asgari kriterleri karşılaması beklenir. İşe alınacak adaylar ayrıca kişisel güvenlik soruşturmasına tabi tutulacaktır.",
+    "items": [
+      {
+        "title": "Lisans ve Üzeri Mezuniyet Derecesine Sahip Adaylar İçin Alım Kriterleri",
+        "content": {
+          "type": "table",
+          "desc": "Yurtiçi üniversitelerden lisans derecesiyle mezun olan adaylar, aşağıdaki tabloda belirtilen koşulları sağladıkları takdirde değerlendirmeye alınacaktır.",
+          "headers": [
+            "Değerlendirilen Branş İçin ÖSYM Sıralaması",
+            "4.00 Ölçeğinde Lisans Mezuniyet Notu Kriteri"
+          ],
+          "rows": [
+            [
+              "50.000'den büyükse",
+              "(20.000/ÖSYM Sıralaması) + Lisans Notu + Ek Puanlar ≥ 3.00 *"
+            ],
+            ["1-50.000 arasıysa", "Lisans Notu + Ek Puanlar ≥ 2.50"]
+          ],
+          "note": "* Akademik ortalama hesaplanırken matematiksel yuvarlama kuralları uygulanır ve iki ondalık basamak dikkate alınır. (Üçüncü basamak 5 veya üzerindeyse, ikinci basamak yukarı yuvarlanır.)"
+        }
+      },
+      {
+        "title": "Ek Puan Kriterleri",
+        "content": {
+          "type": "table-adv",
+          "desc": "Aşağıdaki ek puan kriterlerini sağlayan adaylara ek puan verilebilir.",
+          "headers": ["Ek Puan Kriteri", "Ek Puan Miktarı"],
+          "rows": [
+            [
+              "2 ≤ x < 5 yıl arası iş deneyimine sahip ve deneyimi pozisyon ile ilgili olan adaylar için",
+              "0.2"
+            ],
+            [
+              "5 ≤ x < 10 yıl arası iş deneyimine sahip ve deneyimi pozisyon ile ilgili olan adaylar için",
+              "0.4"
+            ],
+            [
+              "QS, RUR veya THE dünya üniversite sıralamalarında ilk 1000’de yer alan yurtiçi/yurtdışı üniversitelerden ilgili alanda yüksek lisans mezunu olan adaylar için",
+              "0.2"
+            ],
+            [
+              "Yabancı dil yeterliliğine sahip olan adaylar (2.8’deki kriterlere tabi)",
+              "0.2"
+            ],
+            [
+              "Pozisyonla ilgili diğer yüksek lisans derecelerine sahip adaylar",
+              "0.1"
+            ],
+            [
+              "TÜBİTAK, Sanayi ve Teknoloji Bakanlığı veya Avrupa Birliği’nin ulusal/uluslararası projelerinde araştırmacı ya da akademisyen olarak görev almış adaylar",
+              "0.1"
+            ],
+            [
+              "SCI, SCI Exp. veya SSCI indekslerinde yayını olan adaylar",
+              "0.1"
+            ],
+            [
+              "Son 5 yılda kendi alanında ALES puanı 70 ve üzeri olan adaylar (mühendislik için sayısal, idari alanlar için sözel veya eşit ağırlık)",
+              "0.1"
+            ]
+          ],
+          "notes": [
+            "2. İdari ve mühendislik alanlarında 10 yıl ve üzeri deneyime sahip adaylar için; asgari not ortalaması, yabancı dil yeterliliği, ÖSYM sıralaması ve lisans mezuniyet bölümünün pozisyonla ilgililiği şartı aranmaz.",
+            "3. 1. maddede belirtilen koşullar ve 2.1 maddesinde yer alan ek puan uygulamaları, yurtiçi üniversitelerden en az 2.20/4.00 ortalama ile mezun olan adaylar için geçerlidir. 2.20/4.00’ün altında not ortalamasına sahip adaylar, ek koşulları sağlasalar dahi değerlendirmeye alınmaz. 10 yıl ve üzeri pozisyonla ilgili deneyime sahip adaylar için asgari not ortalaması şartı aranmaz.",
+            "4. ÖSYM sınav sıralaması olmayan adaylar (ör. yatay geçiş, tamamlama vb.) lisans notu + ek puan ≥ 3.00/4.00 sağlamalıdır.",
+            "5. Yabancı üniversitelerden (lisans, yüksek lisans veya doktora) mezun olan adaylar, YÖK veya Üniversitelerarası Kurul’dan alınmış diploma denklik belgesi sunmalıdır. ...",
+            "6. Uzaktan eğitim ve açıköğretim programlarından lisans mezunu olan adaylar, idari ve mühendislik pozisyonları için değerlendirilmez.",
+            "7. Mezun olunan üniversitede 4.00’lük not sistemi uygulanmıyorsa, üniversitenin onaylı denklik tablosu kullanılacaktır. Bu belge alınamıyorsa YÖK’ün 4’lük sisteme dönüşüm tablosu ile değerlendirme yapılacaktır.",
+            "8. Aşağıdaki yabancı dil (İngilizce) kriterlerinden birini sağlayan adaylara ek puan verilir. Yabancı dil sınavlarının geçerlilik süresi 5 yıldır ve görüşme veya atama onayı tarihi itibarıyla geçerli olmalıdır.",
+            "IELTS-Academic ≥ 6.0, YDS/eYDS ≥ 70, Pearson PTE – Academic ≥ 71, TOEFL-IBT ≥ 84, TBA ≥ 6.0, YÖKDİL/e YÖKDİL ≥ 70, ITEP Academic Plus – Virtual Proctoring (IVP) ≥ 3.9, Cambridge CPE ≥ C, Cambridge CAE ≥ B, Versant ≥ 62, TOEIC (Reading and Listening) ≥ 732"
+          ]
+        }
+      },
+      {
+        "title": "Yurtdışında Lisans Mezunu Olan Adaylar",
+        "content": {
+          "type": "list",
+          "items": [
+            "Yurtdışı üniversitelerden lisans mezunu olan adaylar (ÖSYM ile yerleşenler için yurtiçi kriterler geçerlidir) aşağıdaki tüm şartları sağlamaları halinde değerlendirilir:",
+            "Lisans not ortalaması ile 2. maddede belirtilen ek puanların toplamı, QS, RUR veya THE dünya üniversite sıralamalarında ilk 1000’de yer alan üniversiteler için en az %65, 1000’den yüksek sıralamada olan üniversiteler için en az %85 olmalıdır.",
+            "Mezun olunan üniversite diplomasının YÖK ve/veya Üniversitelerarası Kurul tarafından denkliğinin kabul edilmesi gerekir."
+          ]
+        }
+      },
+      {
+        "title": "Doktora Mezunu Adaylar",
+        "content": {
+          "type": "list",
+          "items": [
+            "Pozisyonun gerekliliklerini karşılayan doktora mezunu adaylar, 1, 2.1, 2.2, 2.3 ve 2.4 maddelerinde belirtilen lisans mezuniyet şartlarını sağlamak zorunda değildir.",
+            "Lisans not ortalaması ile 2. maddede belirtilen ek puanların toplamı, QS, RUR veya THE dünya üniversite sıralamalarında ilk 1000’de yer alan üniversiteler için en az %65, 1000’den yüksek sıralamada olan üniversiteler için en az %85 olmalıdır.",
+            "Mezun olunan üniversite diplomasının YÖK ve/veya Üniversitelerarası Kurul tarafından denkliğinin kabul edilmesi gerekir."
+          ]
+        }
+      },
+      {
+        "title": "Lise / Ön Lisans Mezunu Adaylar İçin Alım Kriterleri",
+        "content": {
+          "type": "list",
+          "items": [
+            "Teknisyen, Ofis Personeli, Hizmet Personeli vb. sınavla alım yapılan alanlarda; pozisyon ile ilgili 10 yıl ve üzeri deneyimi olan adaylar için sınav ve mezuniyet bölümü şartı aranmaz. (Yurtdışından mezun olan adaylarda ÖSYM denklik belgesi gereklidir.) Bu kapsamda, adayın iş deneyimi ile pozisyon ilişkisini açıklayan gerekçeli belge ilgili birim tarafından hazırlanır ve atama onayı için sürece eklenir.",
+            "Genel Müdür, Genel Müdür Yardımcısı, Direktör pozisyonlarında bu dokümanda belirtilen not ortalaması ve ÖSYM sıralaması şartı aranmaz."
+          ]
+        }
+      }
     ]
   }
 }

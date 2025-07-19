@@ -164,12 +164,9 @@ export default function ContactPage() {
                 <p className="text-sm text-white/60 whitespace-pre-line mb-2">
                   {t("address")}
                 </p>
-                <a
-                  className="text-sm underline text-[#004DFF] hover:text-blue-400 transition whitespace-pre-line"
-                  href="bitessav@hs01.kep.tr"
-                >
+                <p className="text-sm underline text-[#004DFF] hover:text-blue-500 transition whitespace-pre-line">
                   bitessav@hs01.kep.tr
-                </a>
+                </p>
               </motion.div>
               {/* Working Hours */}
               <motion.div variants={fadeUp}>
