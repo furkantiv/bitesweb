@@ -55,8 +55,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItems }) => {
   const currentNews = newsItems[currentIndex];
 
   return (
-    <div className="w-full max-w-xl mx-auto p-0">
-      <div className="bg-transparent rounded-2xl p-6 relative overflow-hidden">
+    <div className="w-full max-w-xl ">
+      <div className="bg-transparent p-3 relative overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#35434D]">
           <h2 className="text-xl text-white font-medium">
